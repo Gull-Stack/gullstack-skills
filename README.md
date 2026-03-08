@@ -1,0 +1,52 @@
+# GullStack Skills & Playbooks
+
+Standard operating procedures for building premium client websites at GullStack. These skills and playbooks ensure every bot on the team builds to the same Tier-S quality standard.
+
+## Skills
+
+### `site-builder/SKILL.md`
+Complete guide for building GullStack client websites. Covers:
+- **Editorial Light v3** design standard (the only template we use)
+- **StoryBrand (SB7)** messaging framework
+- **11ty** static site architecture
+- **AEO** schema markup requirements
+- Git workflow, Vercel deployment, post-deploy verification
+
+### `seo-master/SKILL.md`
+Full SEO & AEO (Answer Engine Optimization) framework. Covers:
+- 2026 ranking factors (priority order)
+- On-page SEO checklist
+- 7-layer AEO system (Intent Map → Answer Hubs → Brand-Facts → Schema → Citations → AI Shopping)
+- Blog/content strategy
+- SEO audit process (quick + full)
+- Local SEO playbook
+- Keyword research process
+
+## Playbooks
+
+| File | What It Is |
+|------|-----------|
+| `design-standard-v3.md` | Editorial Light template spec — layout, typography, color, sections |
+| `storybrand.md` | Donald Miller's SB7 framework for messaging |
+| `website-conversion.md` | Conversion optimization principles |
+| `seo-homework.md` | 2026 SEO best practices & ranking factors deep-dive |
+| `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post deploy verification |
+
+## How to Use
+
+For any OpenClaw bot:
+1. Copy `site-builder/` and `seo-master/` into the bot's `workspace/skills/` directory
+2. Copy playbooks into `workspace/playbooks/`
+3. Copy `DEPLOYMENT-CHECKLIST.md` into `workspace/`
+4. Update the bot's `AGENTS.md` to reference the skills before any build work
+
+The bot will read the relevant skill file before starting work and follow the standards automatically.
+
+## Currently Installed On
+- **Melvin** (main builder)
+- **Bogey** (backup builder + sales)
+- **Jackie** (PPA + builder)
+
+---
+
+*Built by GullStack. No fluff, no shortcuts.*
