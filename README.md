@@ -22,6 +22,21 @@ Full SEO & AEO (Answer Engine Optimization) framework. Covers:
 - Local SEO playbook
 - Keyword research process
 
+### `meta-ads/SKILL.md`
+Meta (Facebook + Instagram) advertising for local businesses. Covers:
+- Business Portfolio / Page / pixel setup
+- 2025-26 objective changes (Store Traffic retired, Offer ads gone)
+- Radius + teen-targeting rules (under-18 = age + location only)
+- Budgets, Reels-first/UGC creative, offline measurement via Conversions API
+- Worked example: resale (Plato's Closet Draper / Thrift Utah)
+
+### `retail-resale-marketing/SKILL.md`
+Brick-and-mortar retail & resale marketing. Covers:
+- Retail vs lead-gen recalibration (register metrics, not CRM pipelines)
+- The two-sided resale funnel (buy side vs sell side)
+- Google Business Profile first; merchandising-as-content loop
+- Events/promos, seasonality calendar, register-side measurement, budget frame
+
 ## Playbooks
 
 | File | What It Is |
@@ -31,6 +46,7 @@ Full SEO & AEO (Answer Engine Optimization) framework. Covers:
 | `website-conversion.md` | Conversion optimization principles |
 | `seo-homework.md` | 2026 SEO best practices & ranking factors deep-dive |
 | `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post deploy verification |
+| `bryce-method.md` | Lessons codified from GullStack's shipped repos — the repeatable method + hard gates from audited misses (pixel/analytics on every site, every CTA resolves, no phantom config claims) |
 
 ## How to Use
 
