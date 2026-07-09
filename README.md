@@ -37,6 +37,14 @@ Brick-and-mortar retail & resale marketing. Covers:
 - Google Business Profile first; merchandising-as-content loop
 - Events/promos, seasonality calendar, register-side measurement, budget frame
 
+### `reddit-api/SKILL.md`
+How to get a programmatic "API into Reddit" for client work. Covers:
+- The two Reddit APIs (Data API vs Ads API) and which you actually need
+- 2026 access reality: self-serve signup closed, commercial use = contract
+- App types + OAuth (`oauth.reddit.com`, script vs web app, 1-hour tokens)
+- Rate limits (100 QPM free tier), pricing ballpark, and PRAW tooling
+- Use-case map (monitoring, content research, engagement, ads) + a first prototype
+
 ## Playbooks
 
 | File | What It Is |
