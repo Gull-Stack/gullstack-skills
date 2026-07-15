@@ -11,6 +11,13 @@ The master spec for wiring **every** marketing channel through an API into GullS
 - The shared attribution spine (UTM discipline, one lead identity, offline conversion loop)
 - Multi-tenant credential/secret model and a build order (near-term unblocks first)
 
+### `marketing-automation/SKILL.md`
+The customer-facing, self-serve layer on top of the integrations: **automations that run on their own** + **clickable surfaces in both Cinch and Flight Deck**. Covers:
+- The two customer questions — Cinch "how do I do marketing?" (act) / Flight Deck "how well is my marketing working?" (see) — and the click-loop between them
+- How it reuses primitives Cinch already ships (Nurture Autopilot, Report subscriptions, Copilot, `/admin/reports`, UTM attribution)
+- The automation recipe library, the Marketing Health Score model, and the Copilot grounded on the skills library
+- Guardrails (approval before spend, consent/compliance) and a build order
+
 ### `site-builder/SKILL.md`
 Complete guide for building GullStack client websites. Covers:
 - **Editorial Light v3** design standard (the only template we use)
