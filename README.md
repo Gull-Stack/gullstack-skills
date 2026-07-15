@@ -4,6 +4,13 @@ Standard operating procedures for building premium client websites at GullStack.
 
 ## Skills
 
+### `marketing-integrations/SKILL.md`
+The master spec for wiring **every** marketing channel through an API into GullStack's two planes — **Cinch** (action: send, capture, publish, launch) and **Flight Deck** (reporting: spend, funnel, ROI). Covers:
+- The two-plane model + the definition of "fully functional via API"
+- Channel-by-channel matrix (Meta, Google Ads/GA4/GSC/GBP, Reddit, Email, SMS, Salesforce, offline) with auth, action surface, reporting surface, and access status
+- The shared attribution spine (UTM discipline, one lead identity, offline conversion loop)
+- Multi-tenant credential/secret model and a build order (near-term unblocks first)
+
 ### `site-builder/SKILL.md`
 Complete guide for building GullStack client websites. Covers:
 - **Editorial Light v3** design standard (the only template we use)
