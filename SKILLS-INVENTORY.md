@@ -132,9 +132,12 @@ These violate bryce-method's own anti-lessons and are cheap to fix:
 - **StoryBrand still exists in two diverging copies** (here and in
   ThreeKingsSalesTalkMethod/FRAMEWORKS) and **SEO in two** (seo-master +
   seo-homework) — anti-lesson #7 says link, don't copy.
-- **The brain is split across two GitHub orgs** (Gull-Stack vs
-  StrongestAvengerStack/gullstack-brain). Tooling scoped to one org cannot follow
-  the references; consider mirroring or moving the brain into Gull-Stack.
+- **The brain lives in a separate GitHub org** (StrongestAvengerStack/gullstack-brain)
+  — a deliberate decision (confirmed 2026-07-16), not a defect. Consequence to plan
+  around: sessions and tooling scoped to the Gull-Stack org cannot read it, so any
+  session that needs the brain protocols must be started with that repo as a source,
+  and the `argus-qa` skill's inline summary of rule families G/H serves as the
+  fallback distillation.
 
 ## Part 5 — Packaging status (2026-07-16)
 
@@ -145,5 +148,6 @@ All of Bryce's bot skills are now loadable by Claude Code sessions:
   local ones plus pointer skills for `three-kings-salestalk`, `argus-qa`, and
   `title-escrow`. Pointers link to the canonical repos rather than copying them
   (anti-lesson #7).
-- Still open: the upstream `gullstack-brain` protocols remain unreachable from
-  the Gull-Stack org — mirroring or moving that repo is the remaining gap.
+- The upstream `gullstack-brain` stays in StrongestAvengerStack by decision
+  (2026-07-16). Sessions needing its protocols directly must include that repo
+  as a source; otherwise the `argus-qa` pointer skill carries the distilled rules.
