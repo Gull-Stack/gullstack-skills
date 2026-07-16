@@ -127,11 +127,23 @@ Ordered by how directly the existing docs point at the hole.
 
 These violate bryce-method's own anti-lessons and are cheap to fix:
 
-- **`site-builder/SKILL.md` still hard-gates on `CLIENT-MONITORING.md`, which does
-  not exist** (anti-lesson #6, still unfixed). Create the file or soften the gate.
+- ~~**`site-builder/SKILL.md` still hard-gates on `CLIENT-MONITORING.md`, which does
+  not exist** (anti-lesson #6).~~ **Fixed 2026-07-16** — the gate is now soft.
 - **StoryBrand still exists in two diverging copies** (here and in
   ThreeKingsSalesTalkMethod/FRAMEWORKS) and **SEO in two** (seo-master +
   seo-homework) — anti-lesson #7 says link, don't copy.
 - **The brain is split across two GitHub orgs** (Gull-Stack vs
   StrongestAvengerStack/gullstack-brain). Tooling scoped to one org cannot follow
   the references; consider mirroring or moving the brain into Gull-Stack.
+
+## Part 5 — Packaging status (2026-07-16)
+
+All of Bryce's bot skills are now loadable by Claude Code sessions:
+
+- The four canonical skills got YAML frontmatter (name + description + triggers).
+- `.claude/skills/` now carries seven auto-discovered project skills: the four
+  local ones plus pointer skills for `three-kings-salestalk`, `argus-qa`, and
+  `title-escrow`. Pointers link to the canonical repos rather than copying them
+  (anti-lesson #7).
+- Still open: the upstream `gullstack-brain` protocols remain unreachable from
+  the Gull-Stack org — mirroring or moving that repo is the remaining gap.

@@ -65,7 +65,23 @@ Brick-and-mortar retail & resale marketing. Covers:
 
 ## How to Use
 
-For any OpenClaw bot:
+### For Claude Code / claude.ai sessions
+
+The repo ships project-level skills in `.claude/skills/` — any Claude Code session working in this repo auto-discovers them:
+
+| Skill | Loads |
+|---|---|
+| `site-builder` | The full build standard + all playbooks |
+| `seo-master` | SEO & 7-layer AEO framework |
+| `meta-ads` | Meta advertising for local business |
+| `retail-resale-marketing` | Brick-and-mortar / resale marketing |
+| `three-kings-salestalk` | Voss + Belfort + Miller sales doctrine (pointer to `Gull-Stack/ThreeKingsSalesTalkMethod`) |
+| `argus-qa` | The Argus PR/QA rubric (pointer to `Gull-Stack/Argus`) |
+| `title-escrow` | The Bones title & escrow brain (pointer to `Gull-Stack/titlebot-bones-brain`) |
+
+The `.claude/skills/` entries are thin pointers — the canonical content stays in one place (this repo's root directories, or the linked repos) so copies can't drift. To use them outside this repo, copy the pointer directories into `~/.claude/skills/` and keep this repo cloned alongside.
+
+### For any OpenClaw bot
 1. Copy `site-builder/` and `seo-master/` into the bot's `workspace/skills/` directory
 2. Copy playbooks into `workspace/playbooks/`
 3. Copy `DEPLOYMENT-CHECKLIST.md` into `workspace/`
