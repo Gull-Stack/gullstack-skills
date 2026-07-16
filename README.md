@@ -2,6 +2,21 @@
 
 Standard operating procedures for building premium client websites at GullStack. These skills and playbooks ensure every bot on the team builds to the same Tier-S quality standard.
 
+## Upstream Brain (protocol + never-guess)
+
+Product UX, agent standing orders, and deploy QAQC live in the private brain — not only in this skills repo:
+
+**Repo:** [StrongestAvengerStack/gullstack-brain](https://github.com/StrongestAvengerStack/gullstack-brain)
+
+| Protocol file | Purpose |
+|---|---|
+| `protocol/never-guess.md` | **NEVER GUESS** — read code; cite paths |
+| `protocol/ux-ui-uplevel.md` | CFA product UX doctrine |
+| `protocol/grok-deploy-qaqc.md` | Always Grok QAQC on prod deploys |
+| `protocol/agent-prompts.md` | Copy-paste Claude/Grok/Marketing prompts |
+
+Argus enforces related rules: [Gull-Stack/Argus](https://github.com/Gull-Stack/Argus) PLAYBOOK G + H.
+
 ## Skills
 
 ### `site-builder/SKILL.md`
