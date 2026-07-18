@@ -1,4 +1,4 @@
-# The Bryce Method — lessons from GullStack's shipped work
+# The Bryce Method — lessons from Walk Through Labs' shipped work
 
 Codified 2026-07 from an audit of the org's repos: surgeon-website-template-v2 (flagship
 template), agile-counseling (live client site), platoswallet (own venture),
@@ -35,7 +35,7 @@ both the patterns to repeat and the misses to never repeat.
    testimonials → financing/risk-reversal → phone-first `tel:`/`sms:` everywhere.
 8. **Price-anchor the booking CTA** ("Book Now — $173") and productize the offer with
    branded/trademark-styled names for commodity services.
-9. **Leads route centrally:** serverless form → SendGrid to client + CC gullstack →
+9. **Leads route centrally:** serverless form → SendGrid to client + CC Walk Through Labs (still the gullstack.com inbox until domain migration) →
    central lead-pipe CRM keyed by client. Honeypot + timing trap + gibberish filter on
    every form. A form without a wired backend is a defect, not a placeholder.
 

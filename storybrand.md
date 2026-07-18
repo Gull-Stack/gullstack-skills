@@ -277,7 +277,7 @@ Before publishing ANY marketing:
 
 ---
 
-## Applying This to GullStack Clients
+## Applying This to Walk Through Labs Clients
 
 For every client website/campaign:
 

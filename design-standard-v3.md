@@ -1,4 +1,4 @@
-# GullStack Design Standard v3 — "Editorial Light"
+# Walk Through Labs Design Standard v3 — "Editorial Light"
 
 *Established: March 2026. Based on the Monterey Bay Door v3 rebuild.*
 *Reference site: unikorns.work*
@@ -104,4 +104,4 @@ The old "Falling Waters" dark-heavy template is retired for new builds. Existing
 
 ---
 
-*This standard applies to all new GullStack client sites effective immediately.*
+*This standard applies to all new Walk Through Labs client sites effective immediately.*

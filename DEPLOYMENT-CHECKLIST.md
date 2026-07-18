@@ -33,7 +33,7 @@
 **Trigger:** D One Builders had 6 broken project links, 4 broken images, wrong sitemap URLs, 3 pages missing meta tags, and invalid structured data — all shipped to production undetected until Semrush crawled it.
 
 ### Contact Form Verification (MANDATORY)
-- [ ] **Form handler exists** — `/api/contact.js` with SendGrid integration (from: leads@gullstack.com)
+- [ ] **Form handler exists** — `/api/contact.js` with SendGrid integration (from: leads@gullstack.com — remains the verified SendGrid sender until the Walk Through Labs domain is verified; see `501C3-MIGRATION.md`)
 - [ ] **SENDGRID_API_KEY** env var set on Vercel project
 - [ ] **Form submits successfully** — test with real data, confirm email received
 - [ ] **Auto-reply sent** — lead gets confirmation email

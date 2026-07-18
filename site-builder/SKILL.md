@@ -1,6 +1,6 @@
-# Skill: GullStack Site Builder
+# Skill: Walk Through Labs Site Builder
 
-Build premium client websites to GullStack's Tier-S standard. Every site uses 11ty, follows Editorial Light design, StoryBrand messaging, and ships with full AEO.
+Build premium client websites to Walk Through Labs' Tier-S standard. Every site uses 11ty, follows Editorial Light design, StoryBrand messaging, and ships with full AEO.
 
 ---
 
@@ -105,7 +105,7 @@ Every homepage needs at least 3 of:
 
 ### Vercel
 - **Free plan** for all new/prospect sites
-- Only move to paid/GullStack team when they become paying customers
+- Only move to paid/Walk Through Labs team when they become paying customers
 - Auto-deploy via GitHub → Vercel integration
 - Verify `vercel.json` has correct `buildCommand` and `outputDirectory`
 
@@ -146,14 +146,16 @@ eleventyExcludeFromCollections: true
 
 ---
 
-## GullStack Footer (MANDATORY)
+## Walk Through Labs Footer (MANDATORY)
 
-Every client site must include a GullStack attribution footer:
+Every client site must include a Walk Through Labs attribution footer:
 ```html
-<div class="gullstack-credit">
-  Built by <a href="https://gullstack.com">GullStack</a>
+<div class="wtl-credit">
+  Built by <a href="https://gullstack.com">Walk Through Labs</a>
 </div>
 ```
+
+*The `href` stays `gullstack.com` until the Walk Through Labs domain is live and redirects are in place — see `501C3-MIGRATION.md`. Update this skill (and existing client footers) when that step completes. The legacy `gullstack-credit` class on already-shipped sites does not need retrofitting.*
 
 ---
 

@@ -1,6 +1,6 @@
 # SKILL: Retail & resale marketing (brick-and-mortar foot traffic)
 
-How GullStack markets physical retail — written for the resale/thrift vertical
+How Walk Through Labs markets physical retail — written for the resale/thrift vertical
 (Plato's Closet Draper, Thrift Utah/Draper) but the structure generalizes to any
 storefront. Written 2026-07. Companion skills: `meta-ads/`, `seo-master/`
 (local-SEO section), and platos-pos repo `marketing/` for the worked plans.

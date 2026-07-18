@@ -1,6 +1,6 @@
 # SKILL: Meta Ads (Facebook + Instagram) for local businesses
 
-How GullStack runs Meta advertising for local/brick-and-mortar clients. Written 2026-07;
+How Walk Through Labs runs Meta advertising for local/brick-and-mortar clients. Written 2026-07;
 platform facts verified then. **[load-bearing]** = will break campaigns if wrong;
 *[approx.]* = benchmark, varies by market. Worked example throughout: Plato's Closet
 Draper + Thrift Utah/Draper (resale, audience 12–24 + parents).

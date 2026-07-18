@@ -1,6 +1,6 @@
-# Skill: GullStack SEO & AEO Master
+# Skill: Walk Through Labs SEO & AEO Master
 
-Comprehensive SEO and AEO (Answer Engine Optimization) framework for all GullStack client sites. Every site we build or manage gets this treatment.
+Comprehensive SEO and AEO (Answer Engine Optimization) framework for all Walk Through Labs client sites. Every site we build or manage gets this treatment.
 
 ---
 
@@ -279,7 +279,7 @@ Authority:
 ---
 
 ## Pricing Justification
-This systematic approach allows GullStack to charge premium rates:
+This systematic approach allows Walk Through Labs to charge premium rates:
 - Strategic keyword research BEFORE writing
 - Intent-focused content that actually ranks
 - Full AEO treatment (competitors aren't doing this yet)
@@ -288,4 +288,4 @@ This systematic approach allows GullStack to charge premium rates:
 
 ---
 
-*This skill applies to ALL GullStack client work. No exceptions.*
+*This skill applies to ALL Walk Through Labs client work. No exceptions.*

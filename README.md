@@ -1,6 +1,8 @@
-# GullStack Skills & Playbooks
+# Walk Through Labs Skills & Playbooks
 
-Standard operating procedures for building premium client websites at GullStack. These skills and playbooks ensure every bot on the team builds to the same Tier-S quality standard.
+Standard operating procedures for building premium client websites at **Walk Through Labs** (formerly GullStack). These skills and playbooks ensure every bot on the team builds to the same Tier-S quality standard.
+
+> **Organizational transition in progress:** GullStack is being reorganized as Walk Through Labs, a 501(c)(3) nonprofit whose mission is protecting businesses from malicious AI — fraud, impersonation, AI-enabled scams, and manipulated online presence. The legal and operational transfer is tracked in [`501C3-MIGRATION.md`](501C3-MIGRATION.md). Legacy identifiers (the `gullstack.com` domain, `leads@gullstack.com`, GitHub org/repo slugs) remain live until each migration step completes — do not break them; see the migration doc before renaming anything wired into production.
 
 ## Upstream Brain (protocol + never-guess)
 
@@ -20,7 +22,7 @@ Argus enforces related rules: [Gull-Stack/Argus](https://github.com/Gull-Stack/A
 ## Skills
 
 ### `site-builder/SKILL.md`
-Complete guide for building GullStack client websites. Covers:
+Complete guide for building Walk Through Labs client websites. Covers:
 - **Editorial Light v3** design standard (the only template we use)
 - **StoryBrand (SB7)** messaging framework
 - **11ty** static site architecture
@@ -61,7 +63,8 @@ Brick-and-mortar retail & resale marketing. Covers:
 | `website-conversion.md` | Conversion optimization principles |
 | `seo-homework.md` | 2026 SEO best practices & ranking factors deep-dive |
 | `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post deploy verification |
-| `bryce-method.md` | Lessons codified from GullStack's shipped repos — the repeatable method + hard gates from audited misses (pixel/analytics on every site, every CTA resolves, no phantom config claims) |
+| `501C3-MIGRATION.md` | Legal + operational checklist for the GullStack → Walk Through Labs 501(c)(3) transition |
+| `bryce-method.md` | Lessons codified from Walk Through Labs' shipped repos — the repeatable method + hard gates from audited misses (pixel/analytics on every site, every CTA resolves, no phantom config claims) |
 
 ## How to Use
 
@@ -80,4 +83,4 @@ The bot will read the relevant skill file before starting work and follow the st
 
 ---
 
-*Built by GullStack. No fluff, no shortcuts.*
+*Built by Walk Through Labs (formerly GullStack). No fluff, no shortcuts.*
