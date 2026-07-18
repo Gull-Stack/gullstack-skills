@@ -6,9 +6,22 @@
 
 ---
 
+## Draft legal package (ready for attorney review)
+
+Execution-ready drafts live in [`legal/`](legal/); each needs attorney review, the blanks filled, and signatures — nothing is filed or executed yet:
+
+| Draft | Covers |
+|---|---|
+| `legal/articles-of-incorporation-DRAFT.md` | Utah nonprofit articles with 501(c)(3) purpose + dissolution clauses |
+| `legal/bylaws-DRAFT.md` | No-member board-governed structure, §4958 compensation procedure |
+| `legal/conflict-of-interest-policy-DRAFT.md` | IRS sample-policy based |
+| `legal/board-resolutions-DRAFT.md` | Organizational consent: officers, EIN, 1023 authorization, asset acceptance |
+| `legal/ip-assignment-agreement-DRAFT.md` | GullStack → Walk Through Labs asset transfer, with exclusions + consent schedule |
+| `legal/form-1023-narrative-DRAFT.md` | Part IV narrative of activities with exempt-purpose framing |
+
 ## Phase 1 — Form the nonprofit entity
 
-- [ ] Incorporate **Walk Through Labs** as a nonprofit corporation in the home state (likely Utah, given operations)
+- [ ] Incorporate **Walk Through Labs** as a nonprofit corporation in the home state (likely Utah, given operations) — *draft articles ready in `legal/`*
   - Articles of incorporation must include an IRS-compliant **purpose clause** (exclusively charitable/educational purposes under §501(c)(3)) and a **dissolution clause** (assets go to another 501(c)(3) on dissolution)
   - Draft mission language: *"Walk Through Labs protects small businesses from malicious and deceptive uses of artificial intelligence — through education, free and low-cost defensive tooling, and direct remediation help for businesses harmed by AI-enabled fraud, impersonation, and manipulation."*
 - [ ] Obtain an **EIN** for the new entity (IRS Form SS-4 / online)
@@ -63,4 +76,4 @@ Flag these for counsel **before** filing — they shape what "everything" can le
 
 ---
 
-**Status:** Phase 1 not yet started. Repo-side rebrand (Phase 4, first item) completed on branch `claude/goldstack-501c3-migration-4v0l9a`.
+**Status:** Repo-side rebrand (Phase 4, first item) and the full draft legal package are complete on branch `claude/goldstack-501c3-migration-4v0l9a`. Next actions are human-only: engage nonprofit counsel + CPA to review the drafts, fill in registered agent / directors / assignor-entity blanks, sign, and file the articles — then EIN, bank account, and Form 1023 in that order.
