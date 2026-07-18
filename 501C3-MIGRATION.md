@@ -18,6 +18,8 @@ Execution-ready drafts live in [`legal/`](legal/); each needs attorney review, t
 | `legal/board-resolutions-DRAFT.md` | Organizational consent: officers, EIN, 1023 authorization, asset acceptance |
 | `legal/ip-assignment-agreement-DRAFT.md` | GullStack → Walk Through Labs asset transfer, with exclusions + consent schedule |
 | `legal/form-1023-narrative-DRAFT.md` | Part IV narrative of activities with exempt-purpose framing |
+| `legal/client-consent-to-assignment-DRAFT.md` | Per-client notice/consent letter (both contract variants) |
+| [`CUTOVER-RUNBOOK.md`](CUTOVER-RUNBOOK.md) | Ordered no-downtime infrastructure transfer with verification gates |
 
 ## Phase 1 — Form the nonprofit entity
 
