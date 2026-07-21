@@ -2,6 +2,30 @@
 
 Standard operating procedures for building premium client websites at GullStack. These skills and playbooks ensure every bot on the team builds to the same Tier-S quality standard.
 
+## Operational Scaffold
+
+This repo doubles as the GullStack Claude Code scaffold: installer, doctor, post-edit typecheck hook, and the per-repo convention templates. Layout:
+
+| Path | What it is |
+|---|---|
+| `install.sh` | `--global` → hooks/skills/agents into `~/.claude`; `<repo-path>` → per-repo templates |
+| `doctor.sh` | Verifies the install end to end. Ends `Operational.` or fails loudly. Prints a fingerprint that must match across instances |
+| `describe-repo.sh` | Read-only repo survey (redacts `.env` values) for writing the templates accurately |
+| `claude/hooks/post-edit-typecheck.sh` | PostToolUse hook — runs the project typechecker after every edit, feeds errors straight back to Claude |
+| `claude/skills/repo-conventions/SKILL.md` | Per-repo conventions **template** — ships empty with `TODO(fill)` markers; doctor fails until filled |
+| `claude/agents/gullstack-reviewer.md` | Agent that reviews diffs against the filled conventions, citing evidence only |
+| `templates/CLAUDE.md` | Per-repo project-memory **template** (<500 tokens when filled) |
+| `examples/` | Fully worked versions of both templates for a fictional TS/Next.js repo — reference, not config |
+| `prompts/` | The instance-1 fill prompt (8 phases, evidence-only) and the instances-2/3 verify prompt (regeneration forbidden) |
+
+### Order of operations
+
+1. Clone on each instance: `git clone git@github.com:Gull-Stack/gullstack-skills.git ~/gullstack` and `export GULLSTACK_HOME="$HOME/gullstack"` in your shell rc.
+2. On each instance: `cd ~/gullstack && ./install.sh --global`, then `./install.sh /path/to/repo` per working repo.
+3. On **instance 1 only**: run `prompts/instance-1-fill-templates.md` in Claude Code (plan mode) inside the working repo. Review, commit, push the filled templates.
+4. On instances 2 and 3: pull the working repo, then run `prompts/instances-2-3.md`. It verifies; it never regenerates.
+5. `./doctor.sh` on all three must end `Operational.` with matching fingerprints. A differing fingerprint means a local copy drifted — diff it against this repo, don't hand-patch it.
+
 ## Upstream Brain (protocol + never-guess)
 
 Product UX, agent standing orders, and deploy QAQC live in the private brain — not only in this skills repo:
