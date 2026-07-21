@@ -9,7 +9,7 @@ CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 REGISTRY="$CLAUDE_DIR/gullstack-repos"
 
 # Skills installed globally (repo-conventions is per-repo, never global).
-GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing"
+GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui"
 
 usage() { sed -n '2,4p' "$0" | sed 's/^# //'; exit 1; }
 

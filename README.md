@@ -69,6 +69,15 @@ Meta (Facebook + Instagram) advertising for local businesses. Covers:
 - Budgets, Reels-first/UGC creative, offline measurement via Conversions API
 - Worked example: resale (Plato's Closet Draper / Thrift Utah)
 
+### `ux-ui/SKILL.md`
+UX/UI decision layer for GullStack sites. Covers:
+- The conversion formula (Desire − (Labor + Confusion)) applied to interface decisions
+- Editorial Light layout rules; hierarchy by color + weight, button hierarchy, shadows/borders
+- Interface copy rules (headline litmus test, CTA wording, nav limits)
+- Hard gates from the shipped-work audit (every CTA resolves, wired forms, no stock heroes)
+- A 6-step UX review pass for existing pages
+Links to `design-standard-v3.md` / `website-conversion.md` for full specs rather than duplicating them.
+
 ### `retail-resale-marketing/SKILL.md`
 Brick-and-mortar retail & resale marketing. Covers:
 - Retail vs lead-gen recalibration (register metrics, not CRM pipelines)
