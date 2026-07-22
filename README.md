@@ -71,7 +71,8 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 
 | Skill | Loads |
 |---|---|
-| `site-builder` | The full build standard + all playbooks |
+| `site-builder` | The full build standard + all playbooks (marketing sites) |
+| `app-design` | Product UI/UX principles for apps (Cinch, platos-pos, onrecord-pro, dashboards) |
 | `seo-master` | SEO & 7-layer AEO framework |
 | `meta-ads` | Meta advertising for local business |
 | `retail-resale-marketing` | Brick-and-mortar / resale marketing |
