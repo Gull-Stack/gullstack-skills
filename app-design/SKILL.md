@@ -5,6 +5,10 @@ description: Product UI/UX principles for GullStack apps (Cinch, platos-pos, onr
 
 # Skill: GullStack App Design
 
+> **Canon:** `StrongestAvengerStack/gullstack-brain` → `protocol/app-ux-design.md` (landed
+> 2026-07-22, commit c91d56f). Doctrine changes go to the brain first, then sync here. Full
+> content is kept here because Gull-Stack org sessions cannot reach the brain repo.
+
 How GullStack product apps should look and behave. This is the app-product counterpart
 to `design-standard-v3.md` (which governs marketing sites) and complements the Brain's
 `protocol/ux-ui-uplevel.md`. When the Brain and this file disagree, the Brain wins.
