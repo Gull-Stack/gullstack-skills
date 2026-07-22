@@ -1,0 +1,127 @@
+{
+  "date": "2026-07-22",
+  "blockers": 2,
+  "warns": 18,
+  "findings": [
+    {
+      "severity": "WARN",
+      "site": "Falling Waters Day Spa",
+      "rule": "hash-links",
+      "detail": "1 link(s) to \"#\" on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Falling Waters Day Spa",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Falling Waters Day Spa",
+      "rule": "no-brand-facts",
+      "detail": "/.well-known/brand-facts.json not 200 (AEO moat)"
+    },
+    {
+      "severity": "WARN",
+      "site": "Precision Pro Courts",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Precision Pro Courts",
+      "rule": "no-brand-facts",
+      "detail": "/.well-known/brand-facts.json not 200 (AEO moat)"
+    },
+    {
+      "severity": "WARN",
+      "site": "D One Builders",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Love Rescue",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "BLOCKER",
+      "site": "Veyo Ranch",
+      "rule": "no-ga4",
+      "detail": "No GA4/GTM tag found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Veyo Ranch",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Veyo Ranch",
+      "rule": "no-meta-desc",
+      "detail": "Missing meta description"
+    },
+    {
+      "severity": "WARN",
+      "site": "Veyo Ranch",
+      "rule": "no-sitemap",
+      "detail": "/sitemap.xml not 200"
+    },
+    {
+      "severity": "WARN",
+      "site": "Veyo Ranch",
+      "rule": "no-robots",
+      "detail": "/robots.txt not 200"
+    },
+    {
+      "severity": "WARN",
+      "site": "Veyo Ranch",
+      "rule": "no-brand-facts",
+      "detail": "/.well-known/brand-facts.json not 200 (AEO moat)"
+    },
+    {
+      "severity": "BLOCKER",
+      "site": "Ace Tennis Surfaces",
+      "rule": "no-ga4",
+      "detail": "No GA4/GTM tag found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Ace Tennis Surfaces",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Ace Tennis Surfaces",
+      "rule": "no-sitemap",
+      "detail": "/sitemap.xml not 200"
+    },
+    {
+      "severity": "WARN",
+      "site": "Ace Tennis Surfaces",
+      "rule": "no-robots",
+      "detail": "/robots.txt not 200"
+    },
+    {
+      "severity": "WARN",
+      "site": "Ace Tennis Surfaces",
+      "rule": "no-brand-facts",
+      "detail": "/.well-known/brand-facts.json not 200 (AEO moat)"
+    },
+    {
+      "severity": "WARN",
+      "site": "Peterson Zeyer",
+      "rule": "no-meta-pixel",
+      "detail": "No Meta pixel found on homepage"
+    },
+    {
+      "severity": "WARN",
+      "site": "Peterson Zeyer",
+      "rule": "no-brand-facts",
+      "detail": "/.well-known/brand-facts.json not 200 (AEO moat)"
+    }
+  ]
+}

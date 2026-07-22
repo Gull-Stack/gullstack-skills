@@ -1,0 +1,13 @@
+{
+  "_comment": "Live sites the nightly crawl verifies. URLs pulled from Vercel production domains 2026-07-16 (Gull Stack Pro team) and verified reachable before inclusion. Add sites as they ship; remove only when a client is offboarded. vertical=app relaxes marketing-site checks (sitemap/brand-facts stay WARN-only).",
+  "sites": [
+    { "name": "Falling Waters Day Spa", "url": "https://www.fallingwatersdayspa.com", "repo": "Gull-Stack/falling-waters-spa", "vertical": "marketing" },
+    { "name": "Precision Pro Courts", "url": "https://precisionprocourts.com", "repo": "Gull-Stack/precision-pro-courts-demo", "vertical": "marketing" },
+    { "name": "D One Builders", "url": "https://donebuilders.com", "repo": "Gull-Stack/d-one-builders", "vertical": "marketing" },
+    { "name": "Love Rescue", "url": "https://loverescue.app", "repo": "Gull-Stack/love-rescue", "vertical": "app" },
+    { "name": "Capital Wealth", "url": "https://capital-wealth-beta.vercel.app", "repo": "Gull-Stack/capital-wealth", "vertical": "marketing" },
+    { "name": "Veyo Ranch", "url": "https://veyo-ranch.vercel.app", "repo": "Gull-Stack/veyo-ranch", "vertical": "marketing" },
+    { "name": "Ace Tennis Surfaces", "url": "https://ace-tennis-surfaces.vercel.app", "repo": "Gull-Stack/ace-tennis-surfaces", "vertical": "marketing" },
+    { "name": "Peterson Zeyer", "url": "https://peterson-zeyer.vercel.app", "repo": "Gull-Stack/peterson-zeyer", "vertical": "marketing" }
+  ]
+}
