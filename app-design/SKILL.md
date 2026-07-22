@@ -74,9 +74,17 @@ but never sufficient.
    same place. When users pick a time range, a status window, a location — give them one
    consistent control, don't scatter per-card selectors.
 
+5. **Two bars, two jobs — top is scope, bottom is rooms.** The tides app pairs its
+   bottom tabs with a persistent top bar: a scope pill naming what you're looking at
+   (the location/spot), flanked by one or two global actions, with a slim ambient-status
+   strip beneath. Navigation never lives up top; scope never lives at the bottom. For our
+   apps: the top bar carries the tenant/store/location switcher, notifications, and
+   quick-add; the bottom bar carries the altitude tabs. Together they complete "where am
+   I" — top answers *what am I looking at*, bottom answers *what layer am I on*.
+
 ### The repeated grammar
 
-5. **Every data card uses the identical structure.** Icon + small-caps label top-left,
+6. **Every data card uses the identical structure.** Icon + small-caps label top-left,
    hero value + unit, secondary stat, mini visualization below — Air Temp, Wind Speed,
    Swell Height are byte-for-byte the same layout. Learn it once, read it everywhere.
    Define one card component and feed it data; a screen that invents a new card shape for
@@ -84,7 +92,7 @@ but never sufficient.
 
 ### Visual system
 
-6. **Color is systematic and meaningful, never decorative.** There are two disciplined
+7. **Color is systematic and meaningful, never decorative.** There are two disciplined
    strategies — pick one per app, deliberately, and hold the line:
    - **One accent per domain** (the tides app): gradient + accent shift by data domain
      (blue tide, warm orange temperature, teal wind, purple moon) so you know what you're
@@ -98,44 +106,44 @@ but never sufficient.
    Either way: color means something. Never recolor for looks alone, and never let a
    decorative gradient compete with the accent that signals action.
 
-7. **Big confident numerals, quiet secondary labels.** Strong type hierarchy: the value
+8. **Big confident numerals, quiet secondary labels.** Strong type hierarchy: the value
    dominates, the unit and context recede. No timid 14px stat rows.
 
-8. **Ambient encoding — put context into the chart chrome itself.** Sun/moon glyphs run
+9. **Ambient encoding — put context into the chart chrome itself.** Sun/moon glyphs run
    across every time axis, so day vs night reads at a glance with no legend. Bake the
    ambient variable (business hours, shift boundaries, weekends, closed days) into the
    axis so the chart is legible without a key.
 
-9. **Charts legible in one glance.** Smooth curves, a single highlighted "now" point,
+10. **Charts legible in one glance.** Smooth curves, a single highlighted "now" point,
    extremes labeled directly on the line (`10:36a · 0.3′`) instead of in a side legend.
    Fewer gridlines, larger labels, the one point that matters emphasized.
 
-10. **One emoji-free line-icon set.** Consistent stroke weight, no emoji anywhere
+11. **One emoji-free line-icon set.** Consistent stroke weight, no emoji anywhere
     (matches the org-wide rule). Icons are wayfinding, not decoration.
 
 ### States and honesty
 
-11. **Gate in place, honestly.** Locked features show exactly where the value would sit,
+12. **Gate in place, honestly.** Locked features show exactly where the value would sit,
     inline, with one clear `Pro Required` / `Learn More` — the reference app renders the
     real locked chart card, not a nag wall. For our apps: show the empty/locked/permission
     state where the real thing lives, with a single honest next step. Never a full-screen
     interstitial that hides what's behind it.
 
-12. **Design every state.** Empty, loading, locked, and error are first-class. The
+13. **Design every state.** Empty, loading, locked, and error are first-class. The
     reference app's empty swell chart still draws its axis and zero-line. An "empty" screen
     that shows nothing is unfinished — show the frame and the path to fill it. (Ties to the
     Brain's false-all-clear rule: an empty ops path must still signal health.)
 
 ### Motion
 
-13. **Physical, interruptible motion.** Sheets track the finger and settle with spring
+14. **Physical, interruptible motion.** Sheets track the finger and settle with spring
     physics; they are draggable and dismissable mid-flight. Prefer direct manipulation and
     spring transitions over linear fades. Motion should feel like moving an object, not
     playing an animation.
 
 ### Transitions — make navigation self-explanatory
 
-14. **Shared-element transitions: the thing you tapped becomes the next screen.** In the
+15. **Shared-element transitions: the thing you tapped becomes the next screen.** In the
     day-planner, tapping a task makes its colored pill — same accent, same icon, same
     title — *grow continuously* out of its row in the timeline into the header of the
     detail sheet. The object is never lost; the user always knows what they opened and
@@ -144,31 +152,31 @@ but never sufficient.
     "makes it obvious" move — prefer it over a cut or a generic slide whenever a detail
     view has a clear parent element.
 
-15. **Color confirms the destination.** As the sheet expands, its top floods with the
+16. **Color confirms the destination.** As the sheet expands, its top floods with the
     tapped item's accent, then settles into neutral detail below. The color flash is a
     receipt: "yes, this is the item you touched." Use the source element's color to brand
     the transition and the destination header.
 
-16. **Transitions are directional and reversible.** Open grows from the source and pushes
+17. **Transitions are directional and reversible.** Open grows from the source and pushes
     forward; dismiss shrinks back to exactly where it came from. Never open with one motion
     and close with an unrelated one — the return path should retrace the entry so the
     mental model stays intact.
 
 ### Structure
 
-17. **Give the screen one organizing axis.** The day-planner hangs everything off a single
+18. **Give the screen one organizing axis.** The day-planner hangs everything off a single
     vertical time spine with a fixed ruler down the left edge (9:10, 9:15, 1:00 …) and
     day-defining bookends (a "Rise and Shine" at the top, a "Wind Down" at the bottom).
     One dominant axis — time, pipeline stage, location — that every item aligns to beats a
     loose grid of cards. Find the app's natural spine and commit to it.
 
-18. **Negative space is content — design the gaps.** Empty time between tasks is rendered
+19. **Negative space is content — design the gaps.** Empty time between tasks is rendered
     and labeled, even motivating: "12h 40m to pursue passion," "15h 59m of potential." An
     unscheduled stretch isn't blank; it's a designed, inviting slot with an inline
     "Add Task." Wherever our apps have gaps (an open shift, an empty buy-counter hour, a
     quiet pipeline stage), show the gap as a real, labeled, actionable space — never a void.
 
-19. **Teach inside the product's own metaphor.** Onboarding steps ("Add Your First Task,"
+20. **Teach inside the product's own metaphor.** Onboarding steps ("Add Your First Task,"
     "Fill Your Inbox," "Make It Your Own") appear *as real timeline tasks with 0/5
     checklists*, not as a separate tour or modal. First-run guidance should live inside the
     app's primary structure so learning the app and using the app are the same motion.
@@ -181,6 +189,7 @@ but never sufficient.
 - [ ] Screen leads with ONE hero metric + a plain-English consequence line
 - [ ] Drill-down is a bottom sheet, not a new page dump
 - [ ] Tabs are altitudes on one dataset (3-5), active = filled pill
+- [ ] Top bar carries scope (store/location pill + global actions); bottom bar carries navigation — never mixed
 - [ ] One shared range/scope control, consistently placed
 - [ ] All data cards share one component (icon + label + hero + mini-viz)
 - [ ] Each domain has ONE consistent accent; color means something

@@ -58,15 +58,21 @@ journey (can a first-time user, mid-flow, answer the three questions?), not only
 4. **One segmented scope control that reframes everything** (time range, status window,
    location), always in the same place.
 
+5. **Two bars, two jobs — top is scope, bottom is rooms.** Pair the bottom altitude tabs
+   with a persistent top bar: a scope pill (which store/location/tenant you're looking at),
+   one or two global actions (notifications, quick-add), optionally a slim ambient-status
+   strip. Navigation never lives up top; scope never lives at the bottom. Top answers
+   *what am I looking at*; bottom answers *what layer am I on*.
+
 ## The repeated grammar
 
-5. **Every data card is one shared component**: icon + small-caps label, hero value + unit,
+6. **Every data card is one shared component**: icon + small-caps label, hero value + unit,
    secondary stat, mini-visualization. Learn it once, read it everywhere. A new card shape
    per metric is a defect.
 
 ## Color
 
-6. **Color is systematic and meaningful, never decorative.** Choose one strategy per app
+7. **Color is systematic and meaningful, never decorative.** Choose one strategy per app
    and hold it:
    - *One accent per domain* (tides app): accent/gradient shift by data domain so the user
      knows what they're looking at pre-label. For apps with parallel data types
@@ -78,44 +84,44 @@ journey (can a first-time user, mid-flow, answer the three questions?), not only
 
 ## Visual system
 
-7. **Big confident numerals, quiet secondary labels.** Strong hierarchy; the value dominates.
-8. **Ambient encoding — context in the chart chrome.** The tides app runs sun/moon glyphs
+8. **Big confident numerals, quiet secondary labels.** Strong hierarchy; the value dominates.
+9. **Ambient encoding — context in the chart chrome.** The tides app runs sun/moon glyphs
    across every time axis so day/night reads with no legend. Bake the ambient variable
    (business hours, shift boundaries, weekends, closed days) into the axis itself.
-9. **Charts legible in one glance**: smooth curves, one highlighted "now" point, extremes
+10. **Charts legible in one glance**: smooth curves, one highlighted "now" point, extremes
    labeled directly on the line, minimal gridlines.
-10. **One emoji-free line-icon set**, consistent stroke. (Org-wide no-emoji rule.)
+11. **One emoji-free line-icon set**, consistent stroke. (Org-wide no-emoji rule.)
 
 ## States & honesty
 
-11. **Gate in place, honestly.** Locked features render where the value would sit, inline,
+12. **Gate in place, honestly.** Locked features render where the value would sit, inline,
     with one clear next step — never a full-screen wall hiding what's behind it.
-12. **Design every state**: empty, loading, locked, error are first-class. An empty ops
+13. **Design every state**: empty, loading, locked, error are first-class. An empty ops
     path must still signal health (ties to the false-all-clear rule).
 
 ## Motion & transitions (make navigation self-explanatory)
 
-13. **Physical, interruptible motion.** Sheets track the finger and settle with spring
+14. **Physical, interruptible motion.** Sheets track the finger and settle with spring
     physics; draggable and dismissable mid-flight. Direct manipulation over linear fades.
-14. **Shared-element transitions: the thing you tapped becomes the next screen.** The
+15. **Shared-element transitions: the thing you tapped becomes the next screen.** The
     day-planner grows a task's colored pill — same accent, icon, title — out of its row
     into the detail-sheet header, so the object is never lost. Build drill-downs so the
     tapped card visibly expands into the destination and collapses back on dismiss. Highest-
     leverage "makes it obvious" move; prefer it over a cut or generic slide.
-15. **Color confirms the destination.** The destination header adopts the source element's
+16. **Color confirms the destination.** The destination header adopts the source element's
     accent as it opens — a visual receipt that this is the item you touched.
-16. **Directional and reversible.** Open grows from the source and pushes forward; dismiss
+17. **Directional and reversible.** Open grows from the source and pushes forward; dismiss
     retraces exactly back. Entry and return paths must mirror.
 
 ## Structure
 
-17. **One organizing axis per screen** — a time spine, pipeline stage, or location that
+18. **One organizing axis per screen** — a time spine, pipeline stage, or location that
     every item aligns to, with a fixed ruler and defining bookends (the day-planner's
     "Rise and Shine" / "Wind Down"). Beats a loose grid.
-18. **Negative space is content — design the gaps.** Render empty stretches as labeled,
+19. **Negative space is content — design the gaps.** Render empty stretches as labeled,
     actionable space (the day-planner's "12h 40m to pursue passion" with an inline Add).
     Open shifts, quiet buy-counter hours, idle pipeline stages get a real slot, never a void.
-19. **Teach inside the product's own metaphor.** First-run guidance appears as real objects
+20. **Teach inside the product's own metaphor.** First-run guidance appears as real objects
     in the primary structure (onboarding steps rendered as timeline tasks), not a separate
     tour.
 
