@@ -9,15 +9,16 @@ How GullStack product apps should look and behave. This is the app-product count
 to `design-standard-v3.md` (which governs marketing sites) and complements the Brain's
 `protocol/ux-ui-uplevel.md`. When the Brain and this file disagree, the Brain wins.
 
-Distilled from an award-winning consumer data app (a tides/fishing app studied 2026-07).
-**Learn the principles; do not clone the look.** The reference app is blue-water themed
-for anglers — our apps are retail, workforce, and title/escrow tools. The interaction
-grammar transfers; the skin does not. Copying another app's visual identity is both wrong
-and a copyright problem.
+Distilled from two award-winning consumer apps studied 2026-07: a tides/fishing data app
+(hero metrics, multi-domain color, charts) and a day-planner (timeline metaphor, a single
+brand accent, shared-element transitions). **Learn the principles; do not clone either
+look.** Their skins are themed for anglers and personal productivity — our apps are retail,
+workforce, and title/escrow tools. The interaction grammar transfers; the skin does not.
+Copying another app's visual identity is both wrong and a copyright problem.
 
 ---
 
-## The 13 principles
+## The principles
 
 ### Information architecture
 
@@ -54,11 +55,19 @@ and a copyright problem.
 
 ### Visual system
 
-6. **Context-reactive theming — color carries meaning, not decoration.** The reference
-   app shifts its gradient and accent by domain (blue tide, warm orange temperature, teal
-   wind, purple moon) so you know what you're looking at before you read the label. Give
-   each domain in our apps a consistent accent (e.g. Store vs Workforce vs Money in
-   platos-pos) and use it everywhere that domain appears. Never recolor for looks alone.
+6. **Color is systematic and meaningful, never decorative.** There are two disciplined
+   strategies — pick one per app, deliberately, and hold the line:
+   - **One accent per domain** (the tides app): gradient + accent shift by data domain
+     (blue tide, warm orange temperature, teal wind, purple moon) so you know what you're
+     looking at before reading the label. Use for apps with several parallel data types —
+     e.g. Store vs Workforce vs Money in platos-pos.
+   - **One brand accent, everything else neutral** (the day-planner): near-black canvas,
+     white type, a single signature accent (a warm coral) used *only* for interactive and
+     brand elements, plus one quiet secondary (a calm blue) reserved for a special state
+     (end-of-day "Wind Down"). The restraint is the point: when only tappable things wear
+     the accent, the accent itself teaches the user where to act.
+   Either way: color means something. Never recolor for looks alone, and never let a
+   decorative gradient compete with the accent that signals action.
 
 7. **Big confident numerals, quiet secondary labels.** Strong type hierarchy: the value
    dominates, the unit and context recede. No timid 14px stat rows.
@@ -95,6 +104,46 @@ and a copyright problem.
     spring transitions over linear fades. Motion should feel like moving an object, not
     playing an animation.
 
+### Transitions — make navigation self-explanatory
+
+14. **Shared-element transitions: the thing you tapped becomes the next screen.** In the
+    day-planner, tapping a task makes its colored pill — same accent, same icon, same
+    title — *grow continuously* out of its row in the timeline into the header of the
+    detail sheet. The object is never lost; the user always knows what they opened and
+    where it came from. Build drill-downs so the tapped card visibly expands into the
+    destination (and collapses back on dismiss). This is the single highest-leverage
+    "makes it obvious" move — prefer it over a cut or a generic slide whenever a detail
+    view has a clear parent element.
+
+15. **Color confirms the destination.** As the sheet expands, its top floods with the
+    tapped item's accent, then settles into neutral detail below. The color flash is a
+    receipt: "yes, this is the item you touched." Use the source element's color to brand
+    the transition and the destination header.
+
+16. **Transitions are directional and reversible.** Open grows from the source and pushes
+    forward; dismiss shrinks back to exactly where it came from. Never open with one motion
+    and close with an unrelated one — the return path should retrace the entry so the
+    mental model stays intact.
+
+### Structure
+
+17. **Give the screen one organizing axis.** The day-planner hangs everything off a single
+    vertical time spine with a fixed ruler down the left edge (9:10, 9:15, 1:00 …) and
+    day-defining bookends (a "Rise and Shine" at the top, a "Wind Down" at the bottom).
+    One dominant axis — time, pipeline stage, location — that every item aligns to beats a
+    loose grid of cards. Find the app's natural spine and commit to it.
+
+18. **Negative space is content — design the gaps.** Empty time between tasks is rendered
+    and labeled, even motivating: "12h 40m to pursue passion," "15h 59m of potential." An
+    unscheduled stretch isn't blank; it's a designed, inviting slot with an inline
+    "Add Task." Wherever our apps have gaps (an open shift, an empty buy-counter hour, a
+    quiet pipeline stage), show the gap as a real, labeled, actionable space — never a void.
+
+19. **Teach inside the product's own metaphor.** Onboarding steps ("Add Your First Task,"
+    "Fill Your Inbox," "Make It Your Own") appear *as real timeline tasks with 0/5
+    checklists*, not as a separate tour or modal. First-run guidance should live inside the
+    app's primary structure so learning the app and using the app are the same motion.
+
 ---
 
 ## How to apply (checklist before shipping an app screen)
@@ -111,6 +160,12 @@ and a copyright problem.
 - [ ] Empty / loading / locked / error states are all designed
 - [ ] Gating (if any) is inline and honest, never a wall hiding the value
 - [ ] Transitions are spring-based; sheets are draggable and interruptible
+- [ ] Drill-down uses a shared-element transition: the tapped card grows into the detail header and collapses back on dismiss
+- [ ] The source element's accent brands the transition and destination header
+- [ ] Open and close retrace the same path (directional + reversible)
+- [ ] The screen has ONE organizing axis (time / stage / location) everything aligns to
+- [ ] Gaps and empty stretches are rendered as labeled, actionable space — never a void
+- [ ] First-run guidance lives inside the app's own metaphor, not a separate tour
 ```
 
 ## What this skill is NOT

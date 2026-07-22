@@ -7,7 +7,7 @@ description: Product UI/UX principles for GullStack apps — hero-metric screens
 
 The canonical skill lives at the repo root. Do not duplicate its content — read it:
 
-1. `app-design/SKILL.md` — the 13 principles + the pre-ship checklist
+1. `app-design/SKILL.md` — the principles (hero metrics, color strategy, shared-element transitions, one organizing axis, designed gaps) + the pre-ship checklist
 2. `design-standard-v3.md` — the marketing-site counterpart (do not mix the two)
 
 Governs GullStack product apps (Cinch, platos-pos, onrecord-pro, dashboards, owner/member
