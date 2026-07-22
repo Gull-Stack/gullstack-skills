@@ -1,3 +1,8 @@
+---
+name: retail-resale-marketing
+description: Brick-and-mortar retail & resale marketing — register metrics not CRM pipelines, the two-sided buy/sell resale funnel, Google Business Profile first, merchandising-as-content loop, events/promos, seasonality. Use when marketing any physical storefront, especially resale/thrift (Plato's Closet, Thrift Utah).
+---
+
 # SKILL: Retail & resale marketing (brick-and-mortar foot traffic)
 
 How GullStack markets physical retail — written for the resale/thrift vertical

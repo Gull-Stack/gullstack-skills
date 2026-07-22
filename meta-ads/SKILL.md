@@ -1,3 +1,8 @@
+---
+name: meta-ads
+description: Meta (Facebook + Instagram) advertising for local/brick-and-mortar businesses — Business Portfolio/pixel setup, 2025-26 objective changes, radius + under-18 targeting rules, budget floors, Reels-first/UGC creative, offline conversions. Use when planning, building, or auditing Meta ad campaigns for any client.
+---
+
 # SKILL: Meta Ads (Facebook + Instagram) for local businesses
 
 How GullStack runs Meta advertising for local/brick-and-mortar clients. Written 2026-07;

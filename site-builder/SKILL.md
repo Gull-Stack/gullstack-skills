@@ -1,3 +1,8 @@
+---
+name: site-builder
+description: Build premium GullStack client websites to the Tier-S standard — 11ty + Nunjucks + vanilla CSS, Editorial Light v3 design, StoryBrand messaging, full AEO schema, Vercel deploy with mandatory verification. Use when building, rebuilding, or making significant changes to any client or GullStack-owned website.
+---
+
 # Skill: GullStack Site Builder
 
 Build premium client websites to GullStack's Tier-S standard. Every site uses 11ty, follows Editorial Light design, StoryBrand messaging, and ships with full AEO.
@@ -6,15 +11,14 @@ Build premium client websites to GullStack's Tier-S standard. Every site uses 11
 
 ## Pre-Build Checklist
 
-Before writing ANY code, read these files (resolve paths relative to the agent's workspace):
+Before writing ANY code, read these files. In the `gullstack-skills` repo they live at the repo root; in an OpenClaw workspace they may be under `playbooks/`. Search both locations:
 
-1. `playbooks/design-standard-v3.md` — Editorial Light template (the ONLY standard)
-2. `playbooks/storybrand.md` — SB7 messaging framework
-3. `playbooks/website-conversion.md` — conversion optimization
+1. `design-standard-v3.md` — Editorial Light template (the ONLY standard)
+2. `storybrand.md` — SB7 messaging framework
+3. `website-conversion.md` — conversion optimization
 4. `DEPLOYMENT-CHECKLIST.md` — mandatory post-deploy verification
-5. `CLIENT-MONITORING.md` — ongoing verification protocol
 
-If any of these files are missing from your workspace, STOP and tell the user. Do not build without them.
+If any of these files are missing, STOP and tell the user. Do not build without them. (`CLIENT-MONITORING.md` — the ongoing verification protocol — does not exist yet; if you find it, read it too, but do not halt on its absence.)
 
 ---
 

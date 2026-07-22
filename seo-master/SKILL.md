@@ -1,3 +1,8 @@
+---
+name: seo-master
+description: Full SEO & AEO (Answer Engine Optimization) framework for GullStack sites — 2026 ranking factors, on-page checklist, the 7-layer AEO system (brand-facts.json, answer hubs, programmatic city pages, schema), local SEO, audits, keyword research. Use when optimizing, auditing, or planning content/SEO for any client or GullStack site.
+---
+
 # Skill: GullStack SEO & AEO Master
 
 Comprehensive SEO and AEO (Answer Engine Optimization) framework for all GullStack client sites. Every site we build or manage gets this treatment.
