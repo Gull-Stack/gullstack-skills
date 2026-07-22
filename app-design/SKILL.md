@@ -18,6 +18,35 @@ Copying another app's visual identity is both wrong and a copyright problem.
 
 ---
 
+## North star — the three questions (this outranks everything below)
+
+Before type ramps, tokens, or copy: a user on any screen must answer, without thinking,
+**"Where am I? What here is tappable? What will happen when I tap it?"** An app can be
+pixel-perfect on every page and still lose the user, because being-found lives in the
+*connective tissue between screens*, not inside any one screen. This is the axis award-
+winning apps win and most business apps fail. It is the first test; page polish is necessary
+but never sufficient.
+
+- **Where am I → orientation.** ONE navigation model per role (tabs as altitudes on one
+  dataset), always visible, always answering "what layer am I on." Many different nav chromes
+  across one app — multiple sidebars, palettes, swipe-navs, action bars — are the single
+  biggest source of "lost." Converge on one shell.
+- **What's tappable → affordance.** Reserve the accent for interactive things. When only
+  tappable elements wear the accent, the color itself teaches where to act. Do not spend the
+  action-accent on decoration, status, and branding at the same time.
+- **What happens when I tap → feedback & continuity.** The tapped thing should visibly
+  become the next screen (shared-element transition), and the way back should retrace the way
+  in. A hard cut between routes is a teleport, and teleports are how users get lost.
+
+> **Anti-pattern learned from cinch (2026-07, from the builder: "I get lost in cinch and I
+> built it"):** a doctrine that optimizes copy simplicity and token convergence — the *page* —
+> while leaving five different navigation models, an accent spent on branding rather than
+> affordance, and hard route cuts, produces polished screens and a lost user. Measure the
+> *journey*, not just the page. Wayfinding, affordance, and continuity are P0; type/spacing/
+> color convergence is P1.
+
+---
+
 ## The principles
 
 ### Information architecture

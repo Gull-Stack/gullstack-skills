@@ -23,6 +23,27 @@ themed for anglers and personal productivity; ours are retail, workforce, and ti
 The grammar transfers, the identity does not — and cloning another app's visual identity is
 a copyright problem.
 
+## North star — the three questions (P0, above everything else)
+
+On any screen the user must answer without thinking: **Where am I? What here is tappable?
+What happens when I tap it?** An app can be pixel-polished on every page and still lose the
+user — being-found lives in the connective tissue between screens. Measure the *journey*,
+not the page.
+
+- **Where am I → orientation:** ONE nav model per role (tabs as altitudes), always visible.
+  Many nav chromes in one app (multiple sidebars, palettes, swipe-navs, action bars) is the
+  top source of "lost." Converge on one shell.
+- **What's tappable → affordance:** reserve the accent for interactive elements; the accent
+  itself then teaches where to act. Don't spend it on decoration + status + branding at once.
+- **What happens → feedback & continuity:** the tapped thing becomes the next screen
+  (shared-element transition); the way back retraces the way in. Hard route cuts are teleports.
+
+**Anti-pattern (cinch, 2026-07 — from the builder: "I get lost in cinch and I built it"):**
+optimizing copy simplicity + token convergence while leaving five nav models, accent spent on
+branding, and hard route cuts = polished pages, lost user. Wayfinding/affordance/continuity
+are P0; type/spacing/color convergence is P1. Argus and `ux-ui-uplevel.md` should test the
+journey (can a first-time user, mid-flow, answer the three questions?), not only the page.
+
 ## Information architecture
 
 1. **One hero metric per screen + the plain-English "so what" under it.** Lead with the
