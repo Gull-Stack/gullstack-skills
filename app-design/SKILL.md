@@ -200,11 +200,15 @@ only lightness (and a touch of chroma) changes.
 
 The six rules:
 
-1. **The world is a hue, not a gray.** The page background carries the product's (or
-   tenant's) hue at low chroma, and it GRADES vertically — never one flat fill. Light
-   surfaces translate this as a near-white tinted gradient (Cinch: `.gp-world` = tenant
-   accent at ~8% in a top radial over `#f3f6fa → #f8fafd`); dark surfaces as a deep tinted
-   navy that lightens toward the content's "water."
+1. **The world is ONE fixed cool hue — never the brand.** The page background carries a
+   FIXED product hue (a cool blue-cyan ocean) at low chroma and GRADES vertically — never
+   one flat fill, and never derived from the tenant/brand accent. Deriving the world from
+   the brand is the trap that darkened Cinch's lime tenant into a swamp-green money brick
+   (see the repair note below): identity belongs in `--action` (the accent on tappables),
+   NOT in the world's hue. Light surfaces translate the ocean as a soft cool-blue gradient
+   (Cinch: `.gp-world`, fixed hue — a saturated *light* chrome can't hold small caption
+   text, so the page stays soft and the saturation goes into the deep zones); dark surfaces
+   as a deep tinted ocean that lightens toward the content's "water."
 2. **Elevation = lightness steps of that one hue.** bg → card → chip/capsule → selection
    bubble each step slightly lighter (dark theme) or slightly whiter + lifted (light theme).
    Depth never comes from a new hue; a second hue would read as *meaning*, not *height*.
@@ -224,18 +228,30 @@ The six rules:
    eyebrow, a colored edge) — never a full amber/yellow card ("urine", Josh 2026-07-22).
    Semantic status colors stay reserved for actual state chips.
 
-**Weather-hero refinement (2026-07-23, learned the hard way).** A first pass
-that tints the WHOLE light surface at ~8% chroma reads as "still a white SaaS
-app" — the atmosphere is too weak to feel. For trust-sensitive apps (money,
-POS, records) where a full dark world is too risky and dense ops lists must
-stay legible, do NOT solve this by cranking every surface to 40%. Instead give
-the ONE hero metric a **full-strength saturated zone** — a "weather hero": a
-bold, dark, tenant-tinted panel (saturated + darkened until white type clears
-4.5:1) with the hero number in white and its data as bright water, while the
-supporting detail drops onto a light plane right below. The felt "color
-weather" comes from one committed volume where the user looks first, not from
-diluting the whole screen. Cinch: Owner Today's money card
-(deriveWeatherPalette → RevenueWindowCard's dark band + light lower).
+**Deep-pool repair (2026-07-23 — RETRACTS the earlier "weather hero from the
+brand accent").** Two failures taught the real law. (1) Tinting the whole light
+surface at ~8% chroma reads as "still a white SaaS app" — too weak to feel. (2)
+The over-correction — deriving a "weather" world by darkening the TENANT BRAND
+accent until white cleared 4.5:1 — turned a lime brand into a swamp-green money
+brick with highlighter-green "water." Both are wrong. The fix:
+
+- The world is a **fixed cool ocean** (blue-cyan), never the brand. For a
+  trust-sensitive app where a full dark world is too risky and dense ops lists
+  must stay legible, give the ONE hero metric a **deep ocean pool**: a bold
+  dark BLUE-CYAN zone (fixed hue, saturated + dark enough that white type clears
+  4.5:1 across the whole gradient) with the number in white and the data as
+  **bright cyan tide**. The supporting detail drops onto a PALE-OCEAN plane
+  right below — a shallower step of the same pool, never pure white.
+- **The whole viewport participates** — page, scope bar, bottom bar, prominent
+  cards are all tinted steps of the same ocean. A dark hero between white chrome
+  is the banned sandwich (Josh named it: "a light glass console with a green
+  slab glued on").
+- **NO PURPLE, ever** — world blue-cyan (~200–215°), tide cyan (~190°); never
+  violet/indigo/magenta. Brand identity is `--action` only.
+
+Cinch: `deriveDepthWorld` (fixed ocean, ignores brand) → `RevenueWindowCard`'s
+deep pool + pale-ocean lower; `DayShape` cyan tide. There is no
+`deriveWeatherPalette` — that brand-darken path was deleted.
 
 Contrast law when tinting worlds: re-measure caption ink against the DEEPEST tint, not
 white. Cinch's caption dropped `#64748b → #5c6878` to hold ≥4.9:1 on `#ebf0f8`-class tints;
