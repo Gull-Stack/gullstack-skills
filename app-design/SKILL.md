@@ -224,6 +224,19 @@ The six rules:
    eyebrow, a colored edge) — never a full amber/yellow card ("urine", Josh 2026-07-22).
    Semantic status colors stay reserved for actual state chips.
 
+**Weather-hero refinement (2026-07-23, learned the hard way).** A first pass
+that tints the WHOLE light surface at ~8% chroma reads as "still a white SaaS
+app" — the atmosphere is too weak to feel. For trust-sensitive apps (money,
+POS, records) where a full dark world is too risky and dense ops lists must
+stay legible, do NOT solve this by cranking every surface to 40%. Instead give
+the ONE hero metric a **full-strength saturated zone** — a "weather hero": a
+bold, dark, tenant-tinted panel (saturated + darkened until white type clears
+4.5:1) with the hero number in white and its data as bright water, while the
+supporting detail drops onto a light plane right below. The felt "color
+weather" comes from one committed volume where the user looks first, not from
+diluting the whole screen. Cinch: Owner Today's money card
+(deriveWeatherPalette → RevenueWindowCard's dark band + light lower).
+
 Contrast law when tinting worlds: re-measure caption ink against the DEEPEST tint, not
 white. Cinch's caption dropped `#64748b → #5c6878` to hold ≥4.9:1 on `#ebf0f8`-class tints;
 budget ≥4.5:1 with margin, verified by composite pixel math, before shipping any tinted
