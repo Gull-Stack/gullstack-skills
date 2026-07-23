@@ -187,6 +187,52 @@ but never sufficient.
 
 ---
 
+## Color as depth (the tide doctrine — landed 2026-07-22, from measured pixels)
+
+Sampled from the benchmark tides app (screen recordings, canvas pixel reads), then shipped
+across Cinch. The finding: the app never uses gray, and never uses flat color — **color IS
+the elevation system.**
+
+Measured evidence (benchmark): world background grades `#3b4e71 → #435674 → #427497`
+top-to-bottom; cards sit at `#2c405e–#324663`; the floating tab capsule at `#467aa3`; the
+selection bubble at `#5b97c8`; accent data ink `#3bd9fa`. Every layer is the SAME blue hue —
+only lightness (and a touch of chroma) changes.
+
+The six rules:
+
+1. **The world is a hue, not a gray.** The page background carries the product's (or
+   tenant's) hue at low chroma, and it GRADES vertically — never one flat fill. Light
+   surfaces translate this as a near-white tinted gradient (Cinch: `.gp-world` = tenant
+   accent at ~8% in a top radial over `#f3f6fa → #f8fafd`); dark surfaces as a deep tinted
+   navy that lightens toward the content's "water."
+2. **Elevation = lightness steps of that one hue.** bg → card → chip/capsule → selection
+   bubble each step slightly lighter (dark theme) or slightly whiter + lifted (light theme).
+   Depth never comes from a new hue; a second hue would read as *meaning*, not *height*.
+3. **Light falls from the top.** Cards catch a 1px light on their top edge (inset highlight
+   or gradient hairline) and their fills grade top-light → base. Shadows are TINTED with the
+   world hue (e.g. `rgba(30,54,90,…)`), never pure black — gray shadows on a tinted world
+   look like dirt.
+4. **Data wears saturated color with gradient fills.** Charts/areas fill with the accent
+   fading to transparent into the world (the tide app's water). Each data domain may own a
+   hue family (tide cyan, temp orange) — data is the ONE place multiple saturated hues are
+   welcome.
+5. **Selection is the lightest, most saturated plane.** The sliding bubble/active chip is
+   one step lighter than its bar and carries the action ink — selection literally sits on
+   top of the depth ladder. (Pairs with the affordance rule: that accent is interactive-only.)
+6. **Attention is elevation, not a yellow block.** "Needs you" surfaces = an elevated plane
+   of the world (cooler gradient + lifted tinted shadow) with ONE warm accent (a coral
+   eyebrow, a colored edge) — never a full amber/yellow card ("urine", Josh 2026-07-22).
+   Semantic status colors stay reserved for actual state chips.
+
+Contrast law when tinting worlds: re-measure caption ink against the DEEPEST tint, not
+white. Cinch's caption dropped `#64748b → #5c6878` to hold ≥4.9:1 on `#ebf0f8`-class tints;
+budget ≥4.5:1 with margin, verified by composite pixel math, before shipping any tinted
+background.
+
+Reference implementation: Cinch `src/app/globals.css` (`.gp-world`, `.gp-card`),
+`SlidingBubble.tsx`, `DayShape.tsx` (gradient data fill), needs-you card in
+`src/app/admin/page.tsx`.
+
 ## How to apply (checklist before shipping an app screen)
 
 ```
