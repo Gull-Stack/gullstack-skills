@@ -25,7 +25,12 @@ directory.
 4. **Produce the evidence pack** under `qaqc/round-<N>/`:
    - Screenshot matrix: every changed screen × 390px and 1440px × meaningful
      states (empty, loaded, error), via Playwright against a local build or
-     preview. If screenshots cannot be produced, write `NO-SCREENSHOTS.md`
+     preview. States must be **produced, not skipped**: seed fixture data
+     for loaded states, clear it for empty states, and force failures (mock
+     a failing request, submit invalid input) for error states. A state that
+     genuinely cannot be produced gets one line in the pack saying why —
+     the auditor treats an unexplained missing state as an unbuilt state.
+     If screenshots cannot be produced at all, write `NO-SCREENSHOTS.md`
      in the round directory stating why, in one line.
    - Mechanical gate output: build, typecheck, tests, and the relevant
      fleet-crawl checks (every CTA resolves, forms wired), with exit codes.
@@ -40,7 +45,13 @@ directory.
    `PERSISTING` with one line on what blocked you — never silently drop it.
 7. **Push.** Round 1: open a draft PR titled `[product-loop] <name>` and
    subscribe to PR activity. Round 2+: push to the same PR.
-8. **Stop.** Do not audit, do not approve, do not merge, do not summarize
+8. **Hand off to the auditor.** Spawn the auditor as a subagent (or, in
+   Phase 1, let the Routine fire). The auditor's prompt is `AUDITOR.md`
+   verbatim plus the PR number — nothing else. No summary of what you
+   built, no "context", no framing: anything you add is contamination of
+   the fresh context, and the auditor is instructed to report it as a
+   violation.
+9. **Stop.** Do not audit, do not approve, do not merge, do not summarize
    quality. The auditor speaks next.
 
 ## Hard rules

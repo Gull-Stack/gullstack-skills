@@ -35,6 +35,15 @@ human brief
 Claude loops cheaply. Grok judges at gates. The human only rules on
 escalations. Every ruling becomes a reusable product rule (`DECISION_LOG.md`).
 
+## When this loop applies
+
+This is the heavy loop. It runs for anything with a user interface a
+customer will touch: a new product, a new screen or flow, or a redesign of
+an existing one. It does NOT run for mechanical fixes (broken links, missing
+schema, config) — those stay in `issue-to-pr/` — and it does not run for
+copy-only or content-only changes, which go straight to the human. If a
+change would produce no new screenshots, it does not belong in this loop.
+
 ## Roles (fresh verification, applied)
 
 | Role | Who | Rule |
@@ -160,6 +169,20 @@ Everything else the loop settles itself. If the human is answering the same
 kind of question twice, that is a defect in the rulings ledger, not a fact of
 life.
 
+Delivery: every escalation is posted as a PR comment whose first line is
+`ESCALATION: <one-line question>`, with the options below it — so the PR
+notification itself carries the decision, and the human never has to open
+the ledger to find out what is being asked. An escalation that only exists
+in `findings.json` has not been escalated.
+
+## After accept
+
+Accept ends the loop, not the shipping process. The PR merges, and prod
+deploy still goes through `DEPLOYMENT-CHECKLIST.md` and the brain's
+deploy QAQC protocol — the loop replaces the build-audit grind, never the
+deploy gate. The final ledger and `DECISION_LOG.md` entries land in the same
+merge, so the loop's history ships with the product.
+
 ## The decision log — where the compounding lives
 
 Every human ruling is written down twice:
@@ -181,6 +204,10 @@ the files stop answering questions, not before.
 product must trend down across products. If rounds-to-dry has not fallen
 after five products, rulings are not being captured into rubrics — fix the
 ledger discipline, not the loop.
+
+The full pass/fail standard for the loop itself — five success metrics, the
+first-live-test counters, and the touch log — is `ACCEPTANCE-TEST.md`. The
+loop is a product; that file is its rubric.
 
 ## Wiring — three phases
 
@@ -246,5 +273,6 @@ Applying the false-edge test to our own research list:
 | `PRODUCT_RUBRIC.md` | The one scoring standard (0-35) applied every round and at both gates |
 | `GROK-GATE.md` | Grok Final Gate — one-paste handoff and required return format |
 | `DECISION_LOG.md` | Canonical cross-product rulings ledger; every ruling becomes a rule |
+| `ACCEPTANCE-TEST.md` | The loop's own pass/fail standard: success metrics + first-live-test counters |
 
 Per repo convention: if a live Routine drifts from these files, the file wins.
