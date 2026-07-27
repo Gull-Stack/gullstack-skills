@@ -51,8 +51,11 @@ thorough - an empty array from you is a meaningful pass.
 
 1. Paste Grok's JSON into `qaqc/findings.json` as new entries with
    `"source": "grok"`, status `NEW`.
-2. Any BLOCKER or MAJOR: the loop re-opens — maker fixes, auditor verifies,
-   one extra round max, then back through this gate.
+2. Any BLOCKER or MAJOR: the loop re-opens — the approved fixes are
+   packaged as a **STRICT prompt** (`STRICT-PROMPT.md` — mandatory
+   structure, no exceptions) committed to the product repo, and the maker
+   works from that prompt. Maker fixes, auditor verifies, one extra round
+   max, then back through this gate. Findings never go to the maker raw.
 3. MINOR only, or `[]`: the gate passes — provided the hard accept rule in
    `PLAN.md` also holds (screenshots pass, no open BLOCKERs, rubric score at
    target, primary flow evidenced, unresolved issues explicit). The human

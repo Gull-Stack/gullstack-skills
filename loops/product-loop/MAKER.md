@@ -13,7 +13,11 @@ directory.
    (`BRIEF-GATE.md`); building on an ungated brief is the expensive mistake
    this loop exists to prevent. If any finding is `ESCALATED`, stop — the
    loop is waiting on the human.
-2. **Scope the round.** Round 1: build what `qaqc/brief.md` says — the
+2. **Scope the round.** If the round has a committed STRICT prompt
+   (`STRICT-PROMPT.md` format — a Grok-approved work order), that prompt
+   IS the round's spec: its hard-scope table is law, its "Fail if" clauses
+   are your acceptance tests, and out-of-scope files mean stop-and-ask.
+   Otherwise — Round 1: build what `qaqc/brief.md` says — the
    gated brief is the spec, including its non-goals — applying
    `app-design` (apps) or `site-builder` + `ux-ui` (sites), `seo-master`
    where relevant, and the bryce-method gates. Round 2+: fix every finding

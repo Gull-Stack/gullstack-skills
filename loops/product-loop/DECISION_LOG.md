@@ -46,4 +46,6 @@ toward the 79%-nits failure mode that gets review bots muted.
 
 ## Rulings
 
-(none yet — the loop has not run)
+| ID | Date | Product | Question (as escalated) | Ruling | Rule extracted → where it now lives |
+|---|---|---|---|---|---|
+| R-001 | 2026-07-27 | cinch-app (Eagle Eye Wave 1) / loop-wide | What structure must Grok-to-Claude fix directives take so scope cannot creep and done is falsifiable? | All QA/QC approval prompts from Grok to a Claude maker MUST use the STRICT prompt structure (verbatim transfer, one wave per prompt, hard-scope table, per-fix Fail-if clauses, explicit non-goals, DONE-means). Exemplar: `docs/EAGLE-EYE-WAVE1-CLAUDE-PROMPT-STRICT.md` in cinch-app. | `STRICT-PROMPT.md` (new canonical file); wired into `GROK-GATE.md` return handling and `MAKER.md` round scoping |

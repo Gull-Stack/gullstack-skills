@@ -272,6 +272,7 @@ Applying the false-edge test to our own research list:
 | `AUDITOR.md` | The fresh-context auditor prompt, versioned |
 | `PRODUCT_RUBRIC.md` | The one scoring standard (0-35) applied every round and at both gates |
 | `GROK-GATE.md` | Grok Final Gate — one-paste handoff and required return format |
+| `STRICT-PROMPT.md` | Mandatory structure for every Grok-to-Claude work order (R-001) |
 | `DECISION_LOG.md` | Canonical cross-product rulings ledger; every ruling becomes a rule |
 | `ACCEPTANCE-TEST.md` | The loop's own pass/fail standard: success metrics + first-live-test counters |
 | `EVIDENCE.md` | The research base: every design choice mapped to its supporting evidence, plus the acknowledged limits |
