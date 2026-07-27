@@ -111,6 +111,7 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 | `retail-resale-marketing` | Brick-and-mortar / resale marketing |
 | `three-kings-salestalk` | Voss + Belfort + Miller sales doctrine (pointer to `Gull-Stack/ThreeKingsSalesTalkMethod`) |
 | `argus-qa` | The Argus PR/QA rubric (pointer to `Gull-Stack/Argus`) |
+| `product-loop` | The build/audit/fix loop for product & UX/UI work (pointer to `loops/product-loop/`) |
 | `title-escrow` | The Bones title & escrow brain (pointer to `Gull-Stack/titlebot-bones-brain`) |
 
 The `.claude/skills/` entries are thin pointers — the canonical content stays in one place (this repo's root directories, or the linked repos) so copies can't drift. To use them outside this repo, copy the pointer directories into `~/.claude/skills/` and keep this repo cloned alongside.
