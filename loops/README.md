@@ -25,6 +25,14 @@ fails with no opinion.
 |---|---|---|---|
 | `fleet-crawl/` | nightly | `crawl.sh` exit code (deployment-checklist crawl over live sites) | `fleet-crawl/findings/` committed to `loop/fleet-crawl-findings` |
 | `issue-to-pr/` | weekday mornings | repo build/tests + Argus PR review | the issue tracker + open PRs |
+| `product-loop/` | per product, PR-event driven (**designed, not yet armed** — see its `PLAN.md`) | fresh-context auditor bound to the written rubrics + mechanical sub-gates, then a one-shot Grok cross-model gate at the dry point | `qaqc/findings.json` on the product branch |
+
+`product-loop/` is the build → audit → fix loop for UX/UI and product work:
+Claude makes, a fresh-context session checks every round, Grok cross-checks
+once at the dry point, and the human only sees escalations and the final
+accept. Its audit gate is not a dumb script (a product audit can't be), so it
+compensates with the strictest state discipline: every finding lives in a
+committed ledger, deduped against all seen, with two exits always.
 
 Both loops run as Claude Routines (scheduled fresh sessions in the Claude Code
 remote environment). The routine prompts are versioned in each loop's directory —
