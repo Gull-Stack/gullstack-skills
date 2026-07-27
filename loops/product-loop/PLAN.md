@@ -14,19 +14,35 @@ makes quality depend on whether the human was fresh at round 3.
 
 ## The design in one sentence
 
-The loop runs build → audit → fix rounds until two consecutive audits find
+Grok gates the brief before build and the product at the dry point; between
+the gates, build → audit → fix rounds run until two consecutive audits find
 nothing new; the human sees only escalated judgment calls and the finished PR
 with its full audit trail — and every human ruling is committed as a rule so
 the same question is never asked twice.
+
+```
+human brief
+  -> Grok Brief Gate          (BRIEF-GATE.md — attack the framing, cheap to fix now)
+  -> Claude maker             (build on isolated branch)
+  -> Playwright evidence pack (screenshots x viewports x states)
+  -> fresh-context auditor    (refute, score against PRODUCT_RUBRIC.md)
+  -> Claude fixes
+  -> repeat until dry         (2 dry rounds, 4-round cap)
+  -> Grok Final Gate          (GROK-GATE.md — find what both Claude contexts missed)
+  -> human                    (escalations + final accept only)
+```
+
+Claude loops cheaply. Grok judges at gates. The human only rules on
+escalations. Every ruling becomes a reusable product rule (`DECISION_LOG.md`).
 
 ## Roles (fresh verification, applied)
 
 | Role | Who | Rule |
 |---|---|---|
 | Maker | Claude session on an isolated branch | Builds and fixes. Self-reviews with `argus-qa` before every push (cheap first filter). Never audits its own round. |
-| Auditor | A **fresh-context** session that did not build the thing | Runs every round. Judges the evidence pack against the rubrics, prompted to refute, not to approve. Writes findings to the ledger. |
-| Cross-model gate | Grok | Runs **once per product**, at the dry point — not every round. Different model, different blind spots. Stays the prod-deploy QAQC gate per the brain protocol (`protocol/grok-deploy-qaqc.md` in the upstream brain). |
-| Knowledge expert | The human | Sees only: escalations, the dry-point summary, final accept. Every ruling lands in the rulings ledger. |
+| Auditor | A **fresh-context** session that did not build the thing | Runs every round. Judges the evidence pack against the rubrics, scores against `PRODUCT_RUBRIC.md`, prompted to refute, not to approve. Writes findings to the ledger. |
+| Cross-model gates | Grok | Runs **twice per product**: the Brief Gate before build (`BRIEF-GATE.md` — wrong framing is the expensive mistake, not bad pixels) and the Final Gate at the dry point (`GROK-GATE.md`). Not every round — different model, different blind spots, spent where they pay. Stays the prod-deploy QAQC gate per the brain protocol (`protocol/grok-deploy-qaqc.md` in the upstream brain). |
+| Knowledge expert | The human | Sees only: escalations, the dry-point summary, final accept. Every ruling lands in `DECISION_LOG.md`. |
 
 The maker/checker split is the same law as `loops/README.md` rule 1 — but a
 product audit cannot be a dumb script, so the gate here is a fresh-context
@@ -35,6 +51,11 @@ crawl checks) that stays a script. The auditor interprets; the scripts decide
 pass/fail on everything mechanical.
 
 ## The loop (loop-until-dry)
+
+Round 0 is the Brief Gate: the kickoff session prepares the one-page brief
+(`BRIEF-GATE.md` format), Grok attacks the framing, findings are resolved or
+explicitly overridden, and the passed brief is committed as `qaqc/brief.md`.
+No brief gate, no round 1.
 
 ```
 round N:
@@ -99,8 +120,28 @@ One file per product loop, committed on the branch: `qaqc/findings.json`.
 ```
 
 Statuses: `NEW → CONFIRMED | REFUTED`, then `FIXED | PERSISTING | ESCALATED`.
-The ledger is state outside the conversation (`loops/README.md` rule 2): any
-fresh session can pick the loop up from the file alone.
+Sources: `auditor`, `grok-brief`, `grok`. The ledger also carries the
+per-round `PRODUCT_RUBRIC.md` scores, so the score trajectory is part of the
+dry-point summary. The ledger is state outside the conversation
+(`loops/README.md` rule 2): any fresh session can pick the loop up from the
+file alone.
+
+## The hard accept rule
+
+No final handoff to the human unless ALL of the following hold — no
+exceptions without a ruling logged in `DECISION_LOG.md`:
+
+1. Desktop AND mobile screenshots exist for every changed screen and pass
+   audit (no confirmed visual findings open against them).
+2. Zero findings at BLOCKER severity in any status except `FIXED` or
+   `REFUTED`.
+3. Rubric score at or above target (`PRODUCT_RUBRIC.md`; default 30/35, no
+   dimension below 3).
+4. The primary flow from `qaqc/brief.md` demonstrably works end to end —
+   evidenced in the pack, not asserted.
+5. Every unresolved issue is explicit: listed in the dry-point summary with
+   status and reason. An unresolved issue the human discovers that the
+   summary did not name is itself a BLOCKER-class process defect.
 
 ## Escalation contract (what protects the human's brain)
 
@@ -119,14 +160,16 @@ Everything else the loop settles itself. If the human is answering the same
 kind of question twice, that is a defect in the rulings ledger, not a fact of
 life.
 
-## The rulings ledger — where the compounding lives
+## The decision log — where the compounding lives
 
 Every human ruling is written down twice:
 
 1. In the product's `findings.json` under `rulings` (the local record).
-2. As a rule-candidate: a one-line addition to the relevant skill in this
-   repo, or an Argus PLAYBOOK candidate filed as an issue on
-   `Gull-Stack/Argus`. The maker of the *next* product loads it for free.
+2. In `DECISION_LOG.md` (canonical, cross-product), which also records the
+   rule extracted from the ruling and where that rule now lives: a one-line
+   addition to the relevant skill, an Argus PLAYBOOK candidate filed on
+   `Gull-Stack/Argus`, or a new anchor in `PRODUCT_RUBRIC.md`. The maker of
+   the *next* product loads it for free.
 
 This is the knowledge-graph idea from the research notes, applied at our
 scale: the entities are rules, screens, and findings; the edges are "this
@@ -145,6 +188,8 @@ ledger discipline, not the loop.
 
 Semi-automated ping-pong with the pieces that already exist:
 
+0. The human runs the Brief Gate using `BRIEF-GATE.md` — one paste out, one
+   structured paste back. The passed brief is committed as `qaqc/brief.md`.
 1. Maker session builds on `product/<name>` in a worktree, opens a draft PR,
    subscribes to PR activity, produces the evidence pack.
 2. Auditor = a fresh Claude session (new conversation, or a subagent with
@@ -152,9 +197,9 @@ Semi-automated ping-pong with the pieces that already exist:
    a PR review and updates `qaqc/findings.json`.
 3. The maker session wakes on the review event and fixes. Rounds ping-pong
    through the PR with zero human transport.
-4. At dry: the human runs the Grok gate once using `GROK-GATE.md` — one paste
-   out, one structured paste back into the ledger. Human transport drops from
-   every round to once per product.
+4. At dry: the human runs the Final Gate using `GROK-GATE.md` — one paste
+   out, one structured paste back into the ledger. Human transport drops
+   from every round to two pastes per product (brief + final).
 
 ### Phase 1 — automate the heartbeat
 
@@ -166,11 +211,13 @@ rule 5).
 
 ### Phase 2 — cross-model inside the loop
 
-If an xAI API key is provisioned, the Grok gate moves from a human paste to a
-script the auditor calls: diff + screenshot paths + ledger out, structured
-findings back. Grok then runs every round, not just at dry, and the human's
-last transport duty disappears. Quarterly: mine all rulings ledgers for rules
-that belong in skills or the Argus PLAYBOOK.
+If an xAI API key is provisioned, both Grok gates move from a human paste to
+a script call with the same contracts (`BRIEF-GATE.md`, `GROK-GATE.md`):
+brief or diff + screenshot paths + ledger out, structured findings back. The
+Final Gate may then also run mid-loop where useful, and the human's last
+transport duty disappears. Quarterly: the `DECISION_LOG.md` review — retire
+rules that never fired, tighten rules that fired often, check the
+rounds-to-dry trend.
 
 ## What we are deliberately NOT building
 
@@ -193,8 +240,11 @@ Applying the false-edge test to our own research list:
 | File | What it is |
 |---|---|
 | `PLAN.md` | This design (canonical) |
+| `BRIEF-GATE.md` | Grok Brief Gate — attack the framing before any build |
 | `MAKER.md` | The maker round prompt, versioned |
 | `AUDITOR.md` | The fresh-context auditor prompt, versioned |
-| `GROK-GATE.md` | The one-paste Grok handoff and required return format |
+| `PRODUCT_RUBRIC.md` | The one scoring standard (0-35) applied every round and at both gates |
+| `GROK-GATE.md` | Grok Final Gate — one-paste handoff and required return format |
+| `DECISION_LOG.md` | Canonical cross-product rulings ledger; every ruling becomes a rule |
 
 Per repo convention: if a live Routine drifts from these files, the file wins.

@@ -6,10 +6,15 @@ directory.
 
 ## Round procedure
 
-1. **Load state.** Read `qaqc/findings.json` on the product branch. If it
-   does not exist, this is round 1: create it from the schema in `PLAN.md`.
-   If any finding is `ESCALATED`, stop — the loop is waiting on the human.
-2. **Scope the round.** Round 1: build the requested product change, applying
+1. **Load state.** Read `qaqc/findings.json` and `qaqc/brief.md` on the
+   product branch. If the ledger does not exist, this is round 1: create it
+   from the schema in `PLAN.md`. If `qaqc/brief.md` is missing or carries no
+   Brief Gate verdict, stop — the framing has not been gated
+   (`BRIEF-GATE.md`); building on an ungated brief is the expensive mistake
+   this loop exists to prevent. If any finding is `ESCALATED`, stop — the
+   loop is waiting on the human.
+2. **Scope the round.** Round 1: build what `qaqc/brief.md` says — the
+   gated brief is the spec, including its non-goals — applying
    `app-design` (apps) or `site-builder` + `ux-ui` (sites), `seo-master`
    where relevant, and the bryce-method gates. Round 2+: fix every finding
    with status `CONFIRMED`, oldest first, and nothing else — no drive-by

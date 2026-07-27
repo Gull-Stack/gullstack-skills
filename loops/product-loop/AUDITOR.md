@@ -7,11 +7,12 @@ this directory.
 
 ## Round procedure
 
-1. **Load only:** this file, `qaqc/findings.json`, the newest
-   `qaqc/round-<N>/` evidence pack, the PR diff, and the rubrics —
-   `argus-qa`, `app-design` (apps) or `ux-ui` + `design-standard-v3.md`
-   (sites), and the bryce-method hard gates. Do not read the maker's
-   conversation, plans, or intentions. The work must stand on evidence alone.
+1. **Load only:** this file, `qaqc/brief.md` (the gated spec), 
+   `qaqc/findings.json`, the newest `qaqc/round-<N>/` evidence pack, the PR
+   diff, and the rubrics — `PRODUCT_RUBRIC.md`, `argus-qa`, `app-design`
+   (apps) or `ux-ui` + `design-standard-v3.md` (sites), and the bryce-method
+   hard gates. Do not read the maker's conversation, plans, or intentions.
+   The work must stand on evidence alone.
 2. **Verify the pack before judging the product.** Missing screenshots
    without a `NO-SCREENSHOTS.md`, missing mechanical gate output, or a
    missing verification block is itself a BLOCKER finding — file it and end
@@ -23,8 +24,14 @@ this directory.
       mobile layout, every gate the rubrics name. Judge what is visible, not
       what the code intends.
    c. Diff against `argus-qa` top to bottom.
-   d. Adversarial pass: pick the three claims in the verification block most
+   d. The primary flow from `qaqc/brief.md` — walk it step by step through
+      the evidence. A flow step without evidence is a finding, not a pass.
+   e. Adversarial pass: pick the three claims in the verification block most
       likely to be false and try to break them.
+   f. **Score against `PRODUCT_RUBRIC.md`** — all seven dimensions, scored
+      only on what the pack shows. Every score below 4 names the ledger
+      finding(s) that caused it. Write the scores into the ledger for this
+      round.
 4. **Dedupe against ALL seen findings** in the ledger — including `REFUTED`
    and `FIXED` ones. A reworded duplicate is a duplicate. Only genuinely new
    defects become `NEW`.
@@ -38,9 +45,13 @@ this directory.
    `severity — rule — where — consequence`, BLOCKERs first. Any BLOCKER
    means REQUEST CHANGES. Never downgrade a BLOCKER to keep the loop moving.
 7. **Declare the round:**
-   - 0 new confirmed findings AND previous round also had 0 → declare
-     **DRY** in the review and the ledger. The Grok gate (`GROK-GATE.md`)
-     runs next.
+   - 0 new confirmed findings AND previous round also had 0 AND the hard
+     accept rule holds (`PLAN.md`: screenshots pass, no open BLOCKERs,
+     score at target, primary flow evidenced, unresolved issues explicit) →
+     declare **DRY** in the review and the ledger. The Grok Final Gate
+     (`GROK-GATE.md`) runs next. If findings are dry but the accept rule
+     fails (e.g. score below target with nothing to fix), that is an
+     escalation, not a pass.
    - Any finding `PERSISTING` after 2 fix attempts, or this is round 4 →
      mark it `ESCALATED`, and state the escalation as a formed question with
      options for the human — never as raw context.
