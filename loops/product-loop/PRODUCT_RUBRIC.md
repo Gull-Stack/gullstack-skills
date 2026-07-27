@@ -25,6 +25,15 @@ copy).
 The brief may set a higher target; it may set a lower one only with a
 human ruling logged in `DECISION_LOG.md`.
 
+## What these scores are
+
+Low-precision anchored gates, not a precision instrument (unanchored
+numeric scales collapse or go random — see `EVIDENCE.md`). A dimension
+score answers "which anchor row does the evidence match," nothing finer.
+The signal the human reads is the **trajectory across rounds** and the
+findings behind each low score — never a decimal comparison between
+products.
+
 ## Scoring rules
 
 1. Score only what the evidence pack shows. A dimension without evidence

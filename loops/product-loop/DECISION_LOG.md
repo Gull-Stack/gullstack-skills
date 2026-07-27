@@ -18,6 +18,16 @@ be turned into a rule for future products should say `one-off` and why.
 | ID | Date | Product | Question (as escalated) | Ruling | Rule extracted → where it now lives |
 |---|---|---|---|---|---|
 
+## Negative rules count double
+
+Rulings are not only "add this rule" — they are also "stop flagging this."
+When the human rejects a finding class at accept (or overrides the auditor
+twice on the same kind of call), that becomes a do-not-flag rule with the
+same discipline: logged here, landed in the auditor's rubric sources.
+Calibration from human reaction data is the only method with published
+address-rate gains (see `EVIDENCE.md`); a loop that only adds rules drifts
+toward the 79%-nits failure mode that gets review bots muted.
+
 ## Promotion rules
 
 1. Every ruling gets an entry the same day it is made. No batch backfilling

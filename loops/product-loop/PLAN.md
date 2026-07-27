@@ -274,5 +274,6 @@ Applying the false-edge test to our own research list:
 | `GROK-GATE.md` | Grok Final Gate — one-paste handoff and required return format |
 | `DECISION_LOG.md` | Canonical cross-product rulings ledger; every ruling becomes a rule |
 | `ACCEPTANCE-TEST.md` | The loop's own pass/fail standard: success metrics + first-live-test counters |
+| `EVIDENCE.md` | The research base: every design choice mapped to its supporting evidence, plus the acknowledged limits |
 
 Per repo convention: if a live Routine drifts from these files, the file wins.
