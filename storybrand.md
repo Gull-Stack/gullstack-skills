@@ -42,10 +42,15 @@ Every story follows this arc. So should your marketing:
   - **Philosophical:** Why it's WRONG (shouldn't have to struggle with this)
 
 **The Villain:**
-- Must be a root source (not just "frustration")
-- Must be relatable
-- Must be singular (one villain)
+- Must be a root source (not just "frustration" — the cause, not a symptom)
+- Must be relatable (the buyer has met it)
+- Must be singular (one villain, not a list)
 - Must be real (no fearmongering)
+- Must be hateable (the buyer already dislikes it)
+
+Naming the villain externalizes the fight: the buyer is no longer fighting their
+own inadequacy — they're fighting a real antagonist, and you're the one with the
+weapon.
 
 > "Companies sell solutions to external problems, but customers buy solutions to internal problems."
 
@@ -57,7 +62,8 @@ Every story follows this arc. So should your marketing:
 
 **Two Qualities of a Guide:**
 1. **Empathy:** "We understand how it feels to..." / "Nobody should have to..."
-2. **Authority:** Testimonials, statistics, awards, logos
+2. **Authority:** Testimonials, statistics, awards, logos — shown through
+   specifics (results, numbers), never adjectives
 
 **Question:** How do you show you understand their pain AND that you're competent to help?
 
@@ -274,6 +280,18 @@ Before publishing ANY marketing:
 - [ ] Would a caveman understand this in 5 seconds?
 - [ ] Does it help them survive or thrive?
 - [ ] Is it simple enough to repeat?
+
+---
+
+## Where Miller wins (Three Kings position)
+
+Miller owns the **top of the funnel** — websites, ads, lead magnets, first-touch
+emails — before the buyer knows you. **Miller wins the click; Voss wins the call;
+Belfort wins the close.** The full three-framework doctrine (and every rule for
+buyer-facing copy) is the `three-kings-salestalk` skill
+([Gull-Stack/ThreeKingsSalesTalkMethod](https://github.com/Gull-Stack/ThreeKingsSalesTalkMethod));
+its `FRAMEWORKS/storybrand.md` is the distilled operator card of THIS document.
+Doctrine changes land here first, then propagate to the card.
 
 ---
 

@@ -38,6 +38,7 @@ Comprehensive SEO and AEO (Answer Engine Optimization) framework for all GullSta
 - **Proper HTML** — semantic elements, valid structure
 - **Image optimization** — descriptive alt text on EVERY image, compressed files
 - **robots.txt** — present and correct
+- **No content hidden behind mobile interactions** — hidden-on-mobile content may not be indexed (mobile-first indexing)
 
 ### 5. Keyword Optimization
 - **One primary keyword, 2-5 secondary** per page, plus LSI/semantic vocabulary
@@ -180,9 +181,12 @@ AEO is how you get recommended by ChatGPT, Perplexity, Google AI Overviews, and 
 
 ### Layer 6: Citations & Authority
 - Get listed in industry directories
+- **Unstructured citations count too** — "best of" lists, newspaper articles,
+  industry-association mentions; quality/authority of the citing source matters
 - Google Business Profile optimized
 - Consistent NAP (Name, Address, Phone) across all listings
-- Encourage Google reviews — these feed AI recommendations
+- Encourage Google reviews — these feed AI recommendations (generation rules:
+  `review-reputation/SKILL.md`)
 
 ### Layer 7: AI Shopping / Product Schema
 - For e-commerce or product-based businesses
@@ -215,6 +219,8 @@ AEO is how you get recommended by ChatGPT, Perplexity, Google AI Overviews, and 
 - First-person and personality increase CTR ("I tested..." beats "10 best...")
 - Specific numbers beat generalities ("saves 40% on average" not "saves money")
 - Every post must beat what's currently ranking or don't publish it
+- Embed video (YouTube) in cornerstone posts — video builds trust/authority and
+  keeps the click when AI Overviews answer the text query
 
 ---
 
@@ -263,7 +269,9 @@ Authority:
 
 ## Local SEO (for brick-and-mortar clients)
 
-- **Google Business Profile** is non-negotiable — claim, verify, optimize
+- **Google Business Profile** is non-negotiable — claim, verify, optimize. It's
+  the single biggest local-pack factor (~32% *[approx.]*); weekly posts + fresh
+  photos keep it alive (`content-calendar/SKILL.md` owns the cadence)
 - **NAP consistency** across all listings (exact match, no variations)
 - **Service area pages** — one page per city/area served
 - **Local schema** — LocalBusiness with geo coordinates

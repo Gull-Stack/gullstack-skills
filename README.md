@@ -145,7 +145,6 @@ Brick-and-mortar retail & resale marketing. Covers:
 | `design-standard-v3.md` | Editorial Light template spec — layout, typography, color, sections |
 | `storybrand.md` | Donald Miller's SB7 framework for messaging |
 | `website-conversion.md` | Conversion optimization principles |
-| `seo-homework.md` | 2026 SEO best practices & ranking factors deep-dive |
 | `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post deploy verification |
 | `bryce-method.md` | Lessons codified from GullStack's shipped repos — the repeatable method + hard gates from audited misses (pixel/analytics on every site, every CTA resolves, no phantom config claims) |
 

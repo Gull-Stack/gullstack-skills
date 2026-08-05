@@ -29,7 +29,7 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | `design-standard-v3.md` | Editorial Light template spec — light-dominant layout, full-bleed heroes, big typography, section order |
 | `storybrand.md` | Donald Miller SB7 — customer is the hero, grunt test, one-liner formula |
 | `website-conversion.md` | Conversion Rate = Desire − (Labor + Confusion); landing-page structure rules (Shapiro/Demand Curve/Refactoring UI) |
-| `seo-homework.md` | 2026 SEO deep-dive (overlaps seo-master — flagged below) |
+| ~~`seo-homework.md`~~ | ~~2026 SEO deep-dive (overlaps seo-master — flagged below)~~ **Removed 2026-08-05** — unique nuggets merged into seo-master |
 | `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post-deploy verification + automated crawl audit |
 | `bryce-method.md` | The codified lessons from the July 2026 org-wide repo audit — repeatable method + 8 hard gates (no pixel no launch, every CTA resolves, no phantom config claims, etc.) |
 
@@ -43,7 +43,7 @@ PeterQuill, and the marketing sub-bots.
 | `SKILL.md` | The protocol: every buyer-facing message passes Voss + Belfort + Miller simultaneously, plus WizGat; hard rules (never "I", no questions in cold outreach, directive close) |
 | `FRAMEWORKS/voss.md` | Tactical empathy — mirror, label, accusation audit, no-oriented questions |
 | `FRAMEWORKS/belfort.md` | Straight Line — Three Tens, tonality, looping objections |
-| `FRAMEWORKS/storybrand.md` | SB7 (duplicate of this repo's copy — flagged below) |
+| `FRAMEWORKS/storybrand.md` | SB7 distilled operator card — declared derivative of this repo's canonical `storybrand.md` since 2026-08-05 (was a diverging duplicate — flagged below) |
 | `FRAMEWORKS/wizgat.md` | "What's So Great About That" — every fact must map to a felt outcome or be cut |
 | `OBJECTION-MATRIX.md` | Per-framework responses to common objections |
 | `EMAIL-RULES.md` | Hard email rules |
@@ -148,9 +148,16 @@ These violate bryce-method's own anti-lessons and are cheap to fix:
 
 - ~~**`site-builder/SKILL.md` still hard-gates on `CLIENT-MONITORING.md`, which does
   not exist** (anti-lesson #6).~~ **Fixed 2026-07-16** — the gate is now soft.
-- **StoryBrand still exists in two diverging copies** (here and in
+- ~~**StoryBrand still exists in two diverging copies** (here and in
   ThreeKingsSalesTalkMethod/FRAMEWORKS) and **SEO in two** (seo-master +
-  seo-homework) — anti-lesson #7 says link, don't copy.
+  seo-homework) — anti-lesson #7 says link, don't copy.~~ **Fixed 2026-08-05** —
+  SEO: seo-homework's unique nuggets (mobile hidden-content indexing, video
+  embeds vs AI Overviews, unstructured citations, GBP local-pack weight) merged
+  into seo-master; seo-homework deleted. StoryBrand: this repo's `storybrand.md`
+  declared canonical (ThreeKings' unique doctrine — hateable-villain criterion,
+  "Miller wins the click; Voss the call; Belfort the close" — merged in);
+  ThreeKings' `FRAMEWORKS/storybrand.md` now carries a canon-pointer header
+  declaring itself the distilled operator card.
 - **The brain lives in a separate GitHub org** (StrongestAvengerStack/gullstack-brain)
   — a deliberate decision (confirmed 2026-07-16), not a defect. Consequence to plan
   around: sessions and tooling scoped to the Gull-Stack org cannot read it, so any
