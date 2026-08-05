@@ -1,0 +1,8 @@
+{
+  "name": "gullstack-skills",
+  "private": true,
+  "description": "GullStack skill library + agent scaffold (not a product app)",
+  "scripts": {
+    "typecheck": "bash -n install.sh && bash -n doctor.sh && bash -n describe-repo.sh && bash -n claude/hooks/post-edit-typecheck.sh"
+  }
+}
