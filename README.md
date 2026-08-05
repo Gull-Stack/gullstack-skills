@@ -94,6 +94,43 @@ Measurement and the monthly client report — the retention product. Covers:
 - UTM conventions, weekly pulse, MER / cost-per-lead ROI math
 - The one-page monthly report format (money first, no vanity metrics)
 
+### `email-sms-lifecycle/SKILL.md`
+Owned-audience marketing (gate #5: capture emails or you rent your audience). Covers:
+- List capture with real consent (POS-first), timestamped opt-in proof
+- SMS compliance: TCPA, quiet hours, April 2026 global-revocation rule, 10DLC (file at onboarding — takes weeks)
+- Email deliverability floor: SPF/DKIM/DMARC, one-click unsub, 0.1% complaint target
+- The core flows in build order: welcome, post-visit, win-back, loyalty echoes
+- List hygiene/sunset, Three Kings copy, register-truth measurement
+
+### `review-reputation/SKILL.md`
+Review generation, response, and recovery. Covers:
+- The rules with live enforcement: FTC Consumer Review Rule ($53,088/violation), Google no-gating/no-quotas (April 2026)
+- The generation loop: moment-of-delight timing, direct-link ask, staff script (no quotas)
+- Respond-to-100% doctrine + the Voss negative-review playbook
+- Recovery vs removal (flag only policy violations), velocity measurement
+
+### `content-calendar/SKILL.md`
+Organic content & social calendar (organic proves, paid amplifies). Covers:
+- 3–4 content pillars per client (proof / drop / people / answers)
+- The minimum-viable cadence floor and monthly batch production
+- Hook formulas, the one-shoot-five-surfaces repurposing chain
+- GBP weekly posting, saves/shares measurement, winners→boost pipeline
+
+### `pitch-pricing/SKILL.md`
+The offer (Three Kings owns the message; this owns what's for sale). Covers:
+- The 4-pillar productized ladder as the thing we sell; retainer-first structure
+- Value-anchored flat pricing, three tiers anchored high, descope-never-discount
+- Demo-not-document proposals (Walkthru Labs `/proposal/<slug>/` + accept API)
+- Close mechanics: deposit-to-start, expiry dates, two follow-ups max
+- Live rates come from the rate card, never from the skill
+
+### `billing-bookkeeping/SKILL.md`
+Agency money ops — billing, books, and MRR truth. Covers:
+- Autopay recurring invoices, deposit-before-work, ad spend never on our books
+- Revenue categories by pillar; MRR view must reconcile to QBO reality
+- The monthly close checklist (runnable live via the QuickBooks MCP)
+- The fixed AR/dunning sequence (day 1/7/15/30) and offboarding rule
+
 ### `retail-resale-marketing/SKILL.md`
 Brick-and-mortar retail & resale marketing. Covers:
 - Retail vs lead-gen recalibration (register metrics, not CRM pipelines)
@@ -126,6 +163,11 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 | `meta-ads` | Meta advertising for local business |
 | `google-ads` | Google Ads + Local Services Ads for local business |
 | `analytics-reporting` | Measurement + monthly client reporting |
+| `email-sms-lifecycle` | Owned-audience email/SMS flows + compliance |
+| `review-reputation` | Review generation/response/recovery |
+| `content-calendar` | Organic content system + calendar |
+| `pitch-pricing` | The 4-pillar offer, proposals, pricing |
+| `billing-bookkeeping` | Client billing, books, MRR ops |
 | `retail-resale-marketing` | Brick-and-mortar / resale marketing |
 | `three-kings-salestalk` | Voss + Belfort + Miller sales doctrine (pointer to `Gull-Stack/ThreeKingsSalesTalkMethod`) |
 | `argus-qa` | The Argus PR/QA rubric (pointer to `Gull-Stack/Argus`) |

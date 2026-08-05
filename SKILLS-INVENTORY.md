@@ -21,6 +21,11 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | `retail-resale-marketing/SKILL.md` | Brick-and-mortar + resale: register metrics not CRM metrics, the two-sided buy/sell funnel, GBP-first, merchandising-as-content loop, events/promos, seasonality |
 | `google-ads/SKILL.md` *(added 2026-08-05)* | Google-side paid: LSA (Google Verified, pay-per-lead, 2026 migration into Google Ads), local Search structure/negatives/presence-targeting, PMax guardrails, AI Max, conversion-tracking-before-spend |
 | `analytics-reporting/SKILL.md` *(added 2026-08-05)* | Measurement + the monthly client report: GA4 hygiene (Consent Mode v2, key-event tiers, April 2026 attribution restructure), UTM discipline, register ground truth, MER/cost-per-lead ROI math |
+| `email-sms-lifecycle/SKILL.md` *(added 2026-08-05)* | Owned-audience marketing: capture + consent, TCPA/10DLC (April 2026 global-revocation rule), Gmail/Microsoft deliverability floor, core flows (welcome, post-visit, win-back, loyalty) |
+| `review-reputation/SKILL.md` *(added 2026-08-05)* | Review generation/response/recovery: FTC Consumer Review Rule (enforcement live Dec 2025), Google no-gating/no-quota rules (April 2026), the ask loop, negative-review Voss playbook |
+| `content-calendar/SKILL.md` *(added 2026-08-05)* | Organic content system: pillars, minimum-viable cadence floor, hook formulas, one-shoot repurposing chain, GBP posting, organic→paid winner pipeline |
+| `pitch-pricing/SKILL.md` *(added 2026-08-05)* | The offer: 4-pillar productized ladder, value-anchored flat pricing (rates from the live rate card, not the skill), demo-not-document proposals (Walkthru Labs), close mechanics |
+| `billing-bookkeeping/SKILL.md` *(added 2026-08-05)* | Agency money ops: autopay recurring invoices, ad-spend-never-on-our-books, revenue by pillar, monthly close checklist, AR/dunning sequence, MRR-reconciles-to-QBO |
 | `design-standard-v3.md` | Editorial Light template spec — light-dominant layout, full-bleed heroes, big typography, section order |
 | `storybrand.md` | Donald Miller SB7 — customer is the hero, grunt test, one-liner formula |
 | `website-conversion.md` | Conversion Rate = Desire − (Labor + Confusion); landing-page structure rules (Shapiro/Demand Curve/Refactoring UI) |
@@ -102,32 +107,40 @@ Ordered by how directly the existing docs point at the hole.
    there is no Google-side equivalent. GBP gets one section inside
    retail-resale-marketing but paid search, LSA, and Performance Max are untaught.~~
    **Closed 2026-08-05** — `google-ads/SKILL.md`.
-2. **Email & SMS lifecycle marketing skill.** Bryce-method gate #5 ("capture emails
+2. ~~**Email & SMS lifecycle marketing skill.** Bryce-method gate #5 ("capture emails
    or you rent your audience") and SuperTool's shipped SMS/loyalty/win-back engines
-   both demand it — no skill teaches list-building, campaign cadence, or win-back flows.
+   both demand it — no skill teaches list-building, campaign cadence, or win-back flows.~~
+   **Closed 2026-08-05** — `email-sms-lifecycle/SKILL.md`.
 3. ~~**Analytics & reporting skill.** Gate #1 wires GA4 + pixel + conversion events,
    but nothing teaches reading the data: offline-conversion feedback, monthly client
    reports, which numbers prove ROI at the register.~~
    **Closed 2026-08-05** — `analytics-reporting/SKILL.md`.
-4. **Organic content / social calendar skill.** Reels/UGC guidance is embedded
+4. ~~**Organic content / social calendar skill.** Reels/UGC guidance is embedded
    inside meta-ads and retail-resale; a standalone content skill (calendar, hooks,
-   repurposing) would serve non-retail clients too.
-5. **Review & reputation skill.** Review velocity is one bullet in the retail skill;
-   E-E-A-T in seo-master depends on it. No playbook for generation, response, and recovery.
+   repurposing) would serve non-retail clients too.~~
+   **Closed 2026-08-05** — `content-calendar/SKILL.md`.
+5. ~~**Review & reputation skill.** Review velocity is one bullet in the retail skill;
+   E-E-A-T in seo-master depends on it. No playbook for generation, response, and recovery.~~
+   **Closed 2026-08-05** — `review-reputation/SKILL.md`.
 6. ~~**Client onboarding / discovery skill.** brand-facts.json, site.json, BRAND.md
    voice — every skill consumes this data but nothing teaches collecting it (intake
    questionnaire → facts file).~~
    **Closed 2026-07** — `gullstack-client-onboard` skill (installed at
    `~/.claude/skills/gullstack-client-onboard/`, intake step in its `INTAKE.md`).
-7. **Pitch / proposal / pricing skill.** `gullstack-pitches` and the template-farm
+7. ~~**Pitch / proposal / pricing skill.** `gullstack-pitches` and the template-farm
    preview motion exist as practice, not doctrine. Three Kings covers the message,
-   not the offer structure.
-8. **Title/escrow & lending as a packaged skill.** Bones' brain is rich but is not
-   a SKILL.md any other bot can load; if lending/loan-officer clients are a target
-   vertical, a marketing skill for that vertical doesn't exist either.
-9. **Bookkeeping/ops skills for the money side.** Nothing covers invoicing,
+   not the offer structure.~~
+   **Closed 2026-08-05** — `pitch-pricing/SKILL.md` (structure/doctrine only; live
+   rates stay on the rate card).
+8. **Title/escrow & lending as a packaged skill.** ~~Bones' brain is rich but is not
+   a SKILL.md any other bot can load~~ (**packaging closed 2026-07-16** — the
+   `title-escrow` pointer skill in `.claude/skills/`); the remaining half is
+   unbuilt: a *marketing* skill for the title/lending vertical, if that vertical
+   becomes a client target beyond OnRecord.
+9. ~~**Bookkeeping/ops skills for the money side.** Nothing covers invoicing,
    QuickBooks hygiene, or client billing workflow, despite the agency now running
-   recurring clients.
+   recurring clients.~~
+   **Closed 2026-08-05** — `billing-bookkeeping/SKILL.md`.
 
 ## Part 4 — Housekeeping defects in the existing library
 
