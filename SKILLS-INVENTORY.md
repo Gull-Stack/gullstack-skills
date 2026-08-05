@@ -19,6 +19,8 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | `seo-master/SKILL.md` | 2026 ranking factors, on-page checklist, the 7-layer AEO system (intent map → answer hubs → brand-facts.json → schema → citations → AI shopping), local SEO, audits, keyword research |
 | `meta-ads/SKILL.md` | Meta/IG ads for local business: portfolio/pixel setup, 2025-26 objective changes, radius + under-18 targeting rules, budget floors, Reels-first/UGC creative, offline conversions |
 | `retail-resale-marketing/SKILL.md` | Brick-and-mortar + resale: register metrics not CRM metrics, the two-sided buy/sell funnel, GBP-first, merchandising-as-content loop, events/promos, seasonality |
+| `google-ads/SKILL.md` *(added 2026-08-05)* | Google-side paid: LSA (Google Verified, pay-per-lead, 2026 migration into Google Ads), local Search structure/negatives/presence-targeting, PMax guardrails, AI Max, conversion-tracking-before-spend |
+| `analytics-reporting/SKILL.md` *(added 2026-08-05)* | Measurement + the monthly client report: GA4 hygiene (Consent Mode v2, key-event tiers, April 2026 attribution restructure), UTM discipline, register ground truth, MER/cost-per-lead ROI math |
 | `design-standard-v3.md` | Editorial Light template spec — light-dominant layout, full-bleed heroes, big typography, section order |
 | `storybrand.md` | Donald Miller SB7 — customer is the hero, grunt test, one-liner formula |
 | `website-conversion.md` | Conversion Rate = Desire − (Labor + Confusion); landing-page structure rules (Shapiro/Demand Curve/Refactoring UI) |
@@ -96,23 +98,27 @@ Referenced by this repo's README and by Argus as the source of truth:
 
 Ordered by how directly the existing docs point at the hole.
 
-1. **Google Ads / Local Services Ads skill.** `meta-ads/` covers one paid channel;
+1. ~~**Google Ads / Local Services Ads skill.** `meta-ads/` covers one paid channel;
    there is no Google-side equivalent. GBP gets one section inside
-   retail-resale-marketing but paid search, LSA, and Performance Max are untaught.
+   retail-resale-marketing but paid search, LSA, and Performance Max are untaught.~~
+   **Closed 2026-08-05** — `google-ads/SKILL.md`.
 2. **Email & SMS lifecycle marketing skill.** Bryce-method gate #5 ("capture emails
    or you rent your audience") and SuperTool's shipped SMS/loyalty/win-back engines
    both demand it — no skill teaches list-building, campaign cadence, or win-back flows.
-3. **Analytics & reporting skill.** Gate #1 wires GA4 + pixel + conversion events,
+3. ~~**Analytics & reporting skill.** Gate #1 wires GA4 + pixel + conversion events,
    but nothing teaches reading the data: offline-conversion feedback, monthly client
-   reports, which numbers prove ROI at the register.
+   reports, which numbers prove ROI at the register.~~
+   **Closed 2026-08-05** — `analytics-reporting/SKILL.md`.
 4. **Organic content / social calendar skill.** Reels/UGC guidance is embedded
    inside meta-ads and retail-resale; a standalone content skill (calendar, hooks,
    repurposing) would serve non-retail clients too.
 5. **Review & reputation skill.** Review velocity is one bullet in the retail skill;
    E-E-A-T in seo-master depends on it. No playbook for generation, response, and recovery.
-6. **Client onboarding / discovery skill.** brand-facts.json, site.json, BRAND.md
+6. ~~**Client onboarding / discovery skill.** brand-facts.json, site.json, BRAND.md
    voice — every skill consumes this data but nothing teaches collecting it (intake
-   questionnaire → facts file).
+   questionnaire → facts file).~~
+   **Closed 2026-07** — `gullstack-client-onboard` skill (installed at
+   `~/.claude/skills/gullstack-client-onboard/`, intake step in its `INTAKE.md`).
 7. **Pitch / proposal / pricing skill.** `gullstack-pitches` and the template-farm
    preview motion exist as practice, not doctrine. Three Kings covers the message,
    not the offer structure.

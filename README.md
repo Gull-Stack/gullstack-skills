@@ -78,6 +78,22 @@ UX/UI decision layer for GullStack sites. Covers:
 - A 6-step UX review pass for existing pages
 Links to `design-standard-v3.md` / `website-conversion.md` for full specs rather than duplicating them.
 
+### `google-ads/SKILL.md`
+Google-side paid acquisition for local businesses (Meta creates demand, Google captures it). Covers:
+- Local Services Ads: Google Verified badge, pay-per-lead, ranking levers, the 2026 migration into the Google Ads platform
+- Local Search campaigns: structure, high-intent keywords, negatives, "Presence" targeting
+- Performance Max guardrails and AI Max testing discipline
+- Conversion tracking before spend (gate #1), budget split vs Meta
+- Worked examples: LSA-eligible service client + Plato's Closet Draper (retail, no LSA)
+
+### `analytics-reporting/SKILL.md`
+Measurement and the monthly client report — the retention product. Covers:
+- The standard stack: client-owned GA4, Consent Mode v2, call tracking, platform links
+- Key-event taxonomy (small tier-1, dedupe rule), April 2026 attribution restructure gotchas
+- Register-side ground truth + offline conversion feedback loops
+- UTM conventions, weekly pulse, MER / cost-per-lead ROI math
+- The one-page monthly report format (money first, no vanity metrics)
+
 ### `retail-resale-marketing/SKILL.md`
 Brick-and-mortar retail & resale marketing. Covers:
 - Retail vs lead-gen recalibration (register metrics, not CRM pipelines)
@@ -108,6 +124,8 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 | `app-design` | Product UI/UX principles for apps (Cinch, platos-pos, onrecord-pro, dashboards) |
 | `seo-master` | SEO & 7-layer AEO framework |
 | `meta-ads` | Meta advertising for local business |
+| `google-ads` | Google Ads + Local Services Ads for local business |
+| `analytics-reporting` | Measurement + monthly client reporting |
 | `retail-resale-marketing` | Brick-and-mortar / resale marketing |
 | `three-kings-salestalk` | Voss + Belfort + Miller sales doctrine (pointer to `Gull-Stack/ThreeKingsSalesTalkMethod`) |
 | `argus-qa` | The Argus PR/QA rubric (pointer to `Gull-Stack/Argus`) |
