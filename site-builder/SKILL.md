@@ -30,13 +30,17 @@ If any of these files are missing, STOP and tell the user. Do not build without 
 - **Vanilla CSS** — no Tailwind, no frameworks. Custom properties for brand colors.
 - **No JS frameworks** — vanilla JS only, minimal. Native HTML elements preferred (`<details>` for FAQ, CSS animations for marquees)
 
-### Design: Editorial Light v3
+### Design: Editorial Light v3.1
+Full spec in `design-standard-v3.md`; decision layer + review pass in the `ux-ui` skill. Headlines only:
+
 - **80% light backgrounds** (#f5f5f0 or white), dark only for nav + footer
 - **Full-bleed hero imagery** — edge-to-edge, NO heavy overlays (20-30% opacity max gradient)
 - **Big typography** — H1: `clamp(2rem, 5vw, 3.5rem)`, Hero: `clamp(2.25rem, 5.5vw, 3.75rem)`
 - **Generous whitespace** — section padding `6rem 0` desktop, `4rem 0` mobile
-- **Inter font** (or similar clean sans-serif)
+- **Bold tight grotesk — Archivo is the house display face.** No heavy display serifs. Inter is an acceptable *text* face, not the display voice. Max two faces
+- **No icon-box grids** — real photography, collage, or stat bands instead. Villains concrete, never an abstract icon (§9)
 - **NO emojis** — use SVG icons or nothing
+- **Mobile is a design pass, not a media query** — 390px grunt test, 44px targets, bottom nav/sticky CTA bar mobile-only (desktop keeps top header nav). See `design-standard-v3.md` § Mobile
 
 ### Homepage Section Order (minimum 6 of these)
 1. Hero — full-bleed image, big headline, subtitle, CTA
@@ -44,7 +48,7 @@ If any of these files are missing, STOP and tell the user. Do not build without 
 3. Who We Serve — bold headline + category descriptions
 4. Project/Work Showcase — image cards grid (3-up desktop)
 5. Testimonials — star rating, quote, name/title
-6. Benefits — checkmark icons + descriptions
+6. Benefits — photo/stat treatment or inline checklist (NOT an icon-tile grid)
 7. How to Start — 3-step process cards
 8. Comparison Table — us vs. alternatives (green checks / gray X's)
 9. FAQ — `<details>` accordion, 5-6 questions

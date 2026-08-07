@@ -6,10 +6,15 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+GROK_DIR="${GROK_CONFIG_DIR:-$HOME/.grok}"
 REGISTRY="$CLAUDE_DIR/gullstack-repos"
 
 # Skills installed globally (repo-conventions is per-repo, never global).
-GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui"
+GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui app-design"
+
+# Skills Grok also gets. Grok reads ~/.grok/skills/<name>/SKILL.md, same format.
+# Keep in sync — a design skill that only Claude has is a design skill that drifts.
+GROK_SKILLS="app-design ux-ui site-builder"
 
 usage() { sed -n '2,4p' "$0" | sed 's/^# //'; exit 1; }
 
@@ -31,6 +36,15 @@ install_global() {
     cp "$HERE/$s/SKILL.md" "$CLAUDE_DIR/skills/$s/SKILL.md"
     echo "skill     -> $CLAUDE_DIR/skills/$s/"
   done
+
+  # Grok gets the same design canon. Skipped silently if Grok isn't installed.
+  if [ -d "$GROK_DIR" ]; then
+    for s in $GROK_SKILLS; do
+      mkdir -p "$GROK_DIR/skills/$s"
+      cp "$HERE/$s/SKILL.md" "$GROK_DIR/skills/$s/SKILL.md"
+      echo "grok skill-> $GROK_DIR/skills/$s/"
+    done
+  fi
 
   python3 - "$CLAUDE_DIR/settings.json" "$CLAUDE_DIR/hooks/post-edit-typecheck.sh" <<'PY'
 import json, os, sys

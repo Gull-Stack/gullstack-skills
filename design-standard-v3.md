@@ -2,6 +2,9 @@
 
 *Established: March 2026. Based on the Monterey Bay Door v3 rebuild.*
 *Reference site: unikorns.work*
+*v3.1 — 2026-08-07: typography corrected to grotesk, imagery law added, mobile promoted to a first-class section.*
+
+**Scope:** marketing sites only. Product app UI (Cinch admin/HQ/register, `/m`, member, Flight Decks) follows `app-design`, not this. Decision layer over this spec: the `ux-ui` skill.
 
 ---
 
@@ -18,11 +21,15 @@
 - Let the photo do the work — the image IS the design
 - Text sits at the bottom of the hero with generous padding
 
-### 3. Big, Confident Typography
+### 3. Big, Confident Typography — dynamic, not stifling
 - H1 headlines: `clamp(2rem, 5vw, 3.5rem)` minimum
 - Hero headlines: `clamp(2.25rem, 5.5vw, 3.75rem)`
 - Don't play it safe with 1.5rem headings — say it big
-- Inter font family (or similar clean sans-serif)
+- **Display face: a bold, tight grotesk. Archivo is the house default** (Archivo / Archivo Expanded; Inter is an acceptable neutral text face, not the display voice)
+- **No heavy display serifs.** Playfair, Didot, and other high-contrast serif headlines are retired — they read stifling and dated
+- Tighten tracking as size grows (`-0.02em` to `-0.03em` on display); heavy weights are allowed large
+- One display face + one text face. A third face is a defect
+- Nothing under 400 weight in UI
 - Section labels: small uppercase with letter-spacing (`0.7rem, 600 weight, 0.25em tracking`)
 
 ### 4. Generous Whitespace
@@ -58,6 +65,44 @@ Every homepage MUST include at least 3 of these:
 - Subtle hover: translateY(-4px) + shadow increase + slight image scale
 - Grid layout: 3-up desktop, single column mobile
 
+### 9. Imagery Over Icon Boxes (hard rule)
+**Banned:** the 3-up/4-up grid of small-icon-in-a-box tiles with a title and two lines of copy. It is the default-template look and it communicates nothing.
+
+Replace it with, in order of preference:
+1. **Real photography** — the work, the crew, the storefront, the product in hand
+2. **Collage / overlap** — two or three photos breaking their bounds, one caption
+3. **Stat bands** — big numbers with a quiet label, full width, no boxes
+4. **Before/after or comparison** — visual proof beats a claimed benefit
+
+Villains must be **concrete**, never an abstract icon: name the actual bad outcome, don't draw a warning triangle. If an icon appears at all it is 16–24px, never scaled up, wrapped in a colored shape.
+
+This overrides the "Benefits — checkmark icons" pattern below: benefits ship as a photo/stat treatment or an inline checklist, not as a tile grid.
+
+---
+
+## Mobile (first-class, not a media query)
+
+Half or more of client-site traffic is a phone. Design the phone pass, don't retrofit it.
+
+### Structure
+- 768px breakpoint mandatory; 3-up grids collapse to **single column**, never a 2-up squeeze
+- Hero passes the grunt test at 390px: headline legible + one CTA visible without scrolling
+- Section padding `4rem 0`; type reflows through the existing `clamp()` — never hand-write a second type scale
+- Wide content (tables, code, wide cards) scrolls inside its own container; the page body never scrolls horizontally
+- **Bottom nav / sticky bottom CTA bar is mobile-only.** Desktop keeps top header nav. Never ship a bottom dock at a desktop viewport
+
+### Touch
+- Tap targets ≥ 44px, ≥ 8px apart
+- Primary CTAs in the lower ~60% of the screen (thumb zone)
+- Any hover-only affordance (tooltip, hover-reveal caption, hover menu) needs a tap equivalent or gets cut
+
+### Weight
+- No autoplay video, large GIFs, or third-party embeds above the fold
+- Images: WebP + `srcset` + explicit width/height so nothing jumps
+
+### Auditing mobile
+Measure **reachability, not layout**. Tap-target audits must exclude off-canvas drawers, closed mobile menus, collapsed `<details>`, and anything hidden at that viewport — counting hidden nodes produces fake failures and masks the real ones.
+
 ---
 
 ## Section Order (Homepage Template)
@@ -67,7 +112,7 @@ Every homepage MUST include at least 3 of these:
 3. **Who We Serve** — bold headline + 3 category descriptions
 4. **Project Showcase** — image cards grid
 5. **Testimonials** — "What our clients say"
-6. **Benefits** — checkmark icons with title + description
+6. **Benefits** — photo/stat treatment or inline checklist (see §9 — **not** an icon-tile grid)
 7. **How to Start** — 3-step process cards
 8. **Comparison Table** — us vs. alternatives
 9. **FAQ** — accordion with 5-6 questions
