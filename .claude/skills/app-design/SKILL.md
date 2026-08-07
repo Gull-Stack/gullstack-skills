@@ -393,7 +393,7 @@ readable behind the frequency picker. **You never lose your place.**
 
 ---
 
-## H4. Flow law — multi-screen sequences
+## I. Flow law — multi-screen sequences
 
 **Evidence:** Monzo *Creating a pot* (18 screens), Phantom *Send* (10), PayPal (14).
 A flow is a designed object. Name its steps before building any of them.
@@ -442,93 +442,7 @@ Never a plain text input. The evidenced pattern:
 
 ---
 
-## I. Cinch implementation anchors
-
-| Law | Code / doc |
-|-----|------------|
-| Web admin header | `src/components/admin/AdminHero.tsx` |
-| Header width / pad | `admin/layout.tsx` · `docs/ADMIN-PAGE-CHROME-LAW-2026-08-07.md` |
-| Ocean composition | `OceanPool` / `OceanShell` · Tidal composition law |
-| Numeric craft | `.claude/skills/design-mastery` |
-| Full Mobbin evidence | `docs/mobbin-study/` |
-
----
-
-## J. Ship checklist (web OR mobile)
-
-```
-Species
-- [ ] Named C1 money home / C2 workroom / C3 compose
-- [ ] One shell for this role (web sidebar OR phone tabs — not both fighting)
-
-Wayfinding
-- [ ] Where am I? scope + room labeled
-- [ ] Accent only on interactive
-- [ ] Destination h1 matches nav label
-
-Chrome
-- [ ] One page header species; full-width main (no floating max-w page)
-- [ ] Web: left rooms + top scope · Phone: bottom rooms + top scope
-- [ ] One range control if time-scoped
-
-Content
-- [ ] C1: one hero metric + so-what
-- [ ] C2: search + range + KPI strip + one list grammar
-- [ ] C3: one focus + chips + sticky primary
-
-States (§G — screenshot each one, don't assume)
-- [ ] Empty says what appears here AND when; exactly one action
-- [ ] Web empty is per-card (each card keeps title + its own line + its own button)
-- [ ] Money hero still shows its number at zero
-- [ ] Loading: chrome fully real, only data ghosts; skeleton matches real layout
-- [ ] Error tiered right: inline field / sheet over live parent / full page
-- [ ] No error destroys the context behind it; no lone "OK"
-- [ ] Locked gates in place
-
-Flow (§H4 — if this ships a sequence)
-- [ ] Steps named before layout; entry sits on the object in its room
-- [ ] Scope disambiguated first; downsides disclosed at the choice
-- [ ] Target pinned + editable through every later step
-- [ ] Cancel in the same corner on every step; primary disabled until valid
-- [ ] Money entry: hero amount + converted echo + Max + custom keypad
-
-Overlays (§H1–H2)
-- [ ] Overlay species matches its job; one job per sheet
-- [ ] Parent room visible behind it; explicit dismiss, not swipe-only
-
-Structure (§M)
-- [ ] Three bars present and distinct: identity → views → toolbar
-- [ ] Toolbar split: narrowing left, adding right
-- [ ] Lifecycle stages are TABS, not a status dropdown
-- [ ] Every number states its window; every chart states its method
-- [ ] Any generated insight carries a citation + timestamp
-
-Affordance (§N)
-- [ ] Glyph vocabulary used consistently: `›` opens · `▾` switches · `✏️` edits inline · `↗` leaves
-- [ ] Table rows: links underlined+colored, info cells plain — NOT whole-row click
-- [ ] Row's primary verb has its own Action column (never hover-only)
-- [ ] Counts route to the records they count
-- [ ] Empty metadata slots still render, with `+`
-
-Consequence (§P)
-- [ ] Drill-down keeps the list on screen (drawer/pane), not a route change
-- [ ] Every primary button names the consequence — no "Next"/"Submit"/"OK"
-- [ ] Editing shows live preview + explicit save state
-- [ ] Success is a receipt (all the facts, exportable, one route onward)
-- [ ] Destructive actions state blast radius + reversibility; destructive last in menus
-- [ ] Multi-step shows steps, deadlines, estimates, and the system's own steps
-- [ ] Parsed/imported input shows its interpretation before commit
-
-Craft
-- [ ] One card + one row component
-- [ ] tabular-nums; no emoji; ≤3 hues
-- [ ] Neighbor test: Shopify web / Linear web / Monzo mobile — same species?
-- [ ] Crop test (Cinch ocean): strip hero → body still product world
-```
-
----
-
-## M. Information structure — how a web room is organized
+## J. Information structure — how a web room is organized
 
 **Evidence:** 20 web apps opened and read 2026-08-07 (7,915 screens): Revolut Business,
 Gusto, Klaviyo, Melio, Mixpanel, Asana, Clay, Todoist, Dovetail, Fibery, Typeform,
@@ -611,7 +525,7 @@ insight with no citation and no timestamp.
 
 ---
 
-## N. Affordance — what makes information clickable
+## K. Affordance — what makes information clickable
 
 This is a **vocabulary**, and it must be used consistently or the room becomes a
 guessing game. Every glyph below means exactly one thing.
@@ -676,7 +590,7 @@ that disappears when empty is a field the user never learns exists.
 
 ---
 
-## P. Consequence — what happens after the click
+## L. Consequence — what happens after the click
 
 Josh's third question, and the one the 20 apps are most consistent about.
 
@@ -757,7 +671,93 @@ their template galleries with **"Start from scratch"** so the escape hatch is fi
 
 ---
 
-## K. What this skill is NOT
+## M. Cinch implementation anchors
+
+| Law | Code / doc |
+|-----|------------|
+| Web admin header | `src/components/admin/AdminHero.tsx` |
+| Header width / pad | `admin/layout.tsx` · `docs/ADMIN-PAGE-CHROME-LAW-2026-08-07.md` |
+| Ocean composition | `OceanPool` / `OceanShell` · Tidal composition law |
+| Numeric craft | `.claude/skills/design-mastery` |
+| Full Mobbin evidence | `docs/mobbin-study/` |
+
+---
+
+## N. Ship checklist (web OR mobile)
+
+```
+Species
+- [ ] Named C1 money home / C2 workroom / C3 compose
+- [ ] One shell for this role (web sidebar OR phone tabs — not both fighting)
+
+Wayfinding
+- [ ] Where am I? scope + room labeled
+- [ ] Accent only on interactive
+- [ ] Destination h1 matches nav label
+
+Chrome
+- [ ] One page header species; full-width main (no floating max-w page)
+- [ ] Web: left rooms + top scope · Phone: bottom rooms + top scope
+- [ ] One range control if time-scoped
+
+Content
+- [ ] C1: one hero metric + so-what
+- [ ] C2: search + range + KPI strip + one list grammar
+- [ ] C3: one focus + chips + sticky primary
+
+States (§G — screenshot each one, don't assume)
+- [ ] Empty says what appears here AND when; exactly one action
+- [ ] Web empty is per-card (each card keeps title + its own line + its own button)
+- [ ] Money hero still shows its number at zero
+- [ ] Loading: chrome fully real, only data ghosts; skeleton matches real layout
+- [ ] Error tiered right: inline field / sheet over live parent / full page
+- [ ] No error destroys the context behind it; no lone "OK"
+- [ ] Locked gates in place
+
+Flow (§I — if this ships a sequence)
+- [ ] Steps named before layout; entry sits on the object in its room
+- [ ] Scope disambiguated first; downsides disclosed at the choice
+- [ ] Target pinned + editable through every later step
+- [ ] Cancel in the same corner on every step; primary disabled until valid
+- [ ] Money entry: hero amount + converted echo + Max + custom keypad
+
+Overlays (§H1–H2)
+- [ ] Overlay species matches its job; one job per sheet
+- [ ] Parent room visible behind it; explicit dismiss, not swipe-only
+
+Structure (§J)
+- [ ] Three bars present and distinct: identity → views → toolbar
+- [ ] Toolbar split: narrowing left, adding right
+- [ ] Lifecycle stages are TABS, not a status dropdown
+- [ ] Every number states its window; every chart states its method
+- [ ] Any generated insight carries a citation + timestamp
+
+Affordance (§K)
+- [ ] Glyph vocabulary used consistently: `›` opens · `▾` switches · `✏️` edits inline · `↗` leaves
+- [ ] Table rows: links underlined+colored, info cells plain — NOT whole-row click
+- [ ] Row's primary verb has its own Action column (never hover-only)
+- [ ] Counts route to the records they count
+- [ ] Empty metadata slots still render, with `+`
+
+Consequence (§L)
+- [ ] Drill-down keeps the list on screen (drawer/pane), not a route change
+- [ ] Every primary button names the consequence — no "Next"/"Submit"/"OK"
+- [ ] Editing shows live preview + explicit save state
+- [ ] Success is a receipt (all the facts, exportable, one route onward)
+- [ ] Destructive actions state blast radius + reversibility; destructive last in menus
+- [ ] Multi-step shows steps, deadlines, estimates, and the system's own steps
+- [ ] Parsed/imported input shows its interpretation before commit
+
+Craft
+- [ ] One card + one row component
+- [ ] tabular-nums; no emoji; ≤3 hues
+- [ ] Neighbor test: Shopify web / Linear web / Monzo mobile — same species?
+- [ ] Crop test (Cinch ocean): strip hero → body still product world
+```
+
+---
+
+## O. What this skill is NOT
 
 - Not marketing (Editorial Light / site-builder).  
 - Not a license to pixel-clone reference apps.  
@@ -766,7 +766,7 @@ their template galleries with **"Start from scratch"** so the escape hatch is fi
 
 ---
 
-## L. Research log (2026-08-07)
+## P. Research log (2026-08-07)
 
 | Pass | Focus | Key captures |
 |------|-------|--------------|
@@ -776,7 +776,7 @@ their template galleries with **"Start from scratch"** so the escape hatch is fi
 
 ### Deep pass 2 — behaviour, not layout (2026-08-07, same day)
 
-Filled §G (states), §H (overlays/motion), §H4 (flows) and §A1b–A1c, which were the
+Filled §G (states), §H (overlays/motion), §I (flows) and §A1b–A1c, which were the
 thinnest sections. Sampled via Mobbin's own taxonomy — 129 `screenPatterns`,
 76 `flowActions`, 53 `screenElements`:
 
