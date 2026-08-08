@@ -264,6 +264,19 @@ The rules above are only real as measurements. Stated for the Auditor to impleme
 | **W8_NAME_OUTRANKED** | within the **header band** (the h1's nearest sized ancestor — reuse W4's existing resolution, **not** all of `main`), no text node containing a non-digit character has a computed `font-size` greater than the h1's computed `font-size` | **0 violations** |
 | **W8 exemption** | text matching `/^[\s$£€%+\-.,0-9]*$/` (pure number/currency) is exempt — a number MAY outrank the name on a C1 money home; a sentence may not | — |
 | **A2b** | every per-tenant room label resolves through one exported function called by both rail and room | 0 hardcoded labels |
+| **A2b-shapes** | W8 and the h1-matches-rail assertion run on **every tenant shape** (retail · member-business · resort), not one | 0 violations × 3 shapes |
+
+⛔ **Run the h1 assertions across ALL tenant shapes.** The rail/room drift class is
+*invisible on a single shape*. Live example (cinch-app #602, 2026-08-08): the packs
+room chose its title with a **two-way** ternary (`classy ? "Class packs" : "Punch
+cards"`) while the rail used the **three-way** `packsRoomLabel()`, which returns
+"Session packs" when `resortShaped`. On retail and member-business the two agreed and
+every check passed. On resort the h1 read "Punch cards" under a door reading "Session
+packs" — a §5 violation *inside the PR that was adding the §5 rule*.
+
+A grep cannot find this: both sides look correct in isolation, and the disagreement
+only exists at the shape where the two functions diverge. **Only a rendered walk on
+the differing shape catches it.**
 
 ⛔ Scope W8 to the header band. Asserting across all of `main` fails every C1 money
 home, because the number legitimately outranks the name — which is invariant 3 itself.
