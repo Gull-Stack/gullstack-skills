@@ -181,14 +181,65 @@ One species only:
 
 ```
 [optional back]
-[eyebrow / room]     optional
-[h1 title]           always one h1
-[subtitle]           one quiet line
-[actions row]        primary right or under title — never a second h1 band
+[breadcrumb / scope]  optional — the PATH to here, never a second name
+[the NAME]            the room or object. always the one h1.
+[subtitle]            metadata or the so-what. one quiet line.
+[actions row]         primary right or under the name — never a second h1 band
 ```
 
-Cinch: use **`AdminHero` / `OceanPool`** full-width (never light SaaS title stacked on ocean).  
-See `AdminHero` + `docs/ADMIN-PAGE-CHROME-LAW-2026-08-07.md`.
+#### A2a. The h1 rule — settled 2026-08-08 from the top-rated set
+
+The long-running "is the h1 the eyebrow or the title?" argument was the wrong
+question. It asks about a *slot*. Every top-rated web app answers about *semantics*:
+
+> **The h1 is the NAME of the thing you are looking at. It equals the rail label.
+> And it is never visually subordinate to another piece of text.**
+
+**Evidence (Mobbin top-rated web, read 2026-08-08):**
+
+| App | Header | Rail label |
+|-----|--------|-----------|
+| Homerun | `Product Manager` · sub: `Full-time / Part-time · Cali Office` | Product Manager ✓ |
+| Steep (metric) | `User Conversion Rate` · sub: `Last 365 days` | User Conversion Rate ✓ |
+| Steep (team) | breadcrumb `Teams / Product`, then the data | Product ✓ |
+| Attio | `Tasks` | Tasks ✓ |
+| Plane | breadcrumb `AS Mobbin Official › Work items` | Work items ✓ |
+
+Three things hold in **all** of them:
+
+1. **The line above the name, when present, is a breadcrumb — the path to here.**
+   It is never a second copy of the name and never a slogan.
+2. **The line below the name is metadata or the so-what** — `Full-time · Cali Office`,
+   `Last 365 days`. Facts, not marketing.
+3. **Nothing in the header outranks the name typographically** — except a **number**
+   on a C1 money home, where the number *is* the display moment (Fey, Monzo, Steep).
+   A number may outrank the name. **A sentence may not.**
+
+So both header shapes are legal, and the choice is by species, not taste:
+
+| Species | Shape | The h1 is |
+|---------|-------|-----------|
+| C1 money home | quiet name label · **huge number** · so-what | the quiet name label |
+| C2/C3/C5 room or object | **name at display size** · metadata sub | the name |
+
+⛔ **The banned shape** — and it is the one that survives audits because both halves
+look fine alone: the name rendered as muted micro-type while a *different sentence*
+takes the display size. "Live store numbers" over a whispered `REPORTS`,
+"No customers yet" over a whispered `CUSTOMERS`, "Top spender — top 20% by lifetime
+spend" over a whispered `Customers`. The h1 is semantically correct and visually
+demoted; a reader's eye lands on a sentence that is not the name of the room. Move the
+sentence to the subtitle and let the name take the display size — or, if the room is a
+C1, let the **number** take it.
+
+**Cinch:** `AdminHero` (title = h1) and `OceanPool` (eyebrow = h1) both satisfy A2a as
+long as the slot carrying the h1 carries the **room name** and no sentence outranks it.
+The component choice follows the species table above. See
+`docs/ADMIN-PAGE-CHROME-LAW-2026-08-07.md` — whose §"eyebrow as h1 on one page, title
+as h1 on next → FIXED" should be read as fixed *by this rule*, not by picking a winner.
+
+**Gate:** `gate:web` already asserts h1-matches-rail-label. What it does not yet assert
+is rule 3 — that no non-numeric text in the header renders larger than the h1. That is
+the check that catches the banned shape.
 
 ### A3. Web density
 
@@ -1019,6 +1070,8 @@ Wayfinding
 - [ ] Where am I? scope + room labeled
 - [ ] Accent only on interactive
 - [ ] Destination h1 matches nav label
+- [ ] The h1 IS the name of the thing (§A2a) — and no *sentence* in the header renders larger than it. A number may (C1 only); a sentence never.
+- [ ] Line above the name is a breadcrumb, not a second name; line below is metadata, not a slogan
 
 Chrome
 - [ ] One page header species; full-width main (no floating max-w page)
