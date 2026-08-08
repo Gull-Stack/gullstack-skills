@@ -237,9 +237,36 @@ The component choice follows the species table above. See
 `docs/ADMIN-PAGE-CHROME-LAW-2026-08-07.md` — whose §"eyebrow as h1 on one page, title
 as h1 on next → FIXED" should be read as fixed *by this rule*, not by picking a winner.
 
-**Gate:** `gate:web` already asserts h1-matches-rail-label. What it does not yet assert
-is rule 3 — that no non-numeric text in the header renders larger than the h1. That is
-the check that catches the banned shape.
+#### A2b. Per-tenant vocabulary — both sides resolve from ONE function
+
+§5 of the chrome law says *the h1 IS the sidebar label*. On a multi-vertical product
+that only holds if the rail and the room read the **same resolver**, because the label
+is not a constant — it is tenant vocabulary.
+
+Evidence (Cinch #603, resort shape): `/admin/schedule`'s door has three names by venue
+(Class schedule · the tenant's water word · Soak sessions) and Packs has three more
+(Class packs · Session packs · Punch cards). Two rooms also both rendered `LODGING` —
+the *group* name — so neither matched its door and the two were indistinguishable.
+
+**Rule.** Where a room's label varies by tenant, vertical or module shape, it is
+resolved by one exported function (Cinch: `src/lib/admin/room-labels.ts` —
+`scheduleRoomLabel()`, `packsRoomLabel()`), and **both the rail and the room call it**.
+A room may never hardcode its own name, and may never borrow its nav *group's* name.
+Without this, every new vertical silently re-opens §A2a.
+
+#### A2c. Numeric acceptance (AvengerCycle — acceptance is a NUMBER)
+
+The rules above are only real as measurements. Stated for the Auditor to implement:
+
+| ID | Assertion | Threshold |
+|----|-----------|-----------|
+| existing | rendered `<h1>` text == the rail label for that route | 0 violations |
+| **W8_NAME_OUTRANKED** | within the **header band** (the h1's nearest sized ancestor — reuse W4's existing resolution, **not** all of `main`), no text node containing a non-digit character has a computed `font-size` greater than the h1's computed `font-size` | **0 violations** |
+| **W8 exemption** | text matching `/^[\s$£€%+\-.,0-9]*$/` (pure number/currency) is exempt — a number MAY outrank the name on a C1 money home; a sentence may not | — |
+| **A2b** | every per-tenant room label resolves through one exported function called by both rail and room | 0 hardcoded labels |
+
+⛔ Scope W8 to the header band. Asserting across all of `main` fails every C1 money
+home, because the number legitimately outranks the name — which is invariant 3 itself.
 
 ### A3. Web density
 
