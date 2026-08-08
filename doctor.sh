@@ -7,7 +7,9 @@ set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 REGISTRY="$CLAUDE_DIR/gullstack-repos"
-GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui"
+GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui app-design"
+GROK_DIR="${GROK_CONFIG_DIR:-$HOME/.grok}"
+GROK_SKILLS="app-design ux-ui site-builder"
 
 fail=0; warn=0
 ok()  { printf 'ok    %s\n' "$1"; }
@@ -62,10 +64,32 @@ for a in "$HERE"/claude/agents/*.md; do
   else bad "agent $name missing — run ./install.sh --global"; fi
 done
 
+# A skill that is PRESENT but STALE is worse than one that is missing: doctor says
+# ok, the agent reads it, and nobody learns the canon moved. 2026-08-08: app-design
+# ran three versions across four copies and two independent audits reviewed
+# documents neither auditor chose. Existence is not the check — the hash is.
 for s in $GLOBAL_SKILLS; do
-  if [ -f "$CLAUDE_DIR/skills/$s/SKILL.md" ]; then ok "skill $s installed"
-  else bad "skill $s missing — run ./install.sh --global"; fi
+  src="$HERE/$s/SKILL.md"
+  dst="$CLAUDE_DIR/skills/$s/SKILL.md"
+  if [ ! -f "$src" ]; then bad "skill $s missing from canon at $src"
+  elif [ ! -f "$dst" ]; then bad "skill $s missing — run ./install.sh --global"
+  elif [ "$(hash_of "$src")" != "$(hash_of "$dst")" ]; then
+    bad "skill $s STALE in $CLAUDE_DIR/skills (canon $(wc -l < "$src" | tr -d ' ') lines vs installed $(wc -l < "$dst" | tr -d ' ')) — re-run ./install.sh --global"
+  else ok "skill $s installed and current"; fi
 done
+
+# Grok reads its own copy and will silently audit an old one.
+if [ -d "$GROK_DIR/skills" ]; then
+  for s in $GROK_SKILLS; do
+    src="$HERE/$s/SKILL.md"; dst="$GROK_DIR/skills/$s/SKILL.md"
+    if [ ! -f "$dst" ]; then bad "grok skill $s missing — run ./install.sh --global"
+    elif [ "$(hash_of "$src")" != "$(hash_of "$dst")" ]; then
+      bad "grok skill $s STALE in $GROK_DIR/skills — re-run ./install.sh --global"
+    else ok "grok skill $s current"; fi
+  done
+else
+  meh "$GROK_DIR/skills absent — Grok has no GullStack design canon on this machine"
+fi
 
 # --- per-repo installs
 check_typechecker() {
@@ -94,6 +118,20 @@ else
       bad "$repo registered but missing (edit $REGISTRY if it moved)"
       continue
     fi
+    # Per-repo copies of the shared skills drift the same way. A POINTER is the
+    # preferred shape (CLAUDE.md: link, don't copy — bryce-method anti-lesson #7)
+    # and is always current by construction; only a real copy can go stale.
+    for s in $GLOBAL_SKILLS; do
+      rs="$repo/.claude/skills/$s/SKILL.md"
+      [ -f "$rs" ] || continue          # a repo that doesn't carry it is fine
+      if grep -qi '(pointer)' "$rs"; then
+        ok "$repo/$s pointer"
+      elif [ "$(hash_of "$HERE/$s/SKILL.md")" != "$(hash_of "$rs")" ]; then
+        bad "$repo carries a STALE copy of $s — cp \"$HERE/$s/SKILL.md\" \"$rs\"  (or make it a pointer)"
+      else
+        ok "$repo/$s copy current"
+      fi
+    done
     for f in "CLAUDE.md" ".claude/skills/repo-conventions/SKILL.md"; do
       if [ ! -f "$repo/$f" ]; then
         bad "$repo/$f missing — run ./install.sh $repo"

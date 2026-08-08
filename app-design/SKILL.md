@@ -1,14 +1,16 @@
 ---
 name: app-design
-description: Product UI/UX for GullStack apps (Cinch web admin + HQ + register + member/employee phone) — wayfinding shells for desktop AND mobile, hero metrics, merchant workrooms, progressive disclosure, one card/list grammar, ocean/action color law. Use when designing, building, or reviewing any product UI (NOT marketing sites — those use design-standard-v3 / site-builder).
+description: Product UI/UX for GullStack apps (Cinch web admin + HQ + register + member/employee phone) — wayfinding shells for desktop AND mobile (rail + main + inspector, responsive collapse), five page species (money home, workroom, compose, conversation/agent, inbox), hero metrics, progressive disclosure, one card/list grammar, ocean/action color law and light+dark theming, keyboard and bulk-selection affordances. Use when designing, building, or reviewing any product UI (NOT marketing sites — those use design-standard-v3 / site-builder).
 ---
 
 # Skill: GullStack App Design
 
 > **Canon:** GullStack brain `protocol/app-ux-design.md` when present; else this skill.  
-> **Evidence:** Mobbin Pro study 2026-08-07 — **mobile + web**  
+> **Evidence:** Mobbin Pro study 2026-08-07 (**mobile + web**) + top-rated web pass
+> 2026-08-08 (`mobbin.com/discover/apps/web/top`).  
 > (`cinch-app/docs/mobbin-study/`, `GULLSTACK-APP-DESIGN-STANDARD-2026-08-07.md`).  
-> Sync to: `~/.claude/skills/app-design/SKILL.md`, `gullstack-skills/app-design/SKILL.md`.
+> Sync to: `~/.claude/skills/app-design/SKILL.md`, `gullstack-skills/app-design/SKILL.md`,
+> `gullstack-skills/.claude/skills/app-design/SKILL.md`.
 
 How GullStack **product apps** look and behave. Counterpart to marketing
 `design-standard-v3` / site-builder. Complements `protocol/ux-ui-uplevel` and
@@ -17,6 +19,24 @@ tokens > skin**.
 
 **Learn grammar; never clone brand skins** (no Monzo coral, no Linear logo,
 no Shopify illustration packs).
+
+---
+
+## Escalation routes — this skill does NOT cover these, go get them
+
+This skill covers grammar, wayfinding and behaviour. It is **not** self-sufficient.
+Three questions have to leave it, and "`ui-ux-pro-max` is fallback only" does **not**
+apply here — these routes are mandatory, not a fallback:
+
+| Question | Go to | Trigger |
+|----------|-------|---------|
+| Contrast ratio · focus rings · tab order · ARIA · screen readers | **`ui-ux-pro-max`** § Accessibility | ⛔ before shipping ANY product screen |
+| Chart type · series colors · axis · legend · stat tile · sparkline | **`dataviz`** | ⛔ before writing the first line of chart code |
+| React/Next/shadcn implementation idioms | `ui-ux-pro-max` § Stacks · `vercel:shadcn` | while building |
+
+§F's hue budget governs **chrome**. It does **not** govern data series — a 7-series
+comparison chart is not a 7-hue brand violation. `dataviz` owns the series palette and
+outranks §F inside the plot area.
 
 ---
 
@@ -47,19 +67,29 @@ A user on any screen must answer without thinking:
 
 Marketing sites → Editorial Light. Do not apply ocean admin chrome to marketing.
 
+> **Dark is not the ops dialect.** Register/KDS is dark *because it is a separate
+> species*, not because dark is reserved for it. Dark is a first-class product world:
+> the #1-rated web app on Mobbin (Fey, 4.92) and Linear are both dark-first. Any
+> surface may ship a dark theme — see §F0. What is banned is a surface that is dark
+> *by accident*: an unthemed dark band sandwiched in white chrome.
+
 ---
 
 ## A. Shell law — Desktop web (P0 for Cinch admin)
 
 Mobbin Web: **Shopify Admin** (781 screens), **Linear** (448), **Mercury** (479).
 
-### A1. Two zones, two jobs
+### A1. Four zones, four jobs
 
 | Zone | Job | Do | Don’t |
 |------|-----|----|-------|
 | **Top bar** | **Scope** | Store/workspace name, ⌘K search, notifications, account | Primary room nav as a second row of tabs that fights the sidebar |
 | **Left sidebar** | **Rooms** | 5–12 stable destinations, active = filled pill, Settings pin bottom | Different sidebar per page; rooms that vanish by route |
 | **Main** | **Job** | Full width of remaining column; one page header; one spine | Centered `max-w-3xl` page that floats; double headers |
+| **Right inspector** | **Configure what main is showing** | Optional 4th zone: the object’s metadata, or the controls that produce the view | A second nav; a place to hide primary actions |
+
+The inspector is not optional trim — it is how every top-rated admin avoids burying
+configuration in modals. Its law is §A1d.
 
 **Shopify Web home (captured):** black top (logo · global search · bell · store) + light left nav (Home, Orders, Products, Customers, Content, Finances, Analytics, Marketing…) + main setup spine.  
 **Linear Web (captured):** left nav (Inbox, My issues, Workspace/Projects/Views, Teams) + main content; workspace switcher at top of rail.
@@ -89,6 +119,61 @@ LangSmith and Toggl both ship an in-product setup card, and both share the same 
 - A **completion counter** (`2/4`) or **progress bar** (`100%`)
 - Completed steps carry a ✓ and stay visible — the list does not shrink as you go
 - The whole thing is **dismissible** (✕), and does not return once dismissed
+
+**Plus a permanent rail-bottom progress affordance** (Attio, Steep, 2026-08-08). The
+dismissible card teaches the *current* step; the rail entry is the standing route back
+to setup and it never disappears:
+
+```
+[rail bottom]  ⊕ Invite teammates
+               ⏱ Help and first steps      4/6      ← counts down as you complete
+               14 days left on trial   [Add billing]
+```
+
+Steep pins `Using demo data · Continue setup` in the rail for the entire demo-data
+period. A tenant on seed/demo data must be told so **in the chrome**, not only on the
+page that happens to show it.
+
+### A1d. The right inspector (4th zone)
+
+**Evidence 2026-08-08:** Steep, Attio, Plane — all three top-rated, all three run it.
+
+The inspector answers *"what is this view made of, and how do I change it"*. It has
+exactly two legal contents, and a room picks one:
+
+| Kind | Holds | Evidence |
+|------|-------|----------|
+| **Object inspector** | the record’s metadata as labelled slot rows | Plane work item: Modules · Cycle · Parent · Labels. Todoist task rail. |
+| **View builder** | the controls that produce what main renders | Attio report: Data source · Advanced filter · Metric · Grouped by · Segmented by · Visualization + toggles. Steep metric: Dimensions · Filter · Format · Time grains · Private · Cohorts · Slices. |
+
+Rules:
+
+- **It is collapsible and its state persists.** Every sampled app ships a panel toggle
+  in the identity bar.
+- **Change in the inspector re-renders main immediately** — no Apply button, no modal
+  round-trip.
+- **Empty slots still render** with a `+` (§N5 applies here first).
+- **No primary action lives only in the inspector.** The commit button belongs to the
+  toolbar or the page header.
+- A room gets an inspector **or** a drawer (§P1), never both open at once.
+
+### A1e. The shell has responsive states — the rail collapses, it does not vanish
+
+Between "desktop rail" and "phone tabs" there are two more states, and they are
+**states of the same shell**, not different designs:
+
+```
+≥1280   full rail (labels + groups)        + optional inspector
+1024    icon rail (icons + tooltips)       inspector collapsed to a toggle
+768     rail becomes an overlay drawer     inspector becomes a sheet
+<768    phone shell — bottom rooms (§B)
+```
+
+- Plane runs a **two-level rail** (icon app-rail + labelled room rail) so the app-level
+  switch survives the collapse. Legal and preferred when a role owns >12 rooms.
+- The collapse toggle is a real control in the identity bar (Attio, Plane, Homerun) —
+  not a hover-reveal.
+- **Never** solve a narrow desktop by deleting rooms. Icon rail + tooltip, or drawer.
 
 ### A2. Web page header (every room)
 
@@ -144,9 +229,12 @@ Sheets: springy, draggable, interruptible.
 
 ---
 
-## C. Three page species (both web and mobile)
+## C. Five page species (both web and mobile)
 
 Every product screen is **exactly one** of these. Naming the species is mandatory before layout.
+C1–C3 are the originals; C4–C5 were added 2026-08-08 because the top-rated web list
+could not be described without them — roughly a third of it is AI-native, and every
+multi-user product in it has an inbox.
 
 ### C1. Money / health home
 
@@ -187,6 +275,58 @@ Never open with a grid of equal-weight tiles.
 - Metadata as chips (status, assignee, due)  
 - Sticky primary action  
 - Scope still visible  
+
+### C4. Conversation / agent
+
+**Job:** the user asks; the product answers **with real product objects**, not prose alone.  
+**Evidence:** Origin (chat pane inside a financial admin), Sana AI, Manus, Firecrawl,
+ElevenLabs, Replit, Intercom, Basedash — 2026-08-08 top-rated pass.
+
+```
+[thread rail]      history, newest first, each renamable + ⋯      (may be the room rail)
+[transcript]       user turn right-aligned chip · answer full-width
+[emitted artifact] a REAL product card, not a picture of one
+[composer]         "Ask anything…" pinned bottom, seeded chips when blank (§P7)
+```
+
+Hard rules — these are what separate a product from a chat wrapper:
+
+1. **The answer emits product objects.** Origin renders a live `Markets at a glance ·
+   Dec 1 – Mar 2 2026` chart card mid-answer. A number inside an answer obeys §M4
+   exactly like a number on a dashboard: **window + method**, no exceptions.
+2. **Every claim carries its citation and timestamp** (§M4, Dovetail rule). An
+   uncited generated claim is a defect, in chat as much as on a page.
+3. **The model states what it could not do**, in place — Origin: *"Since you haven't
+   completed your risk profile assessment yet, I can explain the concepts educationally
+   without personalizing to your situation."* Never a silent downgrade.
+4. **Streaming uses §G3**: chrome real, only the not-yet-generated words ghost.
+5. **An agent that will act on real data confirms first**, using the §H1 dialog law —
+   consequence in plain words, and whether it reverses.
+6. **The chat is a room, not a takeover.** Scope stays visible; the user can leave and
+   come back to the thread.
+
+Cinch note: this is the species for any "ask your business a question" surface. Do not
+build it as a C2 workroom with a text box bolted on.
+
+### C5. Inbox / feed
+
+**Job:** triage what happened while you were gone, in time order.  
+**Evidence:** Linear Inbox, Plane Inbox + work-item Activity, Attio Notifications,
+Campsite.
+
+```
+[title + unread count]
+[doors]            All · Unread · Assigned to me · Mentions
+[actor rows]       avatar · actor did X to Y · relative time
+[read/unread state visible; bulk mark-read available (§N7)]
+```
+
+- **Time is the organizing axis** (§D2) — not status, not priority.
+- A row states **who, what, which object, when**: *"samlee.mobbin+1 set the due date to
+  Aug 25, 2025 · 1 minute ago"*.
+- Row opens the object **in a drawer/pane** (§P1); the feed stays.
+- ⛔ Do not force a feed into C2. A feed has no KPI strip and no range control — giving
+  it one is the tell that the species was never named.
 
 ---
 
@@ -238,13 +378,78 @@ Inventing a new card shape per metric is a defect.
 
 ## F. Visual system
 
+### F0. Theme — every product surface is a pair, not a picture
+
+Added 2026-08-08. Plane, Attio, Notion, Steep and Linear all ship light **and** dark;
+Fey and Linear are dark-*first*. A surface designed in one theme and "darkened later"
+is a defect, and the tell is always the same: a hardcoded hex that survives the swap.
+
+- **Colors are defined once, as token pairs.** Never a raw hex in a component. The
+  light values are the default on `:root`; the dark values are a redefinition of the
+  *same token names* — nothing but tokens changes between themes.
+- **Roles, not values.** `--surface` / `--surface-raised` / `--text` / `--text-muted` /
+  `--hairline` / `--action` / `--status-*`. A token named `--ocean-800` cannot be
+  themed; a token named `--surface` can.
+- **Elevation inverts.** In light, raised = lighter + shadow. In dark, raised =
+  *lighter surface*, and shadows mostly stop working — lean on §Elevation hairlines.
+- **Both themes get the contrast check**, not just the one you designed in. Route to
+  `ui-ux-pro-max` § Accessibility. Dark mode fails 4.5:1 on muted text constantly.
+- **Status colors are re-picked per theme.** The light-mode rose/amber/green will be
+  either invisible or radioactive on a dark surface.
+- **Screenshot both** before calling any screen done (§N ship checklist).
+
+Cinch: the ocean world is the light theme's world. A dark Cinch theme is legal and is
+built as the token-pair dark half — not as a new palette, and not as the register's
+ops dialect leaking upward.
+
+#### F0b. The mechanism — and the trap that has already cost real money
+
+The principle above is not enough on its own. Name the mechanism or it gets rebuilt
+wrong:
+
+```css
+:root                                  { /* light: the complete palette, every token */ }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"])      { /* dark: SAME token names, new values      */ }
+}
+:root[data-theme="dark"]               { /* explicit choice wins in both directions  */ }
+```
+
+Three states, not two: explicit light, explicit dark, and **system default — which
+stamps nothing**. A rule written only inside a media query or only under `[data-theme]`
+has no value in the third state. `body` gets an explicit token background; a transparent
+body borrows whatever is behind it.
+
+⛔ **The remap trap — Cinch has walked into this twice.** Under `.hq-light` / `.hq-root`,
+translucent white **surfaces** (`bg-white/NN`) composite against the remapped ground and
+come out a dark/gray tint, while **literal colors skip the remap entirely**. That is the
+white-on-white mobile schedule. The rule that prevents it:
+
+- **No literal color in a component — including alpha whites.** `bg-white/85` is a
+  literal. Use a `--surface-raised` token that is defined per theme.
+- **Re-measure contrast at every color swap.** A guessed teal was off by 1.9:1 until it
+  was computed. Guessing contrast is not allowed; compute it.
+- **Screenshot both themes on the real surface.** tsc + eslint + build all pass on
+  white-on-white. A green build is not a look — see [[look-at-what-you-build]].
+
+Detail and the full trap list: `project_veyo_tidal_web` § Traps. Contrast arithmetic:
+`ui-ux-pro-max` § Accessibility (mandatory route, see § Escalation).
+
 ### Color
 
 - **World:** fixed cool ocean for Cinch product chrome (not tenant brand as world).  
   Brand lives in `--action` on tappables only.  
-- **Hue budget:** ≤3 chromatic hues; neutrals ≥90% of pixels.  
+- **Hue budget:** ≤3 chromatic hues; neutrals ≥90% of pixels. **Chrome only** — the
+  budget stops at the edge of a plot area. A comparison chart needs as many series
+  colors as it has series (Fey overlays 5; Attio's grouped bars run 11 + "+11 more").
+  Series palettes are `dataviz`'s call, not §F's.
 - **Accent = action** only. Status (rose/amber/green) never doubles as brand.  
-- **No purple** in Cinch ocean world; no emoji icons.
+- **No purple** in Cinch ocean world.
+- **Emoji: banned as chrome, expected in content.** No emoji as an icon, a status
+  glyph, a nav item, or a metric label — SVG or nothing. But emoji the *user* typed
+  into a task title, a pot name, or a channel name render as typed and are never
+  stripped (Plane ships "Welcome to Plane 👋" as seeded content; Monzo offers emoji
+  chips when naming a pot). Seeded sample content may carry emoji; the frame may not.
 
 ### Type
 
@@ -482,6 +687,37 @@ When an object moves through stages, the stages ARE the tabs:
 
 Burying a lifecycle inside a `Status ▾` dropdown hides the shape of the business.
 
+**Each stage tab carries its count, and zeros stay visible** (Homerun, 2026-08-08):
+
+```
+  8            3             1           3           0       0       0                1
+All candidates Application  Qualified  Interview   Offer   Hired  Maybe in Future  Disqualified
+```
+
+The empty stages are rendered greyed, not dropped. **The whole pipeline is readable
+before a single click** — and an empty stage is itself the finding ("0 Offer" is the
+business fact you came for). Hiding zero-count tabs deletes the diagnosis. §N3 applies:
+each count routes to the records it counts.
+
+### M2b. Views are user property, not just ours
+
+We author the *default* views. Every top-rated admin lets the user build and keep their
+own, and surfaces that as first-class chrome:
+
+- The views strip ends in a **`+`** (Asana, Plane) — a new view is created where views
+  live, not in Settings.
+- A modified view shows an explicit **`Save view ▾`** (Steep) / `View settings`
+  (Attio) — a dirty view never silently persists, and never silently reverts.
+- Saved/pinned views appear in the **rail's user section** (§M3 `PINNED · Favorites`),
+  named by the user.
+- View definition lives in the **inspector** (§A1d view-builder), not a modal.
+- Sharing scope is stated on the view itself — Steep prints `Private ●` +
+  `Teams with access · Admins only` in the inspector.
+
+⛔ A product where every user sees exactly the layout we shipped is not "consistent",
+it's rigid — but the inverse failure is worse: a user-built view with no name, no owner
+and no save state.
+
 ### M3. The rail has four zones
 
 ```
@@ -522,6 +758,25 @@ The single most-copied honesty pattern across these 20:
 
 **Cinch rule:** a number with no window and no method is a defect. So is a generated
 insight with no citation and no timestamp.
+
+#### M4b. The method is an artifact, not a caption (Steep, 2026-08-08)
+
+Steep raises the bar on this and we should meet it. On a metric page it ships:
+
+- a **`Query` block containing the literal SQL** that defines the metric, with
+  `Copy to clipboard` — the definition is inspectable, not described
+- the comparison **built into the header**, not bolted on: `Total 23.19%` beside
+  `Prev. year 30.27%`
+- a **delta column in the right unit** on every segment row — `-4.5pp`, `-11.1pp`
+  (percentage *points* for a rate, never "%" — that error is on us to avoid)
+- a time-grain segmented control (`Day · Week · Month · Quarter · 6M · Year · 2Y · 5Y ·
+  Custom`) **and** a period stepper (`‹ Last 365 days ›`) — pick-the-grain and
+  move-the-window are two different jobs and get two different controls
+
+**Cinch rule:** every KPI ships with (a) its window, (b) a comparison to the prior
+equivalent window, and (c) a route to its definition. A metric whose definition only
+exists in our source code is a metric the merchant cannot trust or dispute.
+See `reference_cinch_business_pulse` for the money-basis rules that definition must state.
 
 ---
 
@@ -587,6 +842,43 @@ its label together are the link. Kit: "Go to subscribers →". Revolut: "See all
 Todoist's task detail shows **every** metadata slot — Project, Assignee, Date,
 Deadline, Priority, Labels, Reminders, Location — each with a `+` when unset. A field
 that disappears when empty is a field the user never learns exists.
+
+### N6. The keyboard is an affordance layer, and it is printed
+
+The top-rated apps do not hide their shortcuts in a help menu — the key is drawn on the
+thing it operates. This is discoverability, not power-user trivia.
+
+| Where | Printed as | Evidence |
+|-------|-----------|----------|
+| Row / menu item | the key on the row’s right edge | Fey: `Compare graphs` … `C` |
+| Dialog buttons | the key inside the button | Attio: `Cancel ESC` · `Save ↵` |
+| Under a control | one grey sentence | Fey: "Press `[` `]` to cycle through timeframes" |
+| Inline composer | the hint where the next one appears | Plane: "Press 'Enter' to add another work item" |
+| Search field | `⌘K` in the placeholder | universal |
+
+- **⌘K opens a real command palette**, not just a search box — it must reach rooms,
+  records and actions, and it is the recovery route when wayfinding fails.
+- `Esc` closes the topmost layer, always, everywhere. `↵` commits the focused form.
+- Anything with a shortcut must **also** be reachable by pointer (§tap equivalent).
+- A shortcut that exists but is never printed does not exist.
+
+### N7. Selection and bulk action
+
+Any list a merchant processes will eventually need to be processed 40 rows at a time.
+
+```
+[☐ header checkbox]  selects the page, and says so: "8 selected · Select all 214"
+[☐ per row]          hover reveals it; SELECTED state is always visible
+[action bar]         appears in place (docked above the list or replacing the toolbar)
+                     — the count, then the verbs, then ✕ to clear
+```
+
+- Evidence: Homerun (checkbox per candidate row), Attio, Melio, Gusto.
+- **The bar names the count in the verb** (§P2): `Archive 12 candidates`, not `Archive`.
+- **Destructive bulk verbs state blast radius and reversibility** (§P4) — a bulk
+  destructive with no count in the confirm dialog is an instant fail.
+- Selection survives scroll; it does **not** survive a filter change without saying so.
+- ⛔ Never put bulk actions behind hover-only per-row `⋮` — that is the N2 corollary.
 
 ---
 
@@ -669,6 +961,31 @@ project update / Make an announcement / Ask a question). Monzo offers name chips
 Emergent offers example prompts. Mixpanel, Kit, Fibery, Frame.io and Asana all lead
 their template galleries with **"Start from scratch"** so the escape hatch is first.
 
+### P8. Every object is multi-user — show the other humans
+
+Added 2026-08-08. Cinch, HQ, `/m` and every Flight Deck are multi-user products, and
+this skill previously said nothing about it. The reference set is unanimous:
+
+- **Every object has an activity trail**, and it is written as sentences with actors and
+  relative time — Plane: *"samlee.mobbin+1 set the due date to Aug 25, 2025 · 1 minute
+  ago"*, *"added a new assignee Samlee.Mobbin+1 · about 1 hour ago"*. Not a diff dump.
+- **The trail is filterable and sortable** (Plane ships `Filters` + sort on Activity)
+  once it exceeds a screen.
+- **Last-touched is in the header**: "Last edited by samlee.mobbin+1 2 minutes ago ▾".
+  Pairs with §P3's explicit save state — *who* saved matters as much as *when*.
+- **Assignment is a face, not a name string** — avatar + name, and the avatar is the
+  affordance to reassign.
+- **`Share` is a primary-weight button in the identity bar** on anything shareable
+  (Homerun, Frame.io, Steep), and it states the resulting access, not just "shared".
+- **Comments attach to the object, not to a chat room** (Frame.io `Comments` view tab,
+  Plane's comment bubble, Steep's `Comments` tab).
+- Where two people can edit at once, **presence is shown** (avatar cluster) and the
+  conflict is prevented, not reported after the fact.
+
+Cinch rule: an ops object a second employee can change (shift, order, payout, price)
+must answer *who changed this and when* **from its own detail view** — never only from
+an audit page in another room.
+
 ---
 
 ## M. Cinch implementation anchors
@@ -687,8 +1004,16 @@ their template galleries with **"Start from scratch"** so the escape hatch is fi
 
 ```
 Species
-- [ ] Named C1 money home / C2 workroom / C3 compose
+- [ ] Named C1 money home / C2 workroom / C3 compose / C4 conversation / C5 inbox
 - [ ] One shell for this role (web sidebar OR phone tabs — not both fighting)
+
+Theme & access (§F0 — the two that were never checked before)
+- [ ] Every color is a role token; zero raw hex in components — **including alpha whites** (`bg-white/85` is a literal and skips the remap)
+- [ ] Theme defined for all THREE states: explicit light · explicit dark · system default
+- [ ] Screenshotted in BOTH themes on the real surface; status colors re-picked for dark
+- [ ] Contrast re-measured (computed, not guessed) at every color swap
+- [ ] Contrast / focus ring / tab order checked via `ui-ux-pro-max` § Accessibility
+- [ ] Any chart built through `dataviz` (series palette is NOT §F's hue budget)
 
 Wayfinding
 - [ ] Where am I? scope + room labeled
@@ -699,6 +1024,9 @@ Chrome
 - [ ] One page header species; full-width main (no floating max-w page)
 - [ ] Web: left rooms + top scope · Phone: bottom rooms + top scope
 - [ ] One range control if time-scoped
+- [ ] If it has an inspector: it configures main, re-renders live, collapses, persists
+- [ ] Shell checked at 1280 / 1024 / 768 / 390 — rail collapses, rooms never deleted
+- [ ] Setup/demo-data state visible in the rail, not only on one page
 
 Content
 - [ ] C1: one hero metric + so-what
@@ -728,8 +1056,11 @@ Overlays (§H1–H2)
 Structure (§J)
 - [ ] Three bars present and distinct: identity → views → toolbar
 - [ ] Toolbar split: narrowing left, adding right
-- [ ] Lifecycle stages are TABS, not a status dropdown
+- [ ] Lifecycle stages are TABS, not a status dropdown — each with its count, zeros shown
+- [ ] Views strip ends in `+`; a dirty view shows an explicit Save; sharing scope stated
 - [ ] Every number states its window; every chart states its method
+- [ ] Every KPI has a prior-window comparison and a route to its definition (§M4b)
+- [ ] Rate deltas in `pp`, not `%`
 - [ ] Any generated insight carries a citation + timestamp
 
 Affordance (§K)
@@ -738,6 +1069,8 @@ Affordance (§K)
 - [ ] Row's primary verb has its own Action column (never hover-only)
 - [ ] Counts route to the records they count
 - [ ] Empty metadata slots still render, with `+`
+- [ ] Shortcuts are PRINTED on the thing they operate; ⌘K reaches rooms + records + actions
+- [ ] Processable lists have selection + a bulk bar whose verbs name the count
 
 Consequence (§L)
 - [ ] Drill-down keeps the list on screen (drawer/pane), not a route change
@@ -747,10 +1080,16 @@ Consequence (§L)
 - [ ] Destructive actions state blast radius + reversibility; destructive last in menus
 - [ ] Multi-step shows steps, deadlines, estimates, and the system's own steps
 - [ ] Parsed/imported input shows its interpretation before commit
+- [ ] Shared objects answer "who changed this, when" from their own detail view (§P8)
+
+If it ships a C4 conversation surface
+- [ ] Answers emit real product cards; numbers in answers carry window + method
+- [ ] Every generated claim cited + timestamped; the model states what it could NOT do
+- [ ] An agent acting on real data confirms first, with consequence + reversibility
 
 Craft
 - [ ] One card + one row component
-- [ ] tabular-nums; no emoji; ≤3 hues
+- [ ] tabular-nums; ≤3 chrome hues; no emoji in chrome (content emoji renders as typed)
 - [ ] Neighbor test: Shopify web / Linear web / Monzo mobile — same species?
 - [ ] Crop test (Cinch ocean): strip hero → body still product world
 ```
@@ -766,7 +1105,7 @@ Craft
 
 ---
 
-## P. Research log (2026-08-07)
+## P. Research log (2026-08-07 · 2026-08-08)
 
 | Pass | Focus | Key captures |
 |------|-------|--------------|
@@ -796,3 +1135,35 @@ dashboard and is the most likely Cinch defect.
 Evidence path: `cinch-app/docs/mobbin-study/`.
 Access: Mobbin Pro via `~/chrome-profile-mobbin` (CDP :9334) — see
 `reference_chrome_automation_profile`.
+
+### Deep pass 3 — the top-rated population (2026-08-08)
+
+`mobbin.com/discover/apps/web/top`, 144 apps rank-ordered by rating. Screens read for
+**Fey (4.92, #1), Origin (5.0), Plane (5.0), Steep (5.0), Attio (4.77), Manus (5.0),
+Homerun (5.0)** — chosen because pass 1–2 had not sampled any of them.
+
+**Why this pass existed:** passes 1–2 sampled SMB/fintech admin (Shopify, Gusto, Melio,
+Toggl). The top-rated population is a *different distribution* — dark-first,
+keyboard-first, AI-native, user-configurable. Everything pass 1–2 wrote held up; the
+failures were all in what it never looked at.
+
+| Added | Section | Trigger |
+|-------|---------|---------|
+| Escalation routes (a11y + dataviz are mandatory, not fallback) | header | a11y was reachable only via a skill scoped "when no GullStack standard covers it" — so never |
+| Right inspector as the 4th zone | §A1, §A1d | Steep, Attio, Plane all run rail\|main\|inspector; "two zones" shelled wrong |
+| Rail-bottom setup progress | §A1c | Attio `Help and first steps 4/6`; Steep `Using demo data` |
+| Responsive shell states | §A1e | Plane's two-level rail; collapse toggles everywhere |
+| C4 conversation/agent · C5 inbox/feed | §C | ~⅓ of the top 40 are AI-native; every multi-user app has an inbox |
+| Theme as token pairs | §F0 | **the biggest gap** — neither skill mentioned dark mode at all; Fey and Linear are dark-first |
+| Hue budget is chrome-only | §F | Fey overlays 5 series; Attio's bars run 11+ — §F contradicted every real chart |
+| Emoji: chrome vs content | §F | rule was absolute; Plane ships "Welcome to Plane 👋" |
+| Stage tabs carry counts, zeros shown | §M2 | Homerun's 8-stage strip with `0 Offer · 0 Hired` visible |
+| Views are user property | §M2b | Steep `Save view ▾`, Attio `View settings`, Asana/Plane `+` |
+| Method as an inspectable artifact | §M4b | Steep prints the metric's literal SQL with Copy to clipboard |
+| Keyboard as a printed affordance | §N6 | Fey `C` / `[` `]`; Attio `Cancel ESC` `Save ↵`; Plane "Press 'Enter'" |
+| Selection + bulk action bar | §N7 | Homerun, Attio, Melio, Gusto — zero prior coverage |
+| Multi-user reality | §P8 | Plane activity trail; "Last edited by … 2 minutes ago" |
+
+Capture method: Mobbin Pro profile on CDP :9334, driven by a minimal WebSocket CDP
+script (`Runtime.evaluate` + `Page.captureScreenshot`). WebFetch gets a 403 on
+mobbin.com — the authenticated profile is the only route.
