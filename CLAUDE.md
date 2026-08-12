@@ -1,6 +1,11 @@
 # gullstack-skills
 
-Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) for GullStack/Walkthru Labs. Not a product app.
+Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) for GullStack/Walkthru Labs.
+
+**The scaffold is not a product app** — that rule still holds and is what the
+top level is for. One product app is nonetheless *hosted* here, quarantined
+under `apps/` (see below). Keep the two apart: nothing in `apps/` may import
+from the scaffold, and the scaffold must never depend on anything in `apps/`.
 
 ## Commands
 
@@ -35,6 +40,17 @@ Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) fo
 ## Where things live
 
 - Skill packages: top-level dirs with `SKILL.md` (`site-builder/`, `seo-master/`, …)
+- **Product apps: `apps/` — NOT the top level.** A top-level dir means "skill
+  package"; putting an app there breaks how the tree reads. Today that is
+  `apps/home-manager/` (household command center: staff schedule, tasks, pay,
+  bills, kids' record — own Next.js build, own Supabase project, own deploy,
+  own `CLAUDE.md`). ⛔ It is not a skill and `install.sh` must never ship it:
+  both scripts enumerate skills from the explicit `GLOBAL_SKILLS` list, never a
+  directory glob, so leave it that way. ⚠️ `doctor.sh`'s fingerprint hashes
+  every tracked file, so it now covers `apps/` too — that is expected (it still
+  matches across clones of the same commit), but it does mean an app edit moves
+  the scaffold fingerprint. If a standalone repo ever exists, lift it out with
+  `git subtree split --prefix=apps/home-manager`.
 - Scaffold: `install.sh`, `doctor.sh`, `claude/hooks/`, `claude/agents/`, `templates/`
 - Project skills catalog: `.claude/skills/` (**pointers only** — a copy here is the bug `./doctor.sh` catches)
 - Fill protocol: `prompts/` · examples: `examples/`
