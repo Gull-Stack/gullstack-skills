@@ -1,0 +1,396 @@
+@import "tailwindcss";
+
+/* ── Home Manager — the skin ────────────────────────────────────────────────
+   A dark gray, not a black. The app gets read at 6am in a kitchen and at 10pm
+   on a phone in a dark bedroom, and a black ground is a flashlight in the
+   second case while a light one is a flashlight in both.
+
+   THE RULE THAT KEEPS THIS STANDING: a component names a ROLE — var(--card),
+   var(--ink), var(--line) — never a literal. A hardcoded #fff in a component
+   is a bug, not a shortcut, because the one thing every reskin of an app like
+   this has in common is that it happens again. The only legitimate literal
+   white is text on a saturated FILL (--blue, --danger, a person's colour).
+
+   THREE THINGS THAT ARE LOAD-BEARING:
+   1. Blue splits in two. --blue is a FILL that carries white text; --accent is
+      the LINK tint, lifted so it reads on the dark ground. ⛔ Never fill a
+      control with --accent and put white on it.
+   2. Chips invert: a dark tinted plate carrying a LIGHT hue, never a pastel
+      plate carrying a dark one.
+   3. Every text tier clears 4.5:1 on ALL FOUR grounds — canvas, rail, card and
+      the --panel-2 soft fill. Quiet text inside a chip is sitting on the
+      lightest surface in the app, so a value tuned against the canvas misses
+      there. Lift the quiet tiers together or the hierarchy collapses into one.
+*/
+
+:root {
+  --ground: #1e1e1e;        /* the page */
+  --card: #282828;          /* a card, one step up */
+  --panel-2: #323232;       /* hover, chips, soft fill — the LIGHTEST ground */
+  --paper: #2e2e30;         /* elevated: modals, composers */
+  --line: #3a3a3c;          /* hairline */
+  --line-soft: #303032;
+
+  --ink: #ececee;
+  --ink-soft: #adadb2;
+  --muted: #9a9aa0;
+  --on-fill: #ffffff;       /* text on a saturated fill */
+  --on-ink: #1e1e1e;        /* text on an ink-filled control — ink is LIGHT */
+
+  --blue: #2f62d8;          /* FILL */
+  --accent: #6ea8ff;        /* LINK tint */
+  --accent-soft: rgba(110, 168, 255, 0.14);
+
+  --green: #34c77b;
+  --amber: #e8a33d;
+  --danger: #e2574a;
+  --track: #3a3a3c;
+
+  --side-bg: #252527;       /* the rail sits one step lighter than the canvas */
+  --side-ink: #ececee;
+  --side-dim: #98989d;
+  --side-line: rgba(255, 255, 255, 0.10);
+  --side-hover: rgba(255, 255, 255, 0.08);
+
+  --chip-green-bg: #16301f;  --chip-green-fg: #5ddc9b;
+  --chip-amber-bg: #33270f;  --chip-amber-fg: #e8b45c;
+  --chip-blue-bg: #17233f;   --chip-blue-fg: #8fb4ff;
+  --chip-gray-bg: #2f2f33;   --chip-gray-fg: #a8a8b0;
+  --chip-red-bg: #3a1f18;    --chip-red-fg: #f0917a;
+
+  --r: 18px;
+  --r-sm: 12px;
+  --scrim: rgba(0, 0, 0, 0.6);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* The viewer's ground is painted behind the page; a transparent body borrows
+     whatever is underneath it. Always explicit. */
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font: inherit; color: inherit; }
+
+.mono {
+  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Type ───────────────────────────────────────────────────────────────── */
+
+.display {
+  font-family: var(--font-display, inherit);
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sub { color: var(--ink-soft); font-size: 14px; line-height: 1.55; margin: 6px 0 0; }
+.quiet { color: var(--muted); font-size: 13px; }
+
+/* ── Surfaces ───────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px;
+}
+
+.card-tight { padding: 14px; }
+
+.hair { height: 1px; background: var(--line); border: 0; margin: 16px 0; }
+
+.grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.row-tight { display: flex; align-items: center; gap: 6px; }
+.spread { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.stack { display: grid; gap: 10px; }
+
+/* ── Chips ──────────────────────────────────────────────────────────────── */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--chip-gray-bg);
+  color: var(--chip-gray-fg);
+  white-space: nowrap;
+}
+.chip-green { background: var(--chip-green-bg); color: var(--chip-green-fg); }
+.chip-amber { background: var(--chip-amber-bg); color: var(--chip-amber-fg); }
+.chip-blue  { background: var(--chip-blue-bg);  color: var(--chip-blue-fg); }
+.chip-red   { background: var(--chip-red-bg);   color: var(--chip-red-fg); }
+
+.dot { width: 8px; height: 8px; border-radius: 999px; flex: none; }
+
+/* ── Controls ───────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.btn:hover:not(:disabled) { background: var(--paper); border-color: var(--muted); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* --blue is the fill that carries white; --accent never is. */
+.btn-primary { background: var(--blue); border-color: var(--blue); color: var(--on-fill); }
+.btn-primary:hover:not(:disabled) { background: #3a6de0; border-color: #3a6de0; }
+
+.btn-quiet { background: transparent; border-color: transparent; color: var(--ink-soft); }
+.btn-quiet:hover:not(:disabled) { background: var(--panel-2); border-color: transparent; }
+
+.btn-danger { background: transparent; border-color: var(--chip-red-bg); color: var(--chip-red-fg); }
+.btn-danger:hover:not(:disabled) { background: var(--chip-red-bg); }
+
+.btn-sm { padding: 6px 12px; font-size: 13px; }
+.btn-big { padding: 16px 24px; font-size: 16px; border-radius: var(--r); }
+
+.field {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--ink);
+  font-size: 15px;
+}
+.field:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+.field::placeholder { color: var(--muted); }
+select.field { appearance: none; background-image: none; }
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 5px;
+}
+
+/* Toggle group — one tap per option, no dropdown for 2–4 choices. */
+.seg { display: inline-flex; gap: 4px; padding: 4px; background: var(--panel-2); border-radius: 999px; flex-wrap: wrap; }
+.seg button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 13px;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); font-weight: 600; }
+
+/* ── The rail ───────────────────────────────────────────────────────────── */
+
+.hm-shell { display: grid; grid-template-columns: 244px 1fr; min-height: 100vh; }
+
+.hm-side {
+  background: var(--side-bg);
+  border-right: 1px solid var(--side-line);
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.hm-brand { display: flex; align-items: center; gap: 10px; padding: 0 10px 18px; }
+.hm-brand-mark {
+  width: 34px; height: 34px; border-radius: 10px; flex: none;
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, #3a6de0, #1b3d8f);
+  color: var(--on-fill);
+}
+.hm-brand-name { font-weight: 650; font-size: 15px; letter-spacing: -0.01em; color: var(--side-ink); line-height: 1.2; }
+.hm-brand-sub { font-size: 11px; color: var(--side-dim); }
+
+.hm-navlabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--side-dim); padding: 16px 12px 6px;
+}
+
+.hm-link {
+  display: flex; align-items: center; gap: 11px;
+  padding: 9px 12px; border-radius: var(--r-sm);
+  color: var(--side-ink); font-size: 14px; text-decoration: none;
+}
+.hm-link:hover { background: var(--side-hover); text-decoration: none; }
+.hm-link[data-current="true"] { background: var(--accent-soft); font-weight: 600; box-shadow: inset 2px 0 0 var(--accent); }
+.hm-link svg { flex: none; opacity: 0.85; }
+.hm-link-badge { margin-left: auto; }
+
+.hm-main { padding: 28px 32px 80px; max-width: 1100px; }
+
+.hm-topbar {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--side-bg);
+  border-bottom: 1px solid var(--side-line);
+  position: sticky; top: 0; z-index: 40;
+}
+.hm-burger {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: var(--r-sm);
+  background: transparent; border: 1px solid var(--side-line); cursor: pointer;
+  color: var(--side-ink);
+}
+.hm-overlay { position: fixed; inset: 0; background: var(--scrim); z-index: 45; border: 0; }
+
+@media (max-width: 900px) {
+  .hm-shell { grid-template-columns: 1fr; }
+  .hm-topbar { display: flex; }
+  /* The menu button is the first child of the bar and belongs top-left —
+     nothing goes in front of it. */
+  .hm-side {
+    position: fixed; inset: 0 auto 0 0; width: 268px; z-index: 50;
+    transform: translateX(-100%); transition: transform 180ms ease;
+  }
+  .hm-side[data-open="true"] { transform: translateX(0); }
+  .hm-main { padding: 18px 16px 96px; }
+}
+
+/* ── Numbers on the page ────────────────────────────────────────────────── */
+
+.stat { display: grid; gap: 2px; }
+.stat-num { font-size: 26px; font-weight: 650; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.stat-label { font-size: 12px; color: var(--muted); }
+
+.meter { height: 6px; border-radius: 999px; background: var(--track); overflow: hidden; }
+.meter > span { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+
+/* ── Lists ──────────────────────────────────────────────────────────────── */
+
+.list { display: grid; }
+.list > * + * { border-top: 1px solid var(--line-soft); }
+
+.item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; }
+.item-title { font-size: 15px; font-weight: 500; }
+.item-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.tick {
+  width: 26px; height: 26px; border-radius: 8px; flex: none;
+  border: 1.5px solid var(--line); background: transparent;
+  display: grid; place-items: center; cursor: pointer; color: transparent;
+}
+.tick[data-state="done"] { background: var(--green); border-color: var(--green); color: var(--on-fill); }
+.tick[data-state="missed"], .tick[data-state="skipped"] { background: var(--chip-amber-bg); border-color: var(--amber); color: var(--chip-amber-fg); }
+/* A finger target that does not make the box itself enormous. */
+.tick-big { width: 34px; height: 34px; border-radius: 10px; }
+
+.empty {
+  border: 1px dashed var(--line);
+  border-radius: var(--r);
+  padding: 22px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ── The week grid ──────────────────────────────────────────────────────── */
+
+.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.week-col {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: 10px; min-height: 150px; display: grid; gap: 8px; align-content: start;
+}
+.week-col[data-today="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent-soft); }
+.week-col[data-past="true"] { opacity: 0.72; }
+.week-dow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.week-date { font-size: 17px; font-weight: 600; }
+.week-task { font-size: 12px; color: var(--ink-soft); display: flex; gap: 6px; align-items: flex-start; line-height: 1.35; }
+.week-task[data-state="done"] { color: var(--muted); text-decoration: line-through; }
+
+@media (max-width: 900px) {
+  .week { grid-template-columns: 1fr; }
+  .week-col { min-height: 0; }
+}
+
+/* ── The team door / kiosk ──────────────────────────────────────────────── */
+
+.kiosk { max-width: 620px; margin: 0 auto; padding: 22px 16px 120px; }
+.kiosk-hero { padding: 20px 0 14px; }
+.pin-pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; }
+.pin-pad button {
+  padding: 18px 0; border-radius: var(--r-sm); border: 1px solid var(--line);
+  background: var(--panel-2); font-size: 20px; font-weight: 600; cursor: pointer;
+}
+.pin-dots { display: flex; gap: 10px; justify-content: center; padding: 14px 0; }
+.pin-dot { width: 12px; height: 12px; border-radius: 999px; background: var(--track); }
+.pin-dot[data-on="true"] { background: var(--ink); }
+
+.person-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--panel-2);
+  font-size: 15px; cursor: pointer;
+}
+.person-pill[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); border-color: var(--ink); font-weight: 600; }
+
+/* ── Notices ────────────────────────────────────────────────────────────── */
+
+.notice {
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--ink-soft);
+}
+.notice-amber { background: var(--chip-amber-bg); border-color: transparent; color: var(--chip-amber-fg); }
+.notice-red { background: var(--chip-red-bg); border-color: transparent; color: var(--chip-red-fg); }
+.notice-green { background: var(--chip-green-bg); border-color: transparent; color: var(--chip-green-fg); }
+
+/* ── Tables (bills, pay) ────────────────────────────────────────────────── */
+
+.table-wrap { overflow-x: auto; }
+table.data { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px; }
+table.data th {
+  text-align: left; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); font-weight: 500; padding: 0 12px 8px 0; white-space: nowrap;
+}
+table.data td { padding: 11px 12px 11px 0; border-top: 1px solid var(--line-soft); vertical-align: top; }
+table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; }
