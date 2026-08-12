@@ -1,11 +1,6 @@
 # gullstack-skills
 
-Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) for GullStack/Walkthru Labs.
-
-**The scaffold is not a product app** — that rule still holds and is what the
-top level is for. One product app is nonetheless *hosted* here, quarantined
-under `apps/` (see below). Keep the two apart: nothing in `apps/` may import
-from the scaffold, and the scaffold must never depend on anything in `apps/`.
+Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) for GullStack/Walkthru Labs. Not a product app.
 
 ## Commands
 
@@ -40,17 +35,16 @@ from the scaffold, and the scaffold must never depend on anything in `apps/`.
 ## Where things live
 
 - Skill packages: top-level dirs with `SKILL.md` (`site-builder/`, `seo-master/`, …)
-- **Product apps: `apps/` — NOT the top level.** A top-level dir means "skill
-  package"; putting an app there breaks how the tree reads. Today that is
-  `apps/home-manager/` (household command center: staff schedule, tasks, pay,
-  bills, kids' record — own Next.js build, own Supabase project, own deploy,
-  own `CLAUDE.md`). ⛔ It is not a skill and `install.sh` must never ship it:
-  both scripts enumerate skills from the explicit `GLOBAL_SKILLS` list, never a
-  directory glob, so leave it that way. ⚠️ `doctor.sh`'s fingerprint hashes
-  every tracked file, so it now covers `apps/` too — that is expected (it still
-  matches across clones of the same commit), but it does mean an app edit moves
-  the scaffold fingerprint. If a standalone repo ever exists, lift it out with
-  `git subtree split --prefix=apps/home-manager`.
+- **Product apps do NOT live here.** Home Manager was hosted at
+  `apps/home-manager/` for a few hours on 2026-08-12, only because a repo could
+  not be created at the time; it moved to **`Gull-Stack/home-manager`** and the
+  directory is gone. If you are looking for it, that is where it went. Should
+  the situation ever recur, `apps/` is the quarantine — never the top level,
+  which means "skill package with a `SKILL.md`" — and the two things that made
+  it survivable were that `doctor.sh`/`install.sh` enumerate from the explicit
+  `GLOBAL_SKILLS` list rather than a directory glob (keep it that way), and that
+  the app imported nothing from the scaffold, which is what let
+  `git subtree split` lift it out whole.
 - Scaffold: `install.sh`, `doctor.sh`, `claude/hooks/`, `claude/agents/`, `templates/`
 - Project skills catalog: `.claude/skills/` (**pointers only** — a copy here is the bug `./doctor.sh` catches)
 - Fill protocol: `prompts/` · examples: `examples/`
