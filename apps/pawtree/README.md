@@ -98,3 +98,7 @@ in the footer and About page.
   (never stock in the hero), author bio on `/about` filled with the client's
   real story, final domain + brand name, and the client's read on whether
   naming "pawTree petPro" in the disclosure fits their policy wording.
+
+- **Live preview (v1, texted-link candidate):** https://good-bowl-nothputpa-gull-stack.vercel.app
+  (Vercel project `good-bowl`, gull-stack scope, deployment protection off so the
+  client can open it; project name avoids the PawTree mark in the URL on purpose.)
