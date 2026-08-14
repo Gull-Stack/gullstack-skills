@@ -554,3 +554,141 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .final-cta .btn-secondary { margin-left: 0; margin-top: 1rem; display: inline-block; }
   .guide { padding: 3.5rem 1.25rem 4rem; }
 }
+
+/* ================= v3 — illustrated editorial identity ================= */
+
+/* Paw trail walking across the hero */
+.paw-trail { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.paw { position: absolute; width: 34px; height: 32px; fill: var(--color-accent); opacity: 0; }
+.paw:nth-child(odd) { transform: rotate(24deg); }
+.paw:nth-child(even) { transform: rotate(44deg); }
+.p1 { left: 46%; bottom: 6%; }
+.p2 { left: 53%; bottom: 16%; }
+.p3 { left: 59%; bottom: 27%; }
+.p4 { left: 67%; bottom: 36%; }
+.p5 { left: 74%; bottom: 47%; }
+.p6 { left: 82%; bottom: 57%; width: 40px; height: 38px; }
+.p7 { left: 89%; bottom: 68%; width: 44px; height: 42px; }
+.paw { animation: paw-step 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+.p1 { animation-delay: 0.55s; } .p2 { animation-delay: 0.75s; }
+.p3 { animation-delay: 0.95s; } .p4 { animation-delay: 1.15s; }
+.p5 { animation-delay: 1.35s; } .p6 { animation-delay: 1.55s; }
+.p7 { animation-delay: 1.75s; }
+@keyframes paw-step {
+  from { opacity: 0; transform: scale(0.6) rotate(34deg); }
+  to { opacity: 0.55; transform: scale(1) rotate(34deg); }
+}
+.paw:nth-child(even) { --pr: 44deg; }
+
+/* Concentric bowl rings, bottom-right of hero */
+.hero-rings {
+  position: absolute; right: -12rem; bottom: -14rem;
+  width: 34rem; height: 34rem; border-radius: 50%;
+  border: 1.5px solid rgba(168, 79, 21, 0.25);
+  box-shadow:
+    inset 0 0 0 3.5rem rgba(207, 106, 40, 0.07),
+    inset 0 0 0 7rem rgba(168, 79, 21, 0.05),
+    inset 0 0 0 10.5rem rgba(38, 56, 44, 0.05);
+  pointer-events: none;
+}
+
+/* Guide covers — duotone grounds, paw-pattern watermark, oversized numeral */
+.cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 0 0.4rem 1.25rem;
+}
+.cover::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 76' width='80' height='76'%3E%3Cg fill='%23000' opacity='0.08'%3E%3Cellipse cx='19' cy='21' rx='4.6' ry='6.2' transform='rotate(-14 19 21)'/%3E%3Cellipse cx='30' cy='18' rx='4.8' ry='6.4'/%3E%3Cellipse cx='41' cy='21' rx='4.6' ry='6.2' transform='rotate(14 41 21)'/%3E%3Cpath d='M30 27.5c-6.8 0-11.6 5-11.6 9.8 0 3.9 2.9 6.7 6.7 6.7 1.9 0 3.4-.6 4.9-.6s3 .6 4.9.6c3.8 0 6.7-2.8 6.7-6.7 0-4.8-4.8-9.8-11.6-9.8z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 74px 70px;
+  transform: rotate(-8deg) scale(1.3);
+  transition: transform 0.5s ease;
+}
+.guide-card:hover .cover::before { transform: rotate(-8deg) scale(1.42); }
+.cover-num {
+  position: relative;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(4.5rem, 7vw, 6.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 18px rgba(38, 56, 44, 0.18);
+}
+.cover-skin   { background: linear-gradient(140deg, #e8b88a, #cf6a28); }
+.cover-joints { background: linear-gradient(140deg, #a8bf9f, #4f7a5c); }
+.cover-gut    { background: linear-gradient(140deg, #e3cfa2, #b08a3e); }
+.cover-weight { background: linear-gradient(140deg, #d9a08b, #a85436); }
+.cover-puppy  { background: linear-gradient(140deg, #ead9a0, #c9a13b); }
+.cover-senior { background: linear-gradient(140deg, #b9b3c9, #6d6486); }
+.cover-author { background: linear-gradient(140deg, #33473a, #26382c); align-items: center; justify-content: center; padding: 0; }
+.cover-author .cover-paw { width: 64px; height: 60px; fill: rgba(246, 244, 238, 0.9); position: relative; }
+
+/* Manifesto band */
+.manifesto {
+  background: var(--color-primary-dark);
+  padding: 7rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.manifesto-paw { width: 40px; height: 38px; fill: var(--color-accent); margin-bottom: 1.75rem; }
+.manifesto-line {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #f6f4ee;
+  max-width: 22ch;
+  margin: 0 auto 1rem;
+  text-wrap: balance;
+}
+.manifesto-sub {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Giant footer wordmark */
+.footer { overflow: hidden; }
+.footer-giant {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: rgba(246, 244, 238, 0.1);
+  margin: 0 0 2.5rem -0.05em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Reading progress bar (guide pages) */
+.read-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--color-accent);
+  z-index: 60;
+  transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+  .paw { display: none; }
+  .p5, .p6, .p7 { display: block; }
+  .p5 { left: 74%; bottom: 54%; } .p6 { left: 83%; bottom: 65%; } .p7 { left: 89%; bottom: 76%; }
+  .hero-rings { right: -16rem; bottom: -18rem; }
+  .manifesto { padding: 5rem 0; }
+  .footer-giant { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .paw { animation: none; opacity: 0.55; }
+}

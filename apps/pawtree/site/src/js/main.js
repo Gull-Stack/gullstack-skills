@@ -51,6 +51,18 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
+  // Reading progress bar (guide pages only)
+  var progress = document.querySelector(".read-progress");
+  var article = document.querySelector("article.guide");
+  if (progress && article) {
+    var onProgress = function () {
+      var total = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", onProgress, { passive: true });
+    onProgress();
+  }
+
   // Count-up for stat numbers
   var counters = document.querySelectorAll("[data-count]");
   if (counters.length && !reduced && "IntersectionObserver" in window) {
