@@ -1,0 +1,12 @@
+{
+  "name": "pawtree-funnel-site",
+  "private": true,
+  "description": "Independent pet-wellness site funneling to the client's PawTree distributor storefront",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
