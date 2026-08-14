@@ -77,3 +77,24 @@ git push git@github.com:Gull-Stack/PawTree.git pawtree-split:main
 ```
 
 Then delete `apps/pawtree` here, same as the Home Manager move.
+
+## The site (v1 draft) — `site/`
+
+11ty + Nunjucks + vanilla CSS per `site-builder`; Editorial Light v3.1, Genre A.
+Working brand **"The Good Bowl"** — swap in `site/src/_data/site.json` when the
+domain is picked (brand, url, email are all config). Type echoes Bryce's
+thriftutah.com build (Space Grotesk display / Inter text / Plex Mono eyebrows,
+numbered sections); palette is forest + toasted copper, deliberately nothing
+like PawTree corporate (compliance rule 3). Checkout CTAs all resolve to
+`pawtree.com/5STAR` with `rel="sponsored"`; the commission disclosure renders
+in the footer and About page.
+
+- Build: `cd site && npm install && npx eleventy` → `_site/`
+- AEO shipped: brand-facts.json · Organization/BreadcrumbList/FAQPage schema ·
+  two answer-hub guides (itchy skin, joint supplements) · sitemap · robots
+- Verified: builds clean, zero broken internal links, 1440 + 390 screenshots
+  reviewed, 390 grunt test passes (headline + CTA in first viewport)
+- **Before this goes live:** real photos into the `[REAL PHOTO: …]` slots
+  (never stock in the hero), author bio on `/about` filled with the client's
+  real story, final domain + brand name, and the client's read on whether
+  naming "pawTree petPro" in the disclosure fits their policy wording.
