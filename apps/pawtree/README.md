@@ -99,6 +99,10 @@ in the footer and About page.
   real story, final domain + brand name, and the client's read on whether
   naming "pawTree petPro" in the disclosure fits their policy wording.
 
-- **Live preview (v1, texted-link candidate):** https://good-bowl-nothputpa-gull-stack.vercel.app
-  (Vercel project `good-bowl`, gull-stack scope, deployment protection off so the
-  client can open it; project name avoids the PawTree mark in the URL on purpose.)
+- **Live site (texted-link candidate): https://the-good-bowl.vercel.app**
+  Vercel project `the-good-bowl` (gull-stack scope), git-linked to this repo with
+  root directory `apps/pawtree/site` — every push to the branch auto-deploys, no
+  auth wall. Project names avoid the PawTree mark in URLs on purpose. The earlier
+  file-deploy project `good-bowl` is superseded — safe to delete in Vercel.
+  Six answer-hub guides shipped: itchy skin, joints, gut, weight, puppy, senior.
+  When the code moves to Gull-Stack/PawTree, re-link the Vercel project there.
