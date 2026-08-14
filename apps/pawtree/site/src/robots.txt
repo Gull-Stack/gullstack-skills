@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://REPLACE-WITH-FINAL-DOMAIN.com/sitemap.xml
