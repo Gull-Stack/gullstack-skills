@@ -35,6 +35,7 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | ~~`seo-homework.md`~~ | ~~2026 SEO deep-dive (overlaps seo-master — flagged below)~~ **Removed 2026-08-05** — unique nuggets merged into seo-master |
 | `DEPLOYMENT-CHECKLIST.md` | Mandatory pre/post-deploy verification + automated crawl audit |
 | `bryce-method.md` | The codified lessons from the July 2026 org-wide repo audit — repeatable method + 8 hard gates (no pixel no launch, every CTA resolves, no phantom config claims, etc.) |
+| `loops/product-loop/` (skill pointer: `product-loop`) | The build/audit/fix loop for product & UX/UI work: Grok Brief Gate → maker → evidence pack → fresh-context auditor scoring `PRODUCT_RUBRIC.md` → dry → Grok Final Gate → human rules only on escalations; rulings compound via `DECISION_LOG.md`; defended by `EVIDENCE.md`, measured by `ACCEPTANCE-TEST.md` |
 
 ### `ThreeKingsSalesTalkMethod` (installable Claude Code skill: `/three-kings-salestalk`)
 
@@ -173,10 +174,10 @@ These violate bryce-method's own anti-lessons and are cheap to fix:
 All of Bryce's bot skills are now loadable by Claude Code sessions:
 
 - The four canonical skills got YAML frontmatter (name + description + triggers).
-- `.claude/skills/` now carries seven auto-discovered project skills: the four
-  local ones plus pointer skills for `three-kings-salestalk`, `argus-qa`, and
-  `title-escrow`. Pointers link to the canonical repos rather than copying them
-  (anti-lesson #7).
+- `.claude/skills/` now carries auto-discovered project skills: the four
+  local ones plus pointer skills for `three-kings-salestalk`, `argus-qa`,
+  `title-escrow`, and (added 2026-07-27) `product-loop`. Pointers link to the
+  canonical location rather than copying it (anti-lesson #7).
 - The upstream `gullstack-brain` stays in StrongestAvengerStack by decision
   (2026-07-16). Sessions needing its protocols directly must include that repo
   as a source; otherwise the `argus-qa` pointer skill carries the distilled rules.
