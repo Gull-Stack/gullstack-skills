@@ -57,9 +57,16 @@ Full SEO & AEO (Answer Engine Optimization) framework. Covers:
 - On-page SEO checklist
 - 7-layer AEO system (Intent Map → Answer Hubs → Brand-Facts → Schema → Citations → AI Shopping)
 - Blog/content strategy
-- SEO audit process (quick + full)
+- Live-site audit is `seo-audit` (this file keeps the 15-minute smell test)
 - Local SEO playbook
 - Keyword research process
+
+### `seo-audit/SKILL.md`
+The audit **instrument** and **ship gate** for any live marketing site — ours, a
+client's, a prospect's. Read-only, evidence-cited, skip-is-never-PASS. Produces
+a /45 scorecard, a P0/P1/P2 punch list, the intent map, a fact-consistency
+table, and a do-not-invent queue. A site we build is not done until this
+report exists for the live URL and every P0 is closed.
 
 ### `meta-ads/SKILL.md`
 Meta (Facebook + Instagram) advertising for local businesses. Covers:
@@ -159,6 +166,7 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 | `site-builder` | The full build standard + all playbooks (marketing sites) |
 | `app-design` | Product UI/UX principles for apps (Cinch, platos-pos, onrecord-pro, dashboards) |
 | `seo-master` | SEO & 7-layer AEO framework |
+| `seo-audit` | TRAD-SEO + 7-layer AEO live-site audit + ship gate, scored /45 |
 | `meta-ads` | Meta advertising for local business |
 | `google-ads` | Google Ads + Local Services Ads for local business |
 | `analytics-reporting` | Measurement + monthly client reporting |
@@ -175,7 +183,7 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 The `.claude/skills/` entries are thin pointers — the canonical content stays in one place (this repo's root directories, or the linked repos) so copies can't drift. To use them outside this repo, copy the pointer directories into `~/.claude/skills/` and keep this repo cloned alongside.
 
 ### For any OpenClaw bot
-1. Copy `site-builder/` and `seo-master/` into the bot's `workspace/skills/` directory
+1. Copy `site-builder/`, `seo-master/`, and `seo-audit/` into the bot's `workspace/skills/` directory
 2. Copy playbooks into `workspace/playbooks/`
 3. Copy `DEPLOYMENT-CHECKLIST.md` into `workspace/`
 4. Update the bot's `AGENTS.md` to reference the skills before any build work

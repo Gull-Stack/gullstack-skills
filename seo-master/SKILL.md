@@ -1,6 +1,6 @@
 ---
 name: seo-master
-description: Full SEO & AEO (Answer Engine Optimization) framework for GullStack sites — 2026 ranking factors, on-page checklist, the 7-layer AEO system (brand-facts.json, answer hubs, programmatic city pages, schema), local SEO, audits, keyword research. Use when optimizing, auditing, or planning content/SEO for any client or GullStack site.
+description: Full SEO & AEO (Answer Engine Optimization) framework for GullStack sites — 2026 ranking factors, on-page checklist, the 7-layer AEO system (brand-facts.json, answer hubs, programmatic city pages, schema), local SEO, keyword research. Use when building, optimizing, or planning content/SEO. For auditing a live site or the post-deploy ship gate, use seo-audit.
 ---
 
 # Skill: GullStack SEO & AEO Master
@@ -225,6 +225,12 @@ AEO is how you get recommended by ChatGPT, Perplexity, Google AI Overviews, and 
 ---
 
 ## SEO Audit Process (for new clients)
+
+> **Auditing a live URL? Use `seo-audit/SKILL.md` instead of the two checklists
+> below.** It is the same doctrine turned into an instrument: read-only, a URL
+> cited for every claim, skip-is-never-PASS, `NOT RUN` for any tool you did not
+> actually run, and a scored deliverable. These two lists stay here as the
+> 15-minute smell test and the raw item inventory.
 
 ### Quick Audit (15 min)
 1. Google `site:domain.com` — how many pages indexed?

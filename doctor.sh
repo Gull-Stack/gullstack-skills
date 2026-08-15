@@ -7,9 +7,9 @@ set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 REGISTRY="$CLAUDE_DIR/gullstack-repos"
-GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui app-design"
+GLOBAL_SKILLS="site-builder seo-master seo-audit meta-ads retail-resale-marketing ux-ui app-design"
 GROK_DIR="${GROK_CONFIG_DIR:-$HOME/.grok}"
-GROK_SKILLS="app-design ux-ui site-builder"
+GROK_SKILLS="app-design ux-ui site-builder seo-master seo-audit"
 
 fail=0; warn=0
 ok()  { printf 'ok    %s\n' "$1"; }
