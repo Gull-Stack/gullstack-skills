@@ -17,6 +17,9 @@ Before writing ANY code, read these files. In the `gullstack-skills` repo they l
 2. `storybrand.md` — SB7 messaging framework
 3. `website-conversion.md` — conversion optimization
 4. `DEPLOYMENT-CHECKLIST.md` — mandatory post-deploy verification
+5. `seo-master/SKILL.md` — the build-time SEO/AEO defaults (schema generated from
+   the same source as the copy, AI crawlers allowed, machine surfaces shipped with
+   the build). `seo-audit/SKILL.md` is the on-demand diagnostic, not a gate.
 
 If any of these files are missing, STOP and tell the user. Do not build without them. (`CLIENT-MONITORING.md` — the ongoing verification protocol — does not exist yet; if you find it, read it too, but do not halt on its absence.)
 
@@ -88,6 +91,8 @@ Every homepage needs at least 3 of:
 
 ## AEO (Answer Engine Optimization) — EVERY Build
 
+Doctrine: `seo-master`. Ship gate: `seo-audit` on the live URL. P0s block "done."
+
 ### Required Schema (in `<head>`)
 - **Organization** — name, url, logo, sameAs (socials)
 - **LocalBusiness** — address, phone, hours, geo coordinates
@@ -129,6 +134,7 @@ Run the full `DEPLOYMENT-CHECKLIST.md`:
 - [ ] Broken link scan
 - [ ] Sitemap validation
 - [ ] Structured data validation
+- [ ] `seo-audit` report on the live URL — every P0 closed
 
 ---
 

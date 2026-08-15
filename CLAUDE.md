@@ -12,6 +12,16 @@ Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) fo
 
 ## Hard rules
 
+- **Gates only where failure is irreversible and silent** (Josh, 2026-08-14).
+  A check may block a merge only if a human cannot fix it forward once they see
+  it **and** nobody finds out by using the product — a leaked secret, money
+  booked wrong, a tenant seeing another tenant's data, a migration on a live DB.
+  Everything else is a **rule at the onset of the PR**, where it costs one file
+  open instead of a rebuild: the standard read before planning, a type that
+  makes it unrepresentable, a helper that is the only way to do the thing.
+  Adding a gate means writing the two words next to it and naming what it caught
+  last month. Worked example, with the four checks that survived: `cinch-app`
+  → `.claude/rules/pr-onset.md`.
 - Evidence only when filling templates — never invent conventions (see `prompts/instance-1-fill-templates.md`).
 - Skills: link, don’t copy (bryce-method anti-lesson #7). `.claude/skills/`
   holds **pointer stubs only** — never content. `./doctor.sh` enforces it and

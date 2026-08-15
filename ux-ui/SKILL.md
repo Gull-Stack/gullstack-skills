@@ -46,7 +46,7 @@ Name the genre out loud before you touch a hero.
 
 **Both genres keep, without exception:** the one formula, the grunt test at 1440 and
 390, one primary CTA per view, every CTA resolves, the no-icon-box-grid law, the mobile
-pass, and the ship gate.
+pass, and the look-at-what-you-build pass.
 
 **Genre B evidence (Mobbin top-rated web, 2026-08-08):** Fey (4.92, the #1 rated web
 app, dark, product-shot hero), Linear (dark), Mercury, Origin, Attio, Plane, Steep.
@@ -221,9 +221,11 @@ Work top to bottom; report findings as file/section + rule violated + smallest f
 
 ---
 
-## Ship gate — look at what you build
+## Look at what you build — this is the job, not a gate
 
-Green assertions are not a design review. Before calling any page done:
+Nothing blocks you here; no machine checks any of it. Green assertions are not a
+design review, and a checklist someone else enforces was never what made a page
+good. Before calling any page done:
 
 - [ ] Genre named (A or B) and the right half of every 🅑 rule applied
 - [ ] Screenshot the page at **1440px and 390px**, and screenshot every state that differs (menu open, form submitted, form error, empty/loading)
