@@ -12,13 +12,28 @@ Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) fo
 
 ## Hard rules
 
+- **Gates only where failure is irreversible and silent** (Josh, 2026-08-14).
+  A check may block a merge only if a human cannot fix it forward once they see
+  it **and** nobody finds out by using the product — a leaked secret, money
+  booked wrong, a tenant seeing another tenant's data, a migration on a live DB.
+  Everything else is a **rule at the onset of the PR**, where it costs one file
+  open instead of a rebuild: the standard read before planning, a type that
+  makes it unrepresentable, a helper that is the only way to do the thing.
+  Adding a gate means writing the two words next to it and naming what it caught
+  last month. Worked example, with the four checks that survived: `cinch-app`
+  → `.claude/rules/pr-onset.md`.
 - Evidence only when filling templates — never invent conventions (see `prompts/instance-1-fill-templates.md`).
 - Skills: link, don’t copy (bryce-method anti-lesson #7). `.claude/skills/`
   holds **pointer stubs only** — never content. `./doctor.sh` enforces it and
   FAILs on any copy that disagrees with canon. Four copies of
   `app-design` in three versions is how two audits reviewed different
   documents on the same day (2026-08-08).
-- Global skills: `site-builder`, `seo-master`, `meta-ads`, `retail-resale-marketing`, `ux-ui`, `app-design` only via install.sh.
+- Global skills: `site-builder`, `seo-master`, `seo-audit`, `meta-ads`, `retail-resale-marketing`, `ux-ui`, `app-design` only via install.sh.
+- SEO has two doors: `seo-master` is the **doctrine** — build-time defaults,
+  applied while the page is written; `seo-audit` is the **instrument** — what is
+  true on a live URL today, cited, run on demand. The audit is a diagnostic, not
+  a gate: it does not block a deploy or withhold a "done". Rules go at the front
+  end where they cost nothing; checks that stop work do not pay for themselves.
 - **Design: read `DESIGN.md` first — it is the door.** Surface picks the skill:
   product app UI → `app-design`; marketing sites → `ux-ui` (+ `site-builder`),
   and `ux-ui` branches by client GENRE (local/physical vs software/product)

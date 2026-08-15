@@ -10,11 +10,11 @@ GROK_DIR="${GROK_CONFIG_DIR:-$HOME/.grok}"
 REGISTRY="$CLAUDE_DIR/gullstack-repos"
 
 # Skills installed globally (repo-conventions is per-repo, never global).
-GLOBAL_SKILLS="site-builder seo-master meta-ads retail-resale-marketing ux-ui app-design"
+GLOBAL_SKILLS="site-builder seo-master seo-audit meta-ads retail-resale-marketing ux-ui app-design"
 
 # Skills Grok also gets. Grok reads ~/.grok/skills/<name>/SKILL.md, same format.
 # Keep in sync — a design skill that only Claude has is a design skill that drifts.
-GROK_SKILLS="app-design ux-ui site-builder"
+GROK_SKILLS="app-design ux-ui site-builder seo-master seo-audit"
 
 usage() { sed -n '2,4p' "$0" | sed 's/^# //'; exit 1; }
 

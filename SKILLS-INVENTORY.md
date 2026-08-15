@@ -16,7 +16,8 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | Skill / playbook | What it teaches |
 |---|---|
 | `site-builder/SKILL.md` | Build client sites: 11ty + Nunjucks + vanilla CSS, Editorial Light v3, SB7 messaging, AEO schema, Vercel deploy + verification |
-| `seo-master/SKILL.md` | 2026 ranking factors, on-page checklist, the 7-layer AEO system (intent map → answer hubs → brand-facts.json → schema → citations → AI shopping), local SEO, audits, keyword research |
+| `seo-master/SKILL.md` | 2026 ranking factors, on-page checklist, the 7-layer AEO system (intent map → answer hubs → brand-facts.json → schema → citations → AI shopping), local SEO, keyword research |
+| `seo-audit/SKILL.md` *(added 2026-08-14)* | On-demand live-site diagnostic: TRAD-SEO + 7-layer AEO, read-only, evidence-cited, skip-is-never-PASS, NOT-RUN for untested tools; /45 scorecard, P0/P1/P2 punch list, intent map, fact-consistency table, do-not-invent queue. Not a gate — the preventive rules are `seo-master`'s build-time defaults |
 | `meta-ads/SKILL.md` | Meta/IG ads for local business: portfolio/pixel setup, 2025-26 objective changes, radius + under-18 targeting rules, budget floors, Reels-first/UGC creative, offline conversions |
 | `retail-resale-marketing/SKILL.md` | Brick-and-mortar + resale: register metrics not CRM metrics, the two-sided buy/sell funnel, GBP-first, merchandising-as-content loop, events/promos, seasonality |
 | `google-ads/SKILL.md` *(added 2026-08-05)* | Google-side paid: LSA (Google Verified, pay-per-lead, 2026 migration into Google Ads), local Search structure/negatives/presence-targeting, PMax guardrails, AI Max, conversion-tracking-before-spend |
@@ -26,7 +27,7 @@ Installed on Melvin, Bogey, and Jackie per the README.
 | `content-calendar/SKILL.md` *(added 2026-08-05)* | Organic content system: pillars, minimum-viable cadence floor, hook formulas, one-shoot repurposing chain, GBP posting, organic→paid winner pipeline |
 | `pitch-pricing/SKILL.md` *(added 2026-08-05)* | The offer: 4-pillar productized ladder, value-anchored flat pricing (rates from the live rate card, not the skill), demo-not-document proposals (Walkthru Labs), close mechanics |
 | `billing-bookkeeping/SKILL.md` *(added 2026-08-05)* | Agency money ops: autopay recurring invoices, ad-spend-never-on-our-books, revenue by pillar, monthly close checklist, AR/dunning sequence, MRR-reconciles-to-QBO |
-| `ux-ui/SKILL.md` *(frontmatter + web/mobile pass 2026-08-07)* | **Marketing-site** design decision layer: Editorial Light layout, grotesk type law, no-icon-box-grid imagery law, CTA/form hard gates, first-class mobile pass (reachability audit, bottom-nav-mobile-only), screenshot ship gate |
+| `ux-ui/SKILL.md` *(frontmatter + web/mobile pass 2026-08-07)* | **Marketing-site** design decision layer: Editorial Light layout, grotesk type law, no-icon-box-grid imagery law, CTA/form hard gates, first-class mobile pass (reachability audit, bottom-nav-mobile-only), look-at-what-you-build screenshot pass |
 | `app-design/SKILL.md` *(Mobbin study 2026-08-07)* | **Product-app** design: desktop web shell law (left rooms + top scope) and phone shell law (bottom rooms + top scope), three page species (money home / workroom / compose), ocean world + accent-is-action, ship checklist |
 | `design-standard-v3.md` *(v3.1 — 2026-08-07)* | Editorial Light template spec — light-dominant layout, full-bleed heroes, grotesk/Archivo typography, imagery-over-icon-boxes, section order, first-class Mobile section |
 | `storybrand.md` | Donald Miller SB7 — customer is the hero, grunt test, one-liner formula |

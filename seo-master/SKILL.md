@@ -1,11 +1,39 @@
 ---
 name: seo-master
-description: Full SEO & AEO (Answer Engine Optimization) framework for GullStack sites — 2026 ranking factors, on-page checklist, the 7-layer AEO system (brand-facts.json, answer hubs, programmatic city pages, schema), local SEO, audits, keyword research. Use when optimizing, auditing, or planning content/SEO for any client or GullStack site.
+description: Full SEO & AEO (Answer Engine Optimization) framework for GullStack sites — 2026 ranking factors, build-time defaults, on-page checklist, the 7-layer AEO system (brand-facts.json, answer hubs, programmatic city pages, schema), local SEO, keyword research. Use when building, optimizing, or planning content/SEO. To diagnose a live site you did not just build, use seo-audit.
 ---
 
 # Skill: GullStack SEO & AEO Master
 
 Comprehensive SEO and AEO (Answer Engine Optimization) framework for all GullStack client sites. Every site we build or manage gets this treatment.
+
+---
+
+## Build-time defaults — do these while writing, not in a later pass
+
+The whole point of this list is that nothing downstream has to check it. Each
+item is free at write time and expensive-to-impossible to retrofit.
+
+1. **Generate schema from the same source as the visible copy.** One content
+   file feeds both the page and its JSON-LD. Hand-typing the facts twice is the
+   only way they come to disagree — and disagreeing schema is worse than none.
+2. **`robots.txt` allows AI crawlers** unless a client explicitly says otherwise:
+   GPTBot, ChatGPT-User, OAI-SearchBot, ClaudeBot, Anthropic-AI, PerplexityBot,
+   Google-Extended, GoogleOther, CCBot, Applebot-Extended. A blanket disallow
+   copied from a template is invisible, and you pay for it in citations you
+   never find out you lost.
+3. **Never write a fact you don't have** — into copy, schema, or
+   `brand-facts.json`. No placeholder hours, prices, review counts, founding
+   dates, or staff. Leave the field out and put the question to the client;
+   a plausible invention survives every later review because it looks answered.
+4. **Ship the machine surfaces with the build, not after:** `sitemap.xml`,
+   self-referencing canonical, `brand-facts.json`, `llms.txt`, per-page Open
+   Graph. They are minutes during the build and a project after launch.
+5. **Decide the intent of a URL before writing it.** One primary intent per
+   page. Cannibalization is cheap to avoid and costly to unwind once both pages
+   have links.
+6. **Write title, meta, and H1 when the page is created.** Backfilled metadata
+   is how a site ends up with nine pages sharing one title.
 
 ---
 
@@ -225,6 +253,12 @@ AEO is how you get recommended by ChatGPT, Perplexity, Google AI Overviews, and 
 ---
 
 ## SEO Audit Process (for new clients)
+
+> **Auditing a live URL? Use `seo-audit/SKILL.md` instead of the two checklists
+> below.** It is the same doctrine turned into an instrument: read-only, a URL
+> cited for every claim, skip-is-never-PASS, `NOT RUN` for any tool you did not
+> actually run, and a scored deliverable. These two lists stay here as the
+> 15-minute smell test and the raw item inventory.
 
 ### Quick Audit (15 min)
 1. Google `site:domain.com` — how many pages indexed?
