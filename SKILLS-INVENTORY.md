@@ -50,7 +50,7 @@ PeterQuill, and the marketing sub-bots.
 | `FRAMEWORKS/wizgat.md` | "What's So Great About That" — every fact must map to a felt outcome or be cut |
 | `OBJECTION-MATRIX.md` | Per-framework responses to common objections |
 | `EMAIL-RULES.md` | Hard email rules |
-| `APPLICATIONS/federal-employees.md` | Capital Wealth federal-retirement messaging |
+| `APPLICATIONS/federal-employees.md` | Federal-retirement messaging (client Capital Wealth gone 8/14; live home is Honor Watch) |
 | `APPLICATIONS/gullstack-sales.md` | GullStack/SuperTool sales messaging |
 
 ### `titlebot-bones-brain` (Bones — the title & escrow bot)
