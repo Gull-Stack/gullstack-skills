@@ -19,10 +19,11 @@ Team skill library + Claude/Grok scaffold (install, doctor, hooks, playbooks) fo
   `app-design` in three versions is how two audits reviewed different
   documents on the same day (2026-08-08).
 - Global skills: `site-builder`, `seo-master`, `seo-audit`, `meta-ads`, `retail-resale-marketing`, `ux-ui`, `app-design` only via install.sh.
-- SEO has two doors: `seo-master` is the **doctrine** (what good looks like, how to
-  build it); `seo-audit` is the **instrument and ship gate** (what is true on a
-  live URL today, cited; P0s block "done"). An audit that fixes while it reads
-  is not an audit.
+- SEO has two doors: `seo-master` is the **doctrine** — build-time defaults,
+  applied while the page is written; `seo-audit` is the **instrument** — what is
+  true on a live URL today, cited, run on demand. The audit is a diagnostic, not
+  a gate: it does not block a deploy or withhold a "done". Rules go at the front
+  end where they cost nothing; checks that stop work do not pay for themselves.
 - **Design: read `DESIGN.md` first — it is the door.** Surface picks the skill:
   product app UI → `app-design`; marketing sites → `ux-ui` (+ `site-builder`),
   and `ux-ui` branches by client GENRE (local/physical vs software/product)

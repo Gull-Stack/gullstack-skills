@@ -62,11 +62,13 @@ Full SEO & AEO (Answer Engine Optimization) framework. Covers:
 - Keyword research process
 
 ### `seo-audit/SKILL.md`
-The audit **instrument** and **ship gate** for any live marketing site — ours, a
-client's, a prospect's. Read-only, evidence-cited, skip-is-never-PASS. Produces
-a /45 scorecard, a P0/P1/P2 punch list, the intent map, a fact-consistency
-table, and a do-not-invent queue. A site we build is not done until this
-report exists for the live URL and every P0 is closed.
+The audit **instrument** for any live marketing site — ours, a client's, a
+prospect's. Read-only, evidence-cited, skip-is-never-PASS. Produces a /45
+scorecard, a P0/P1/P2 punch list, the intent map, a fact-consistency table, and
+a do-not-invent queue. Run it on demand — a new client, a takeover, a pitch, a
+page that stopped converting. **It is not a gate:** it never blocks a deploy or
+withholds a "done". The rules that keep a site clean live in `seo-master` as
+build-time defaults, where they cost nothing.
 
 ### `meta-ads/SKILL.md`
 Meta (Facebook + Instagram) advertising for local businesses. Covers:
@@ -166,7 +168,7 @@ The repo ships project-level skills in `.claude/skills/` — any Claude Code ses
 | `site-builder` | The full build standard + all playbooks (marketing sites) |
 | `app-design` | Product UI/UX principles for apps (Cinch, platos-pos, onrecord-pro, dashboards) |
 | `seo-master` | SEO & 7-layer AEO framework |
-| `seo-audit` | TRAD-SEO + 7-layer AEO live-site audit + ship gate, scored /45 |
+| `seo-audit` | TRAD-SEO + 7-layer AEO live-site diagnostic, scored /45 (on demand, not a gate) |
 | `meta-ads` | Meta advertising for local business |
 | `google-ads` | Google Ads + Local Services Ads for local business |
 | `analytics-reporting` | Measurement + monthly client reporting |

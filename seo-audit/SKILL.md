@@ -1,19 +1,25 @@
 ---
 name: seo-audit
-description: Mandatory live-site gate for every GullStack marketing site — Traditional SEO (A1–A6) plus the 7-layer AEO system, scored /45, with a P0/P1/P2 punch list, intent map, fact-consistency table, and a do-not-invent queue. Use when auditing, indexing, or verifying SEO/AEO; after any site deploy; before calling a client or GullStack-owned marketing site done; or when the user runs /seo-audit. The audit itself is read-only — building/fixing is site-builder / seo-master.
+description: Read-only diagnostic for a live website — Traditional SEO (A1–A6) plus the 7-layer AEO system, scored /45, with a P0/P1/P2 punch list, intent map, fact-consistency table, and a do-not-invent queue. Use when someone asks where a site actually stands — a new client, a takeover, a prospect pitch, a page that stopped converting, or a specific SEO/AEO question. Building and fixing is site-builder / seo-master.
 ---
 
 # Skill: SEO + AEO Site Audit
 
-**Critical. Every public marketing site we build, rebuild, or take over.**
+Run this when someone wants to know where a site really stands: a new client, a
+takeover, a prospect you're pitching, a page that stopped converting, a question
+you can't answer from memory.
 
-`seo-master` is the doctrine (what good looks like). This is the **instrument**
-(what is actually true on that URL today, with a citation for every claim) and
-the **ship gate** (P0s block "done").
+**This is a diagnostic, not a gate.** Nothing here blocks a deploy, withholds a
+"done", or has to run before a site goes live. The rules that keep a site clean
+belong at the front end — they are build-time defaults in `seo-master`, applied
+while the page is being written. Build to those and most of this comes out green
+without anyone running it. Run the audit when you want an answer, not as a toll.
 
-Product-app UI is `app-design`. This skill still applies to any public marketing
-surface (client `*-site`, GullStack-owned marketing, tenant public sites,
-landing pages).
+`seo-master` is the doctrine (what good looks like, built in at write time).
+This is the instrument (what is true on that URL today, with a citation).
+
+Product-app UI is `app-design`. This applies to any public marketing surface
+(client `*-site`, GullStack-owned marketing, tenant public sites, landing pages).
 
 ---
 
@@ -30,7 +36,11 @@ PRIMARY MARKETS: city, metro, or "national"
 
 ---
 
-## Hard rules (these are the skill)
+## Rules for the report (these are the skill)
+
+None of these slow the work down — they are about what you write, not extra
+passes to run. They exist because an audit that guesses is worse than no audit:
+it gets believed, and someone builds on it.
 
 - **Read-only.** Do not rebuild. Do not fix while you're here. Do not open a PR.
   Stop after the report unless the human says "now fix it."

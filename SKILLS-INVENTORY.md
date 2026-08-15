@@ -17,7 +17,7 @@ Installed on Melvin, Bogey, and Jackie per the README.
 |---|---|
 | `site-builder/SKILL.md` | Build client sites: 11ty + Nunjucks + vanilla CSS, Editorial Light v3, SB7 messaging, AEO schema, Vercel deploy + verification |
 | `seo-master/SKILL.md` | 2026 ranking factors, on-page checklist, the 7-layer AEO system (intent map → answer hubs → brand-facts.json → schema → citations → AI shopping), local SEO, keyword research |
-| `seo-audit/SKILL.md` *(added 2026-08-14)* | Mandatory ship gate for every marketing site: TRAD-SEO + 7-layer AEO, read-only, evidence-cited, skip-is-never-PASS; /45 scorecard, P0/P1/P2 punch list, intent map, fact-consistency table, do-not-invent queue. P0s block "done." |
+| `seo-audit/SKILL.md` *(added 2026-08-14)* | On-demand live-site diagnostic: TRAD-SEO + 7-layer AEO, read-only, evidence-cited, skip-is-never-PASS, NOT-RUN for untested tools; /45 scorecard, P0/P1/P2 punch list, intent map, fact-consistency table, do-not-invent queue. Not a gate — the preventive rules are `seo-master`'s build-time defaults |
 | `meta-ads/SKILL.md` | Meta/IG ads for local business: portfolio/pixel setup, 2025-26 objective changes, radius + under-18 targeting rules, budget floors, Reels-first/UGC creative, offline conversions |
 | `retail-resale-marketing/SKILL.md` | Brick-and-mortar + resale: register metrics not CRM metrics, the two-sided buy/sell funnel, GBP-first, merchandising-as-content loop, events/promos, seasonality |
 | `google-ads/SKILL.md` *(added 2026-08-05)* | Google-side paid: LSA (Google Verified, pay-per-lead, 2026 migration into Google Ads), local Search structure/negatives/presence-targeting, PMax guardrails, AI Max, conversion-tracking-before-spend |
