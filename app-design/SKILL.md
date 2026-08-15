@@ -1260,3 +1260,54 @@ failures were all in what it never looked at.
 Capture method: Mobbin Pro profile on CDP :9334, driven by a minimal WebSocket CDP
 script (`Runtime.evaluate` + `Page.captureScreenshot`). WebFetch gets a 403 on
 mobbin.com — the authenticated profile is the only route.
+
+---
+### Deep pass 4 — worked examples, three apps read end-to-end (2026-08-11)
+
+Three apps studied screen-by-screen and mapped onto the laws above — two supplied as
+user references, one (Tide Guide) as an award-winning consistency exemplar. Nothing here
+overturns passes 1–3; these are concrete confirmations plus a few sharpenings. Read them
+as "what the law looks like when a real app gets it right."
+
+**Firecrawl (web, developer-tool / API product · cohort: Vercel · Clerk · Railway ·
+Greptile · LangChain).** Textbook §A shell + §F color law: left rooms (Overview ·
+Playground · Extract · Activity Logs · Usage · API Keys · Settings), top scope (team
+switcher + Upgrade), one warm accent spent only on primary CTA / active room / chart line
+/ `NEW` badge — everything else neutral. New sharpenings for dev-tool apps:
+| Pattern | Section it feeds | Note |
+|---|---|---|
+| Secrets/keys/config = monospace + reveal-eye + one-click copy | §K affordance | any key, ID, snippet is copyable; masked `fc-9••••aebf` |
+| Playground console: input + format dropdown + mode tabs (Scrape·Search·Map·Crawl) + "Get code" + run; result panel Markdown/JSON toggle | §C compose/workroom | the "show me the code" escape hatch is expected here |
+| Activity Logs table: Endpoint·URL·Status·Credits·Time·Actions, search + endpoint + date-range filters, green `COMPLETED`, right-aligned row actions | §J · §K | tabular-nums on numeric cols |
+| Delete Account = red-tinted panel + **type-to-confirm** ("Type DELETE") | §L consequence | friction proportional to consequence; never bare one-click destructive |
+| Upgrade woven into context (concurrency-limit notice nudges the plan) | §G honesty | monetization as help, not nag |
+
+**Bevel (mobile, health/wellness · "AI health companion").** Confirms §B phone shell
+(bottom rooms Home·Journal·**+**·Fitness·Biology with a center create-FAB) and the §C
+money-home hero: the whole product is glanceable ring metrics.
+| Pattern | Section it feeds | Note |
+|---|---|---|
+| Hero = big color-coded ring + one-word verdict (Recovery 77% green · Strain 38% orange · Sleep 67% purple); home = a row of three | §C hero metric | color encodes domain, consistently |
+| Never a bare number: every chart carries the personal normal-range band + avg reference line + threshold bar + 1M/3M/6M/1Y selector | §G honesty · §F | "is this good?" is the product |
+| Status-coded metric row, repeated with discipline: icon + label + big value + status chip ("Normal range" ✓ / "Debt" amber) + sparkline + chevron | §E repeated grammar | one card learned once → dozens of metrics |
+| Domain-themed dark: Sleep screens dark navy (nocturnal), others light; layered navy elevation, not pure black | §F0 theme | theme can follow content domain |
+| AI surfaced without gimmick: written personalized insight cards; Describe/Capture/Search logging; assistant with 👍/👎 + a structured feedback sheet | §C4 conversation/agent | how AI lives in a consumer app |
+| Paywall: icon → value bullets → Yearly (Save 30%) vs Monthly → one CTA → Restore/Redeem → legal | §C · §L | clean, high-conversion |
+
+**Tide Guide (mobile, marine/tide — the consistency exemplar).** The clearest single
+lesson for the whole skill: **decide the persistent frame and the one repeated content
+module first, then compose every screen from them.** This is §A/§B wayfinding + §E grammar
++ §I flow, made visible.
+| Pattern | Section it feeds | Note |
+|---|---|---|
+| Fixed three-zone frame that never moves: top scope (location switcher + overflow) · a **global filter** directly under it (24H·2D·3D·5D·10D) · bottom rooms (Today·Charts·Tables·Solunar). Only the middle scrolls. | §A · §B shell | why the user is never lost |
+| One global control governs the whole screen — pick 2D and every module (tide·temp·wind) re-scopes together | §D IA | prefer one screen-wide control over per-card controls |
+| One repeated module-card anatomy everywhere: `[icon + CAPS label]` + `[key value]` header, then `[big current value]` + `[chart]` | §E repeated grammar | this single reused card *is* the consistent experience |
+| Shared chart grammar + aligned time axes across cards → read *across* metrics at one moment | §F · dataviz | consistency that enables a task, not just sameness |
+| Locked premium ranges keep the exact card layout, swap only the data region for a "Pro Required" chip | §G · §L | structure-preserving gating; UI never rearranges |
+| Scrub-to-read: tap a chart point → header readout ("TUE 11:00P · 69° · Mostly Clear") | §K · §L | one consistent interaction across every chart |
+| Home station cards preview the *same* tide curve seen in detail | §I flow | preview mirrors detail → recognition |
+
+**Carry-away:** Tide Guide is the answer to the Cinch "I get lost and I built it"
+anti-pattern in §North star — a coherent app is a persistent frame + one repeated module,
+not a pile of unique pages.
