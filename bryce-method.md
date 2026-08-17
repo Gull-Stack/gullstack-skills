@@ -77,6 +77,17 @@ done if any of these fail.
 8. **Working software beats specs — and specs must say so.** SuperTool's SMS/loyalty/
    win-back engines are real, shipped code; its retail packaging is a to-do list. Mark
    every doc's claims as SHIPPED vs PLANNED so bots don't sell vapor.
+9. **Proof belongs in the first view.** The strongest true number sitting as four
+   small grey figures under the fold is a waste of the best thing the site has.
+   Conversion: `website-conversion.md` § Hero. Visual spec: `design-standard-v3.md` §2.
+10. **The homepage grammar is the site grammar.** Interiors that all run the same
+    flat eyebrow/headline/paragraph while the homepage has hierarchy are unfinished.
+    Interiors are **type-only** (no full-bleed photo competing with the homepage).
+    Article headers inherit the same display scale. Meta rows are derived. Accent
+    `em` is scoped to the page-head H1. Spec: `design-standard-v3.md` §10.
+    Review: `ux-ui`. Implementation traps: `site-builder`.
+11. **Headline text is keyword-stable.** A design pass wraps an existing phrase; it
+    does not rewrite the H1. `seo-master` build-time default 7.
 
 ## Part 3 — Where the method points next (from the same audit)
 

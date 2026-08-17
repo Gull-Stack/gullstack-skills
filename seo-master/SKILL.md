@@ -34,6 +34,14 @@ item is free at write time and expensive-to-impossible to retrofit.
    have links.
 6. **Write title, meta, and H1 when the page is created.** Backfilled metadata
    is how a site ends up with nine pages sharing one title.
+7. **Style the H1. Do not rewrite it.** A later design pass wraps an existing
+   phrase in `<em>` — it does not invent a new headline. Guides, geo pages, and
+   any URL with a keyword H1 keep those words. The visible H1 and the `<title>`
+   stay in the same family.
+8. **Numbers in the header are derived.** Source counts, funding labels, and
+   collection lengths in a page-head meta row come from the same data the
+   registry / collections already expose. Hand-typed "20 sources" is how the
+   honesty signal drifts from the citations.
 
 ---
 
@@ -97,7 +105,7 @@ item is free at write time and expensive-to-impossible to retrofit.
 ```
 - [ ] Title tag: 50-60 chars, primary keyword front-loaded
 - [ ] Meta description: 140-160 chars with CTA and keyword
-- [ ] H1: one per page, contains primary keyword
+- [ ] H1: one per page, contains primary keyword. A design pass may wrap an existing phrase in `<em>`; it may not change the words
 - [ ] H2s: contain secondary keywords naturally
 - [ ] First 100 words: primary keyword appears
 - [ ] Images: descriptive alt text (not "image1.jpg")

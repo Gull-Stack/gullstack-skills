@@ -3,6 +3,8 @@
 *Established: March 2026. Based on the Monterey Bay Door v3 rebuild.*
 *Reference site: unikorns.work*
 *v3.1 — 2026-08-07: typography corrected to grotesk, imagery law added, mobile promoted to a first-class section.*
+*v3.2 — 2026-08-17: one grammar across interiors; proof sits in the first view; one serif accent on an existing word.*
+*v3.2.1 — 2026-08-17: interiors are type-only; meta rows are derived; accent `em` is scoped to the page-head.*
 
 **Scope:** marketing sites only. Product app UI (Cinch admin/HQ/register, `/m`, member, Flight Decks) follows `app-design`, not this. Decision layer over this spec: the `ux-ui` skill.
 
@@ -19,6 +21,8 @@
 - Hero images go edge-to-edge with NO heavy overlays
 - Use a subtle bottom gradient (20-30% opacity max) for text readability
 - Let the photo do the work — the image IS the design
+- Type sits **on** the photo, not in a card beside it
+- If the site has one strongest true proof (a number you can defend), it lives **in the hero** as a hairline stat row. A grey band of the same numbers under the fold is a waste of the best thing the site has
 - Text sits at the bottom of the hero with generous padding
 
 ### 3. Big, Confident Typography — dynamic, not stifling
@@ -27,8 +31,9 @@
 - Don't play it safe with 1.5rem headings — say it big
 - **Display face: a bold, tight grotesk. Archivo is the house default** (Archivo / Archivo Expanded; Inter is an acceptable neutral text face, not the display voice)
 - **No heavy display serifs.** Playfair, Didot, and other high-contrast serif headlines are retired — they read stifling and dated
+- **One serif accent is legal.** Wrap a single word or short phrase that is already in the headline in `<em>` and set that to a restrained italic serif. Never a Playfair/Didot headline. Never two accents. Never rewrite the H1 to create a prettier word — the words stay (`seo-master`)
 - Tighten tracking as size grows (`-0.02em` to `-0.03em` on display); heavy weights are allowed large
-- One display face + one text face. A third face is a defect
+- One display face + one text face. A third face is a defect. The accent serif is not a third face if it is used only on that `<em>`
 - Nothing under 400 weight in UI
 - Section labels: small uppercase with letter-spacing (`0.7rem, 600 weight, 0.25em tracking`)
 
@@ -78,6 +83,25 @@ Villains must be **concrete**, never an abstract icon: name the actual bad outco
 
 This overrides the "Benefits — checkmark icons" pattern below: benefits ship as a photo/stat treatment or an inline checklist, not as a tile grid.
 
+### 10. One grammar across the site
+
+A homepage with hierarchy and interiors that are six copies of eyebrow / headline / paragraph is unfinished. Interiors carry the **same grammar at a lighter weight**, in one shared `.page-head` (or equivalent):
+
+1. **Kicker** — small, tracked, often dotted mono. Names the room ("Utah · high desert", "Editorial standard").
+2. **Display headline** — same family and scale law as the homepage, not a smaller leftover.
+3. **One serif accent** — an `<em>` around a phrase that was already there.
+4. **Hairline meta row** — only when something true belongs in it. Do not invent a row. If the strongest true line on the page is currently a sentence in paragraph two, **it leads**.
+
+Do not restyle each interior as a one-off. Do not leave the homepage as the only designed page.
+
+**Interiors are type-only.** Do not put a full-bleed photograph on every interior. That competes with the homepage for the same trick and costs an image download on pages that do not need one. Type carries the family resemblance. Article templates inherit the **same display scale** (so opening a guide does not drop back into the old smaller voice) — they do not inherit the homepage photo.
+
+**Meta rows are derived, not typed.** Counts, funding labels, collection lengths come from the same data the page already has (`_data`, collections, computed stats). Hand-typing "20 sources" in the header is how it drifts from the registry.
+
+**Scope the accent.** `.page-head h1 em` only. Never a global `em` or `h1 em`. Body italics ("Not *studies show* — *which* study") stay a normal italic. A serif flourish on every italic is a defect.
+
+**Article headers inherit the scale.** Index/static interiors use `.page-head`. Guide/journal article headers may keep their own class (`.guide-head`) if the H1 clamp, weight, and tracking match `.page-head h1`. Opening an article is not permission to revert to the old medium headline.
+
 ---
 
 ## Mobile (first-class, not a media query)
@@ -125,7 +149,7 @@ Not every site needs all 10. But every site needs Hero + Partners + Showcase + C
 ## CSS Architecture
 
 - Scope homepage styles with `.home-` prefix
-- Keep inner page styles separate (don't break them when updating homepage)
+- Homepage and interiors share a page-head grammar (see §10). Body styles may stay separate so a homepage pass does not break article rhythm
 - Use CSS custom properties for brand colors
 - Mobile-first isn't required but responsive breakpoint at 768px is mandatory
 - Native HTML elements over JS where possible (`<details>` for FAQ, CSS `@keyframes` for scrolling logos)

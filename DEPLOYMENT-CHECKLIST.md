@@ -14,6 +14,7 @@
 
 ### Post-Deployment Verification (MANDATORY)
 - [ ] **Live URL loads** (visit actual domain, not Vercel preview)
+- [ ] **This commit is what the host is serving** — `vercel ls` / dashboard matches the SHA you pushed. A green `git push` is not a deploy when GitHub webhooks are degraded; `vercel --prod` if the push sat undeployed. Do not touch the Git connection to "fix" it.
 - [ ] **Homepage displays correctly** (layout, images, text)
 - [ ] **Images work** (hero images, gallery, project photos)
 - [ ] **Navigation works** (all main menu items clickable)  
