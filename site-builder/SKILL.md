@@ -33,12 +33,13 @@ If any of these files are missing, STOP and tell the user. Do not build without 
 - **Vanilla CSS** — no Tailwind, no frameworks. Custom properties for brand colors.
 - **No JS frameworks** — vanilla JS only, minimal. Native HTML elements preferred (`<details>` for FAQ, CSS animations for marquees)
 
-### Design: Editorial Light v3.1
+### Design: Editorial Light v3.2
 Full spec in `design-standard-v3.md`; decision layer + review pass in the `ux-ui` skill. Headlines only:
 
 - **80% light backgrounds** (#f5f5f0 or white), dark only for nav + footer
-- **Full-bleed hero imagery** — edge-to-edge, NO heavy overlays (20-30% opacity max gradient)
-- **Big typography** — H1: `clamp(2rem, 5vw, 3.5rem)`, Hero: `clamp(2.25rem, 5.5vw, 3.75rem)`
+- **Full-bleed hero imagery** — edge-to-edge, type on the photo, NO heavy overlays (20-30% opacity max gradient). Strongest true proof sits in the hero (`design-standard-v3.md` §2)
+- **One grammar across interiors** — shared page-head at a lighter weight, not six flat eyebrow/headline/paragraph pages (`design-standard-v3.md` §10)
+- **Big typography** — H1: `clamp(2rem, 5vw, 3.5rem)`, Hero: `clamp(2.25rem, 5.5vw, 3.75rem)`. One serif accent on an existing word is legal; do not rewrite the H1
 - **Generous whitespace** — section padding `6rem 0` desktop, `4rem 0` mobile
 - **Bold tight grotesk — Archivo is the house display face.** No heavy display serifs. Inter is an acceptable *text* face, not the display voice. Max two faces
 - **No icon-box grids** — real photography, collage, or stat bands instead. Villains concrete, never an abstract icon (§9)
@@ -75,6 +76,14 @@ Every homepage needs at least 3 of:
 --color-white          /* cards, form backgrounds */
 /* Body text: #333-#555, never pure black */
 ```
+
+### Build traps (these look like CSS nits and they ship as broken pages)
+
+1. **Never `!important` a fill on a grouped button selector that mixes grounds.** A rule like `background: var(--ground) !important` on `.btn-primary, .hero .btn-primary` cannot be beaten by specificity. The hero CTA on a photo goes dark-on-dark (measured 1.4:1 until the exception also used `!important`). Either don't group mixed grounds, or match `!important` on the exception. Measure contrast on every ground before calling the hero done.
+
+2. **Duplicated option lists drift.** Anything a human will edit twice (`<select>` options, price tiers, city lists) lives in `src/_data/` and is interpolated. A `<select>` cannot ellipsize — labels must be short enough to render whole at the control's width, or they clip mid-word with no other visual breakage.
+
+3. **Layout follows state.** Do not pin a field to `grid-column: 1 / -1` because the most complex state needs a full row. The default state will look ragged. The span follows the state.
 
 ---
 
@@ -121,6 +130,7 @@ Doctrine: `seo-master`. Ship gate: `seo-audit` on the live URL. P0s block "done.
 - Only move to paid/GullStack team when they become paying customers
 - Auto-deploy via GitHub → Vercel integration
 - Verify `vercel.json` has correct `buildCommand` and `outputDirectory`
+- A git push is not a deploy. Confirm the Vercel deployment is this commit (`vercel ls` or the dashboard). If GitHub webhooks are degraded, two clean pushes can sit undeployed — ship with `vercel --prod` and leave the Git connection untouched.
 
 ### Post-Deploy Verification (MANDATORY)
 Run the full `DEPLOYMENT-CHECKLIST.md`:
@@ -180,3 +190,5 @@ Every client site must include a GullStack attribution footer:
 - ❌ No generic copy ("committed to excellence", "your trusted partner")
 - ❌ No deploying without running the full checklist
 - ❌ No force pushing
+- ❌ No `!important` fill on a button group that includes both light-page and hero-on-photo
+- ❌ No duplicated `<select>` / option markup across templates

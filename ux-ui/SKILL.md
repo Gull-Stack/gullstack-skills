@@ -42,7 +42,7 @@ Name the genre out loud before you touch a hero.
 | Trust | reviews, local presence, license, years | logos, security/compliance posture, docs, uptime, changelog |
 | Motion | minimal; nothing that delays the phone | a first-class medium — one product loop, scroll-reveals, honor `prefers-reduced-motion` |
 | Killer section | the comparison table | the comparison table **and** an interactive/annotated product tour |
-| Type | Archivo grotesk, bold and tight | same grotesk law; a restrained editorial serif is legal for a display line only |
+| Type | Archivo grotesk, bold and tight; one serif italic on an existing word is legal | same grotesk law; one restrained editorial serif accent is legal, never a serif headline |
 
 **Both genres keep, without exception:** the one formula, the grunt test at 1440 and
 390, one primary CTA per view, every CTA resolves, the no-icon-box-grid law, the mobile
@@ -86,10 +86,11 @@ Every UX decision must increase desire or decrease friction. If a proposed eleme
   ban is on *accidental* dark — a dark band dropped into a light page because the hero
   needed contrast. Falling Waters stays retired either way; it was retired for being
   murky, not for being dark.
-- 🅑 Full-bleed hero image, no heavy overlay (bottom gradient ≤ 20–30% opacity). The image IS the design.
+- 🅑 Full-bleed hero image, no heavy overlay (bottom gradient ≤ 20–30% opacity). The image IS the design. Type sits on the photo. If the site has one strongest true proof, it sits in the hero as a hairline row — not under the fold (`design-standard-v3.md` §2).
   **Genre B:** the hero artifact is the product — a real screenshot or a short silent
   loop, cropped to one legible moment, never a stock laptop mockup and never a
   UI illustration of a UI. Same rule underneath: the artifact IS the design.
+- **One grammar, two weights.** Homepage hierarchy is not a homepage-only costume. Interiors use the same page-head at a lighter weight. Spec: `design-standard-v3.md` §10.
 - Big type: hero `clamp(2.25rem, 5.5vw, 3.75rem)`, H1 ≥ `clamp(2rem, 5vw, 3.5rem)`. Don't play it safe at 1.5rem.
 - Whitespace: section padding `6rem 0` desktop / `4rem 0` mobile, 1200px max-width containers.
 - Homepage section order and the required-minimum six sections: see `design-standard-v3.md`. The comparison table is the killer section — it answers objections visually.
@@ -128,10 +129,7 @@ If an icon must appear, it is 16–24px, never scaled up, and wrapped in a color
 
 - **Bold, tight grotesks.** Archivo is the house default. Tight tracking on display sizes, heavy weights allowed at large sizes.
 - **No heavy display serifs.** Playfair/Didot/high-contrast serif headlines are out — they read as stifling and dated on GullStack work.
-  🅑 **Genre B exception, narrow:** one restrained low-contrast editorial serif is legal
-  for a single display line (a hero or a section opener) against an otherwise grotesk
-  system. It is never the body face, never the nav, and never two serifs. Playfair and
-  Didot remain banned in both genres.
+- **One serif accent is legal in both genres:** a single existing word or short phrase, italic serif, wrapped in `<em>`. Never the body face, never the nav, never two serifs, never a rewritten headline to create the accent. Spec: `design-standard-v3.md` §3.
 - Type hierarchy comes from **color + weight**, not size alone: dark (never pure black) → grey → light grey.
 - No font weights under 400 in UI.
 - One display face + one text face. A third face is a defect.
@@ -208,12 +206,11 @@ Work top to bottom; report findings as file/section + rule violated + smallest f
    findings — this was the skill's own failure mode until 2026-08-08.
 1. **Grunt test** — 5 seconds on the hero: what do they sell? If unclear, the page fails regardless of everything else. Run it at 1440px **and** 390px.
 2. **Hierarchy scan** — is emphasis carried by color/weight? Is there exactly one primary button per view?
+2b. **Proof in the first view** — is the strongest true number (or line) in the hero / page-head, or wasted as small grey type under the fold? (`website-conversion.md` § Hero)
+2c. **Interior grammar** — open two interiors. If they are the same flat eyebrow/headline/paragraph and the homepage is not, the site is unfinished. (`design-standard-v3.md` §10)
 3. **Imagery scan** — any icon-box grid? Any stock in the hero? Any abstract villain? Genre B: is the hero a real product screen, or a mockup of one?
-4. **Type scan** — grotesk display face, no heavy serif, ≤2 faces, nothing under 400 weight?
-4b. **Access scan** — contrast ≥4.5:1 on body text (check the section over the hero
-   image first, it always fails), visible focus rings, alt text, tab order matches
-   visual order, `prefers-reduced-motion` honored on every animation. Detail lives in
-   `ui-ux-pro-max` § Accessibility — **this route is mandatory, not a fallback.**
+4. **Type scan** — grotesk display face, at most one serif accent on an existing phrase, ≤2 faces, nothing under 400 weight?
+4b. **Access scan** — contrast ≥4.5:1 on body text. Check the hero CTA on the photo first — it is the one that fails (grouped `!important` on `.btn-primary` will paint it dark-on-dark; trap: `site-builder`). Visible focus rings, alt text, tab order matches visual order, `prefers-reduced-motion` honored on every animation. Detail lives in `ui-ux-pro-max` § Accessibility — **this route is mandatory, not a fallback.**
 5. **CTA audit** — click every CTA and link; each must resolve and each label must state the next step.
 6. **Friction hunt** — anything that adds labor (long forms, extra navigation to convert) or confusion (vague copy, competing emphasis)?
 7. **Mobile pass** — 768px breakpoint, 390px grunt test, tap sizes (reachability-filtered), no desktop bottom dock, load weight.
@@ -230,7 +227,9 @@ good. Before calling any page done:
 - [ ] Genre named (A or B) and the right half of every 🅑 rule applied
 - [ ] Screenshot the page at **1440px and 390px**, and screenshot every state that differs (menu open, form submitted, form error, empty/loading)
 - [ ] Look at each screenshot and judge it against this skill — hierarchy, imagery, type, one primary CTA
-- [ ] Access scan run (contrast, focus, alt, tab order, reduced motion)
+- [ ] Homepage and at least two interiors share the page-head grammar
+- [ ] Strongest true proof is in the first view, not under the fold
+- [ ] Access scan run (contrast on the hero CTA over the photo, focus, alt, tab order, reduced motion)
 - [ ] Genre B: hero artifact is a real product screen/loop — not a mockup, not an illustration
 - [ ] Fix what looks wrong before reporting done. "Tests pass" is not "it looks right."
 

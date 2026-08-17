@@ -38,6 +38,9 @@ This is make-or-break. Nail this or nothing else matters.
 - 1-2 sentences max
 - Example: "A platform for growing startups through expert-led courses and community coaching."
 
+**Proof in the first view:**
+If the site has one strongest true proof (years, named sources, a number you can defend), it sits in the hero — a hairline row, not a second section of small grey numbers. Logos and testimonials can still live below. The *best* true thing does not wait for the fold. Visual spec: `design-standard-v3.md` §2.
+
 ### 3. Social Proof
 - Press logos OR well-known customer logos
 - Create FOMO — make visitors feel left out
