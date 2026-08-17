@@ -4,6 +4,7 @@
 *Reference site: unikorns.work*
 *v3.1 — 2026-08-07: typography corrected to grotesk, imagery law added, mobile promoted to a first-class section.*
 *v3.2 — 2026-08-17: one grammar across interiors; proof sits in the first view; one serif accent on an existing word.*
+*v3.2.1 — 2026-08-17: interiors are type-only; meta rows are derived; accent `em` is scoped to the page-head.*
 
 **Scope:** marketing sites only. Product app UI (Cinch admin/HQ/register, `/m`, member, Flight Decks) follows `app-design`, not this. Decision layer over this spec: the `ux-ui` skill.
 
@@ -92,6 +93,14 @@ A homepage with hierarchy and interiors that are six copies of eyebrow / headlin
 4. **Hairline meta row** — only when something true belongs in it. Do not invent a row. If the strongest true line on the page is currently a sentence in paragraph two, **it leads**.
 
 Do not restyle each interior as a one-off. Do not leave the homepage as the only designed page.
+
+**Interiors are type-only.** Do not put a full-bleed photograph on every interior. That competes with the homepage for the same trick and costs an image download on pages that do not need one. Type carries the family resemblance. Article templates inherit the **same display scale** (so opening a guide does not drop back into the old smaller voice) — they do not inherit the homepage photo.
+
+**Meta rows are derived, not typed.** Counts, funding labels, collection lengths come from the same data the page already has (`_data`, collections, computed stats). Hand-typing "20 sources" in the header is how it drifts from the registry.
+
+**Scope the accent.** `.page-head h1 em` only. Never a global `em` or `h1 em`. Body italics ("Not *studies show* — *which* study") stay a normal italic. A serif flourish on every italic is a defect.
+
+**Article headers inherit the scale.** Index/static interiors use `.page-head`. Guide/journal article headers may keep their own class (`.guide-head`) if the H1 clamp, weight, and tracking match `.page-head h1`. Opening an article is not permission to revert to the old medium headline.
 
 ---
 

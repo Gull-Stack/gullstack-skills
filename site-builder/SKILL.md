@@ -38,7 +38,7 @@ Full spec in `design-standard-v3.md`; decision layer + review pass in the `ux-ui
 
 - **80% light backgrounds** (#f5f5f0 or white), dark only for nav + footer
 - **Full-bleed hero imagery** — edge-to-edge, type on the photo, NO heavy overlays (20-30% opacity max gradient). Strongest true proof sits in the hero (`design-standard-v3.md` §2)
-- **One grammar across interiors** — shared page-head at a lighter weight, not six flat eyebrow/headline/paragraph pages (`design-standard-v3.md` §10)
+- **One grammar across interiors** — shared page-head at a lighter weight, type-only (no full-bleed photo), article headers inherit the same scale (`design-standard-v3.md` §10)
 - **Big typography** — H1: `clamp(2rem, 5vw, 3.5rem)`, Hero: `clamp(2.25rem, 5.5vw, 3.75rem)`. One serif accent on an existing word is legal; do not rewrite the H1
 - **Generous whitespace** — section padding `6rem 0` desktop, `4rem 0` mobile
 - **Bold tight grotesk — Archivo is the house display face.** No heavy display serifs. Inter is an acceptable *text* face, not the display voice. Max two faces
@@ -84,6 +84,12 @@ Every homepage needs at least 3 of:
 2. **Duplicated option lists drift.** Anything a human will edit twice (`<select>` options, price tiers, city lists) lives in `src/_data/` and is interpolated. A `<select>` cannot ellipsize — labels must be short enough to render whole at the control's width, or they clip mid-word with no other visual breakage.
 
 3. **Layout follows state.** Do not pin a field to `grid-column: 1 / -1` because the most complex state needs a full row. The default state will look ragged. The span follows the state.
+
+4. **Scope the serif accent to `.page-head h1 em` (and `.hero h1 em`).** A global `em` or `h1 em` turns every body italic into a flourish. Body copy like *which study* stays a normal italic.
+
+5. **Meta rows are derived.** Collection counts, source stats, funding labels come from `_data` / collections. Do not type the number into the header.
+
+6. **Link a Vercel project by its project name, never by folder.** Linking by folder is how a stray project gets created. Git connection stays the normal path; `vercel --prod` is the override when webhooks sit.
 
 ---
 
@@ -131,6 +137,7 @@ Doctrine: `seo-master`. Ship gate: `seo-audit` on the live URL. P0s block "done.
 - Auto-deploy via GitHub → Vercel integration
 - Verify `vercel.json` has correct `buildCommand` and `outputDirectory`
 - A git push is not a deploy. Confirm the Vercel deployment is this commit (`vercel ls` or the dashboard). If GitHub webhooks are degraded, two clean pushes can sit undeployed — ship with `vercel --prod` and leave the Git connection untouched.
+- Link by **project name**, never by folder. Folder-link creates a stray project.
 
 ### Post-Deploy Verification (MANDATORY)
 Run the full `DEPLOYMENT-CHECKLIST.md`:

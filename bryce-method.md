@@ -82,9 +82,10 @@ done if any of these fail.
    Conversion: `website-conversion.md` § Hero. Visual spec: `design-standard-v3.md` §2.
 10. **The homepage grammar is the site grammar.** Interiors that all run the same
     flat eyebrow/headline/paragraph while the homepage has hierarchy are unfinished.
-    Spec: `design-standard-v3.md` §10. Review: `ux-ui`. Implementation traps
-    (`!important` on mixed grounds, duplicated option lists, layout that ignores
-    state): `site-builder`.
+    Interiors are **type-only** (no full-bleed photo competing with the homepage).
+    Article headers inherit the same display scale. Meta rows are derived. Accent
+    `em` is scoped to the page-head H1. Spec: `design-standard-v3.md` §10.
+    Review: `ux-ui`. Implementation traps: `site-builder`.
 11. **Headline text is keyword-stable.** A design pass wraps an existing phrase; it
     does not rewrite the H1. `seo-master` build-time default 7.
 

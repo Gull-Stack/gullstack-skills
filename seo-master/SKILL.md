@@ -38,6 +38,10 @@ item is free at write time and expensive-to-impossible to retrofit.
    phrase in `<em>` — it does not invent a new headline. Guides, geo pages, and
    any URL with a keyword H1 keep those words. The visible H1 and the `<title>`
    stay in the same family.
+8. **Numbers in the header are derived.** Source counts, funding labels, and
+   collection lengths in a page-head meta row come from the same data the
+   registry / collections already expose. Hand-typed "20 sources" is how the
+   honesty signal drifts from the citations.
 
 ---
 
